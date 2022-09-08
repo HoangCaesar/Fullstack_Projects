@@ -1,0 +1,300 @@
+@use '../../../scss/' as *;
+
+.header {
+    background-color: $header-color;
+    position: relative;
+
+    &__container {
+        justify-content: space-between;
+        height: $header-height;
+
+        &--navbar {
+            height: $height-100;
+
+            .list {
+                @include flex(space-between, center);
+                height: $height-100;
+
+                .item {
+                    padding: 15px 0;
+
+                    .label {
+                        position: relative;
+                        @include flex('', center);
+                        align-items: center;
+                        font-size: 13px;
+                        color: $inactive-color;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+
+                        &::before {
+                            position: absolute;
+                            display: block;
+                            content: "";
+                            left: -25px;
+                            height: 48px;
+                            width: 25px;
+                        }
+
+                        &::after {
+                            position: absolute;
+                            display: block;
+                            content: "";
+                            margin-left: 58px;
+                            height: 48px;
+                            width: 25px;
+                        }
+                    }
+
+                    &:hover .label {
+                        color: $txt-color;
+                    }
+
+                    &:hover .subnav {
+                        animation: subnavShow ease-in-out 0.3s;
+                        @include flex('', '');
+                    }
+
+                    &:hover .subnav .item {
+                        animation: subnavItemShow ease-in-out 0.7s;
+                        @include flex('', '');
+                    }
+
+                    .subnav {
+                        display: none;
+                        justify-content: space-evenly;
+                        position: absolute;
+                        width: 100%;
+                        height: 96px;
+                        left: 0;
+                        top: $header-height;
+                        transition: all 0.9s;
+                        z-index: 1;
+                        background-color: $header-color;
+
+                        .item {
+                            @include flex(center, center);
+                            flex-direction: column;
+                            transition: all ease-in-out 0.2s;
+                            cursor: pointer;
+
+                            &:hover {
+                                transform: scale(1.2)
+                            }
+                        }
+
+                        & a {
+                            color: $txt-color;
+                        }
+                    }
+
+                    @keyframes subnavShow {
+                        from {
+                            opacity: 0;
+                            transform: translateY($header-height);
+                        }
+
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+
+                    @keyframes subnavItemShow {
+                        0% {
+                            opacity: 0;
+                            transform: scale(0);
+                        }
+
+                        25% {
+                            opacity: 1;
+                            transform: scale(1.2);
+                        }
+
+                        50% {
+                            opacity: 1;
+                            transform: scale(0.9);
+                        }
+
+                        75% {
+                            opacity: 1;
+                            transform: scale(1.1);
+                        }
+
+                        100% {
+                            opacity: 1;
+                            transform: scale(1.0);
+                        }
+                    }
+
+                    .text {
+                        font-size: 13px;
+                        color: $inactive-color;
+                        cursor: pointer;
+                        transition: all 0.5s ease;
+
+                        &:hover {
+                            color: $txt-color;
+                        }
+                    }
+
+                    .btn {
+                        padding: 7px 8px;
+                        font-size: 12px;
+                        background-color: $main-color;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: all 1s ease;
+
+                        &:hover {
+                            color: $main-color;
+                            background-color: $body-bg;
+                        }
+                    }
+
+                    @include normalPC {
+                        &:nth-child(6) {
+                            display: none;
+                        }
+                    }
+
+                    @include tablet-smallPC {
+
+                        &:nth-child(5),
+                        &:nth-child(6),
+                        &:nth-child(7) {
+                            display: none;
+                        }
+                    }
+
+                }
+
+                @include mobile {
+                    display: none
+                }
+            }
+
+            .mobile-menu-btn {
+                display: none;
+
+                @include mobile {
+                    @include flex(flex-end, center);
+                    line-height: $header-height;
+
+                    .heading {
+                        margin: 0 10px;
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: $txt-color;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.subnavModal {
+    display: none;
+    position: absolute;
+    top: $header-height;
+    width: 100%;
+    height: 100vh;
+    min-height: 100px;
+    background-color: $header-color;
+    z-index: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+
+    &.open {
+        display: block;
+        animation: showMobieModal 0.3s ease-in-out;
+    }
+
+    @keyframes showMobieModal {
+        from {
+            opacity: 0;
+            transform: translateY($header-height);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    &__list {
+        padding: 40px 0 60px;
+
+        &--item {
+            @include flex(space-between, flex-start);
+            flex-direction: column;
+            margin-top: 20px;
+            width: 100%;
+
+            .label {
+                font-size: 13px;
+                color: $txt-color;
+                margin-left: 20px;
+            }
+
+            .subnav {
+                @include flex(center, flex-start);
+                flex-direction: column;
+                width: 100%;
+
+                .item {
+                    @include flex(flex-start, center);
+                    margin-top: 10px;
+                    padding: 10px 30px;
+                    width: 100%;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+
+                    a {
+                        margin-left: 20px;
+                        font-size: 16px;
+                        color: $txt-color;
+                    }
+
+                    &:hover {
+                        background-color: rgb(36, 36, 36);
+                    }
+                }
+            }
+
+            .btn {
+                padding: 10px 30px;
+                width: 100%;
+                font-size: 12px;
+                background-color: $main-color;
+                border: none;
+                border-radius: 5px;
+                transition: all 1s ease;
+                cursor: pointer;
+
+                &:hover {
+                    color: $main-color;
+                    background-color: $body-bg;
+                }
+            }
+        }
+    }
+}
+
+.subnavModal::-webkit-scrollbar {
+    width: 16px;
+}
+
+.subnavModal::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+}
+
+.subnavModal::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG);
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+}

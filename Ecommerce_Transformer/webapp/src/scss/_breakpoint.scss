@@ -1,0 +1,36 @@
+@use './variables' as *;
+
+// Mobile
+@mixin mobile {
+    @media only screen and (max-width: $tablet-width) {
+        @content;
+    }
+}
+
+// > Tablet
+@mixin tablet {
+    @media only screen and (min-width: $tablet-width) {
+        @content;
+    }
+}
+
+// Tablet -> PC Low Resolution (small PC)
+@mixin tablet-smallPC {
+    @media only screen and (min-width: $tablet-width) and (max-width: 1023px) {
+        @content;
+    }
+}
+
+// normal PC
+@mixin normalPC {
+    @media only screen and (min-width: $normalResPC-width) and (max-width: 1239px) {
+        @content;
+    }
+}
+
+// > normal PC
+@mixin middleNormalPC {
+    @media only screen and (min-width: $middleNormalResPC-width) {
+        @content;
+    }
+}

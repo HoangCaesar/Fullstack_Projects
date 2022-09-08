@@ -1,0 +1,46 @@
+@use '../../../scss/' as *;
+
+.ads {
+    background: url("https://images.pexels.com/photos/1341279/pexels-photo-1341279.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        ) top center / cover no-repeat;
+
+    &__overlay {
+        @include overlay();
+        @include flex(center, center);
+
+        .link {
+            display: block;
+            margin: auto;
+            padding: 30px 0;
+            width: 60%;
+            height: 60%;
+        }
+
+        img {
+            border-radius: 5px;
+            filter: brightness(120%);
+            transition: all 0.5s ease-in-out;
+            // z-index: -100;
+
+            &:hover {
+                transform: scale(1.1);
+                filter: brightness(150%);
+            }
+
+            @include mobile {
+                transform: scale(1.2);
+                &:hover {   
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        @include mobile {
+            background: $body-bg;
+        }
+    }
+
+    @include mobile {
+        background: $body-bg;
+    }
+}

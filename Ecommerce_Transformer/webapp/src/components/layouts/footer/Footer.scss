@@ -1,0 +1,94 @@
+@use '../../../scss/' as *;
+
+.footer {
+    height: 100vh;
+    background-color: $body-bg;
+    border-top: 1px solid $inactive-color;
+
+    @include tablet-smallPC {
+        height: 100%;
+    }
+
+    @include mobile {
+        height: 100%;
+    }
+
+    &__container {
+        @include flex(center, center);
+        flex-direction: column;
+        
+        &--top {
+            @include flex(space-between, initial);
+            margin: 80px 80px;
+            width: 80%;
+            text-align: center;
+
+            .item {
+
+                @include tablet-smallPC {
+                    margin-top: 20px;
+                }
+
+                @include mobile {
+                    margin-top: 20px;
+                }
+
+                .header {
+                    margin-bottom: 20px;
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: $txt-color
+                }
+
+                .body {
+                    li {
+                        margin-top: 10px;
+                        color: $inactive-color;
+                        font-size: 16px;
+
+                        @include mobile {
+                            padding: 6px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &--bottom {
+            @include flex(center, center);
+            flex-direction: column;
+            margin-top: 140px;
+
+            @include tablet-smallPC {
+                margin-top: 100px;
+            }
+        
+            @include mobile {
+                margin-top: 60px;
+            }
+
+            .item {
+                margin-bottom: 10px;
+
+                .social {
+                    color: $inactive-color;
+
+                    a {
+                        margin: 0 5px;
+                        transition: all 0.2s ease;
+
+                        &:hover {
+                            color: $txt-color
+                        }
+                    }
+                }
+
+                .coppyright {
+                    color: $inactive-color;
+                    font-size: 17px;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+}

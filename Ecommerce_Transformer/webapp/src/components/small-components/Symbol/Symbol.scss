@@ -1,0 +1,35 @@
+@use '../../../scss/' as *;
+
+.symbol {
+    height: $height-100;
+
+    .logo {
+        height: $height-100;
+
+        svg {
+            height: $height-100;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .name {
+        vertical-align: top;
+        padding-left: 5px;
+        line-height: $header-height;
+        font-size: 18px;
+        letter-spacing: 1.5px;
+        font-weight: 500;
+        color: $txt-color;
+        background-color: transparent;
+        border: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+
+}

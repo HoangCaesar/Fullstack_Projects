@@ -1,0 +1,87 @@
+@use '../../../scss/' as *;
+
+.intro {
+    background-color: $body-bg;
+    color: $txt-color;
+
+    &__container {
+        @include flex(center, center);
+        flex-direction: column;
+        padding: 112px 0 80px;
+
+        .heading {
+            margin-bottom: 20px;
+            font-size: 38px;
+            font-weight: 400;
+
+            @include mobile {
+                font-size: 30px;
+                line-height: 38px;
+            }
+        }
+
+        .content {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 64px;
+            line-height: 64px;
+            font-weight: 600;
+
+            @include mobile {
+                font-size: 36px;
+                line-height: 40px;
+            }
+        }
+
+        .desc {
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 400;
+            color: $inactive-color;
+
+            @include mobile {
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+
+        .icon {
+            @include flex(center, center);
+            margin: 40px 0 20px;
+
+            a {
+                width: 64px;
+                height: 64px;
+                color: $inactive-color;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    color: $txt-color;
+                }
+
+                @include mobile {
+                    margin: 5px;
+                    width: 48px;
+                    height: 48px;
+                }
+            }
+
+        }
+
+        .btn {
+            padding: 12px;
+            font-size: 16px;
+            color: rgb(21, 21, 21);
+            background-color: $main-color;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 1s ease;
+
+            &:hover {
+                color: $main-color;
+                background-color: $body-bg;
+            }
+        }
+    }
+}

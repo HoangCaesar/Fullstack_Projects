@@ -1,0 +1,41 @@
+@use '../../../scss/' as *;
+
+.mainSlider {
+    background-color: $body-bg;
+    padding-top: 100px;
+
+    @include tablet-smallPC {
+        padding-top: 50px
+    }
+
+    @include mobile {
+        padding-top: 0;
+    }
+}
+
+.swiper {
+    width: 100%;
+    padding-top: 150px;
+
+    @include tablet-smallPC {
+        padding-top: 100px
+    }
+
+    &-slide {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+
+        @include mobile {
+            width: 200px;
+            height: 200px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+}

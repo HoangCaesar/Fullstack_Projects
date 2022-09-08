@@ -1,0 +1,116 @@
+@use '../../../scss/' as *;
+
+.signin {
+    height: 100vh;
+    background-color: $body-bg;
+
+    @include tablet-smallPC {
+        height: 100vh;
+    }
+
+    @include mobile {
+        height: 100vh;
+    }
+
+    &__body {
+        padding-top: 100px;
+
+        .login-box {
+            @include flex(center, center);
+            width: 750px;
+            height: 400px;
+            background-color: $txt-color;
+            border-left: 0.5px solid $inactive-color;
+            border-bottom: 0.5px solid $inactive-color;
+            border-top: 0.5px solid $txt-color;
+            border-radius: 5px;
+
+            @include tablet-smallPC {
+                width: 620px;
+            }
+        
+            @include mobile {
+                height: 320px;
+                width: $width-100;
+            }
+
+            .left {
+                text-align: center;
+                padding: 40px 0;
+                height: $height-100;
+                background-color: $body-bg;
+
+                .heading {
+                    padding: 0 20px;
+                    color: $txt-color;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 20px
+                }
+
+                .desc {
+                    margin-top: 40px;
+
+                    .main {
+                        @include flex(flex-start, center);
+                        margin-left: 30px;
+                        color: $inactive-color;
+
+                        span {
+                            margin-left: 5px;
+                            font-size: 16px;
+                            font-weight: 400;
+                        }
+                    }
+
+                    .sub {
+                        margin-top: 5px;
+                        color: $inactive-color;
+                        font-weight: 300;
+                        font-size: 14px;
+                        line-height: 14px
+                    }
+                }
+            }
+
+            .right {
+                @include flex(space-evenly, center);
+                flex-direction: column;
+                height: $height-100;
+                padding: 10px 40px;
+
+                .heading {
+                    text-align: center;
+                    padding: 0 20px;
+
+                    h2 {
+                        color: black;
+                        font-weight: 600;
+                        font-size: 28px;
+                        line-height: 28px
+                    }
+
+                    span {
+                        color: $inactive-color;
+                        font-size: 12px;
+                        line-height: 12px
+                    }
+                }
+
+                .sub {
+                    text-align: center;
+                    font-size: 10px;
+                    color: $inactive-color;
+
+                    span {
+                        text-decoration: underline;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

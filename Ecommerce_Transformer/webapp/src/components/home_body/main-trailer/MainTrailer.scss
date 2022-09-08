@@ -1,0 +1,100 @@
+@use '../../../scss/' as *;
+
+.mainTrailer {
+    background-color: $body-bg;
+
+    &__container {
+        @include flex(center, center);
+        flex-direction: column;
+
+        &--video {
+            font-size: 0;
+            margin-top: -20px;
+            margin-bottom: 150px;
+        }
+
+        &--logo {
+            margin-bottom: 150px;
+
+            .list {
+                @include flex(center, center);
+            }
+
+            .item {
+                margin-left: 40px;
+
+                img {
+                    height: 100px;
+                }
+            }
+        }
+
+        &--image {
+            @include flex(space-between, center);
+            height: 100%;
+            margin-bottom: 50px;
+        }
+
+        &--text {
+            @include flex(center, center);
+            flex-direction: column;
+            margin-bottom: 64px;
+            padding: 0px 0 80px;
+            height: 100%;
+            color: white;
+
+
+            .heading {
+                margin-bottom: 20px;
+                font-size: 38px;
+                font-weight: 400;
+
+                @include mobile {
+                    font-size: 30px;
+                    line-height: 38px;
+                }
+
+            }
+
+            .content {
+                margin-bottom: 20px;
+                text-align: center;
+                line-height: 84px;
+                font-size: 80px;
+                font-weight: 600;
+
+                @include mobile {
+                    font-size: 36px;
+                    line-height: 40px;
+                }
+            }
+
+            .desc {
+                margin-bottom: 20px;
+                font-size: 18px;
+                font-weight: 400;
+                color: $inactive-color;
+
+                @include mobile {
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+            }
+
+            .btn {
+                padding: 12px;
+                font-size: 16px;
+                color: $main-color;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                opacity: 0.8;
+                transition: all 1s ease;
+
+                &:hover {
+                    opacity: 1.2;
+                }
+            }
+        }
+    }
+}
