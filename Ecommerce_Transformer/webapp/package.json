@@ -12,6 +12,7 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@fontsource/roboto": "^4.5.8",
+    "@hookform/resolvers": "^2.9.7",
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.95",
     "@mui/material": "^5.10.1",
@@ -33,7 +34,8 @@
     "react-router-dom": "^6.3.0",
     "redux-saga": "^1.2.1",
     "sass": "^1.54.5",
-    "swiper": "^8.3.2"
+    "swiper": "^8.3.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

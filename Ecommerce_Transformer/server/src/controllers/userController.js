@@ -64,6 +64,39 @@ exports.verify = async (req, res, next) => {
 
         res.send('Email verified sucessfully');
     } catch (error) {
-        res.status(400).send('An error occured');
+        console.log(err);
+        res.status(500).json(err);
     }
 };
+
+exports.login = async (req, res, next) => {
+    const { username, password } = req.body;
+
+    try {
+        let user = await User.findOne({ username });
+        if(!user) return res.status(401).json('Wrong username or password');
+        
+        const decryptedPassword = CryptoJs.AES.decrypt(
+            user.password,
+            process.env.PASSWORD_SECRET_KEY
+        ).toString(CryptoJs.enc.Utf8);
+        if(password !== decryptedPassword) return res.status(401).json('Wrong username or password');
+
+        const token = jwt.sign(
+            {
+                id: user._id,
+            },
+            process.env.TOKEN_SECRET_KEY
+        );
+        user.password = undefined;
+
+        res.status(200).json({
+            token,
+            user
+        })
+    }   
+    catch {
+        console.log(err);
+        res.status(500).json(err);
+    }
+}

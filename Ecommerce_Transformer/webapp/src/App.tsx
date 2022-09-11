@@ -13,9 +13,9 @@ function App() {
     return (
         <div className="App">
             {/* <Home /> */}
-            {/* <Signin /> */}
+            <Signin />
             {/* <TermsOfUse heading={"Policy"} /> */}
-            <User />
+            {/* <User /> */}
         </div>
     );
 }
