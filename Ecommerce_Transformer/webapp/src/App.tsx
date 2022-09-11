@@ -4,19 +4,26 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Home from './features/home/pages/Home';
-import Signin from './features/signin/pages/Signin';
+import Auth from './features/authentication/pages/Auth';
 import TermsOfUse from './features/terms-policy/PrivacyPolicy';
 import User from './features/user/pages/User';
+import { Routes, Route } from 'react-router-dom';
 import './App.scss';
 
 function App() {
     return (
-        <div className="App">
-            {/* <Home /> */}
-            <Signin />
-            {/* <TermsOfUse heading={"Policy"} /> */}
-            {/* <User /> */}
-        </div>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/auth">
+                <Route path="login" element={<Auth />} />
+                <Route path="register" element={<Auth />} />
+            </Route>
+            <Route path="/legal">
+                <Route path="policy" element={<TermsOfUse />} />
+                <Route path="terms" element={<TermsOfUse/>} />
+            </Route>
+            <Route path="/user" element={<User />} />
+        </Routes>
     );
 }
 

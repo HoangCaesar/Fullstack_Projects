@@ -1,7 +1,8 @@
 import { all } from 'redux-saga/effects';
+import authSaga from '../features/authentication/authSaga';
 
 function* rootSaga() {
-    // yield all([counterSaga(), authSaga(), dashboardSaga(), studentSaga(), citySaga()]);
+    // yield all([authSaga()]);
 }
 
 export default rootSaga;

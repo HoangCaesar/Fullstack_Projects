@@ -1,16 +1,24 @@
 import { Header, Footer } from '../../components/layouts';
 import './PrivacyPolicy.scss';
-interface Heading {
-    heading: string;
-}
+import { useLocation } from 'react-router-dom';
 
-const PrivacyPolicy = ({ heading }: Heading) => {
+
+const PrivacyPolicy = () => {
+    const location = useLocation();
+    const type = location.pathname.split('/')[2];
+
     return (
         <div className="privacyPolicy">
             <Header nav={true} />
             <div className="privacyPolicy__container row no-gutters">
                 <div className="heading col l-o-1 l-8 m-o-2 m-8 c-o-1 c-9">
-                    <h1>{heading}</h1>
+                    {
+                        type === "terms"
+                        ?
+                        <h1>Terms</h1>
+                        :
+                        <h1>Policy</h1>
+                    }
                     <span>Version 0.9.0 (05/08/1999).</span>
                     <p className="text-desc">
                         These Terms of Use govern your relationship with Prime regarding the

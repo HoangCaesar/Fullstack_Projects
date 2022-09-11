@@ -1,11 +1,20 @@
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
-import TextField from '@mui/material/TextField';
+import { useCallback } from 'react';
+import AuthForm from '../../../components/form-fields/AuthForm';
 import Grid from '../../../components/grid-responsive/Grid';
 import { Header } from '../../../components/layouts';
-import Button from '@mui/material/Button';
-import './Signin.scss';
+import { UserSiginIn } from '../../../models';
+import { useLocation } from 'react-router-dom';
+import './Auth.scss';
 
 const Signin = () => {
+    const location = useLocation();
+    const type = location.pathname.split('/')[2];
+
+    const handleFormSubmit = useCallback((formValues: UserSiginIn) => {
+        console.log(formValues);
+    }, []);
+
     return (
         <div className="signin">
             <Header nav={false} />
@@ -40,20 +49,29 @@ const Signin = () => {
                                 </div>
                             </div>
                             <div className="right col l-6 m-12 c-12">
-                                <div className="heading">
-                                    <h2>Sign In to Prime</h2>
-                                    <span>Get a free account, no required credit card</span>
-                                </div>
+                                {type === 'login' ? (
+                                    <div className="heading">
+                                        <h2>Sign In to Prime</h2>
+                                        <span>Welcome back!</span>
+                                    </div>
+                                ) : (
+                                    <div className="heading">
+                                        <h2>Register to Prime</h2>
+                                        <span>Get a free account, no required credit card</span>
+                                    </div>
+                                )}
 
-                                <TextField label="Email" color="primary" type="email" />
-                                <TextField label="Password" color="primary" type="password" />
-                                <Button variant="contained" sx={{ color: 'black', width: '80%' }}>
-                                    Sign In
-                                </Button>
-                                <p className="sub">
-                                    By continuing, you agree to CodeSandbox{' '}
-                                    <span>Terms of Service</span>,<span> Privacy Policy</span>
-                                </p>
+                                <AuthForm type={type} onSubmit={handleFormSubmit} />
+                                {type === 'login' ? (
+                                    <p className="sub">
+                                        If you don't have an accoung yet, register <span>here</span>
+                                    </p>
+                                ) : (
+                                    <p className="sub">
+                                        By continuing, you agree to CodeSandbox{' '}
+                                        <span>Terms of Service</span>, <span> Privacy Policy</span>
+                                    </p>
+                                )}
                             </div>
                         </div>
                     </div>

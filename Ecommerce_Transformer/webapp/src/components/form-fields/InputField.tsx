@@ -1,16 +1,15 @@
 import { TextField } from '@mui/material';
-import React, { InputHTMLAttributes } from 'react';
+import { memo, InputHTMLAttributes } from 'react';
 import { Control, useController } from 'react-hook-form';
 
 interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
     name: string;
     control: Control<any>;
     label?: string;
+    type: string;
 }
-// { name, control, label, ...inputProps }: InputFieldProps
-const InputField = () => {
-    const name = "H";
-    const control: any = "O"
+
+const InputField = ({ name, control, label, type, ...inputProps }: InputFieldProps) => {
     const {
         field: { value, onChange, onBlur, ref },
         fieldState: { invalid, error },
@@ -24,17 +23,18 @@ const InputField = () => {
             fullWidth
             size="small"
             margin="normal"
-            value={value}
+            value={value ? value : ""}
             onChange={onChange}
             onBlur={onBlur}
-            // label={label}
+            label={label}
+            type={type}
             variant="outlined"
             inputRef={ref}
             error={invalid}
             helperText={error?.message}
-            // inputProps={inputProps}
+            inputProps={inputProps}
         />
     );
 };
 
-export { InputField };
+export default memo(InputField);

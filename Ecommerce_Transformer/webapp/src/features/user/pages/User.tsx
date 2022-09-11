@@ -6,6 +6,7 @@ const User = () => {
     return (
         <div className="user">
             <Appbar />
+            <h1>TEST</h1>
             <Sidebar />
         </div>
     );
