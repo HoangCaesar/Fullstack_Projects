@@ -17,6 +17,7 @@ import { isAuthenticated } from '../../../utils/authHandler';
 import stringAvatar from '../../../utils/stringAvatar';
 import Grid from '../../grid-responsive/Grid';
 import { Symbol } from '../../small-components';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 
 interface Nav {
@@ -195,21 +196,31 @@ const Header = ({ nav }: Nav) => {
                                     </ThemeProvider>
                                 </div>
                                 {!hasToken && (
-                                    <div className="item">
-                                        <p className="text">Sign In</p>
-                                    </div>
+                                    <Link to="/auth/login">
+                                        <div className="item">
+                                            <p className="text">Sign In</p>
+                                        </div>
+                                    </Link>
                                 )}
                                 <div className="item">
                                     <button className="btn">Create Blog</button>
                                 </div>
                                 {hasToken && (
-                                    <div className="item">
-                                        <Avatar {...stringAvatar(username)} />
-                                    </div>
+                                    <Link to="/user">
+                                        <div className="item">
+                                            <Avatar {...stringAvatar(username)} />
+                                        </div>
+                                    </Link>
                                 )}
                             </ul>
                             <div className="mobile-menu-btn">
-                                <h3 className="heading">Sign In</h3>
+                                {hasToken ? (
+                                    <div className="item">
+                                        <Avatar {...stringAvatar(username)} />
+                                    </div>
+                                ) : (
+                                    <h3 className="heading">Sign In</h3>
+                                )}
                                 {open ? (
                                     <CloseOutlinedIcon
                                         fontSize="large"

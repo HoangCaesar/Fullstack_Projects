@@ -22,6 +22,7 @@ const stringToColor = (string: string | null) => {
 const stringAvatar = (name: string | null) => {
     return {
         sx: {
+            margin: "10px 10px",
             bgcolor: stringToColor(name),
             width: 28,
             height: 28,

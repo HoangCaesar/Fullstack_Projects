@@ -25,7 +25,7 @@ function* handleLogout() {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     // redirect to login page
-    // yield call(rootNavigate, '/login');
+    yield call(rootNavigate, '/auth/login');
 }
 
 function* watchLoginFlow() {

@@ -17,7 +17,12 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { alpha, createTheme, styled, ThemeProvider } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
+import { Link } from 'react-router-dom';
+
+interface AppbarProp {
+    logOut: () => void,
+}
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -67,7 +72,7 @@ const theme = createTheme({
     },
 });
 
-const Appbar = () => {
+const Appbar = ({ logOut }: AppbarProp) => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -143,7 +148,7 @@ const Appbar = () => {
                 </ListItemIcon>
                 Settings
             </MenuItem>
-            <MenuItem sx={{ '&:hover': { backgroundColor: '#333' } }}>
+            <MenuItem sx={{ '&:hover': { backgroundColor: '#333' } }} onClick={() => logOut()}>
                 <ListItemIcon>
                     <Logout fontSize="small" sx={{ color: 'white' }} />
                 </ListItemIcon>
@@ -207,13 +212,18 @@ const Appbar = () => {
                     <AppBar
                         position="fixed"
                         elevation={0}
-                        sx={{ borderBottom: '1px solid rgb(36, 36, 36);', zIndex: theme.zIndex.drawer + 1 }}
+                        sx={{
+                            borderBottom: '1px solid rgb(36, 36, 36);',
+                            zIndex: theme.zIndex.drawer + 1,
+                        }}
                     >
                         <Toolbar>
-                            <SquareOutlinedIcon
-                                fontSize="large"
-                                sx={{ display: { xs: 'none', sm: 'flex', md: 'flex' } }}
-                            />
+                            <Link to="/">
+                                <SquareOutlinedIcon
+                                    fontSize="large"
+                                    sx={{ display: { xs: 'none', sm: 'flex', md: 'flex' } }}
+                                />
+                            </Link>
                             <Box sx={{ flexGrow: 1 }} />
                             <Search sx={{ display: { xs: 'none', sm: 'flex', md: 'flex' } }}>
                                 <SearchIconWrapper>
@@ -269,4 +279,4 @@ const Appbar = () => {
     );
 };
 
-export default Appbar;
+export default memo(Appbar);

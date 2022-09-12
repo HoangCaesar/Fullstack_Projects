@@ -1,4 +1,6 @@
 import authApi from '../api/authApi';
+import { useAppDispatch } from '../app/hooks'
+import { authActions } from '../features/authentication/authSlice'
 
 export const isAuthenticated = async () => {
     const token = localStorage.getItem('token');
