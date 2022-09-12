@@ -16,15 +16,14 @@ axiosClient.interceptors.request.use((config) => {
     return {
         ...config,
         headers: {
-            Authorization: `Bearer ${getToken()}`,
+            'Authorization': `Bearer ${getToken()}`,
         },
     };
 });
 
 axiosClient.interceptors.response.use(
     (response) => {
-        if (response && response.data) return response.data;
-        else return response;
+        return response;
     },
     (err) => {
         if (err.response) {

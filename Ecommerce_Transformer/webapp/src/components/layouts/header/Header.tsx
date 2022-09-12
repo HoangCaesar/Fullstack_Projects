@@ -10,8 +10,11 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import SquareOutlinedIcon from '@mui/icons-material/SquareOutlined';
 import { Badge, SxProps, Theme } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { ReactElement, useLayoutEffect, useRef, useState } from 'react';
+import { ReactElement, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { isAuthenticated } from '../../../utils/authHandler';
+import stringAvatar from '../../../utils/stringAvatar';
 import Grid from '../../grid-responsive/Grid';
 import { Symbol } from '../../small-components';
 import './Header.scss';
@@ -63,6 +66,16 @@ const theme = createTheme({
 
 const Header = ({ nav }: Nav) => {
     const [open, setOpen] = useState<boolean>(false);
+    const [hasToken, setHasToken] = useState<boolean>(false);
+    const username: string | null = localStorage.getItem('username');
+
+    useEffect(() => {
+        (async () => {
+            const res = await isAuthenticated();
+            if (res) setHasToken(true);
+            else setHasToken(false);
+        })();
+    }, []);
 
     const handleModal = () => {
         setOpen((prev) => !prev);
@@ -181,12 +194,19 @@ const Header = ({ nav }: Nav) => {
                                         </Badge>
                                     </ThemeProvider>
                                 </div>
-                                <div className="item">
-                                    <p className="text">Sign In</p>
-                                </div>
+                                {!hasToken && (
+                                    <div className="item">
+                                        <p className="text">Sign In</p>
+                                    </div>
+                                )}
                                 <div className="item">
                                     <button className="btn">Create Blog</button>
                                 </div>
+                                {hasToken && (
+                                    <div className="item">
+                                        <Avatar {...stringAvatar(username)} />
+                                    </div>
+                                )}
                             </ul>
                             <div className="mobile-menu-btn">
                                 <h3 className="heading">Sign In</h3>

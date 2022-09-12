@@ -5,20 +5,28 @@ import Grid from '../../../components/grid-responsive/Grid';
 import { Header } from '../../../components/layouts';
 import { UserSiginIn } from '../../../models';
 import { useLocation } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { authActions, authSelecIsLogging } from '../authSlice'
 import './Auth.scss';
 
-const Signin = () => {
+const Auth = () => {
     const location = useLocation();
     const type = location.pathname.split('/')[2];
 
+    const dispatch = useAppDispatch();
+    const isLogging = useAppSelector(authSelecIsLogging);
+
     const handleFormSubmit = useCallback((formValues: UserSiginIn) => {
-        console.log(formValues);
+        dispatch(authActions.login({
+            username: formValues.username,
+            password: formValues.password
+        }))
     }, []);
 
     return (
-        <div className="signin">
+        <div className="auth">
             <Header nav={false} />
-            <div className="signin__body">
+            <div className="auth__body">
                 <Grid>
                     <div className="col l-o-2 l-8 m-12 c-12">
                         <div className="login-box row no-gutters">
@@ -81,4 +89,4 @@ const Signin = () => {
     );
 };
 
-export default Signin;
+export default Auth;
