@@ -106,7 +106,7 @@
                         text-decoration: underline;
 
                         &:hover {
-                            cursor: pointer;
+                            color: $inactive-color;
                         }
                     }
                 }

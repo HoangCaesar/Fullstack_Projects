@@ -5,15 +5,14 @@ import { useCallback } from 'react';
 import './User.scss';
 
 const User = () => {
+    const dispatch = useAppDispatch();
     const logOut = useCallback(() => {
-        const dispatch = useAppDispatch();
         dispatch(authActions.logout());
     }, []);
 
     return (
         <div className="user">
             <Appbar logOut={logOut} />
-            <h1>TEST</h1>
             <Sidebar />
         </div>
     );

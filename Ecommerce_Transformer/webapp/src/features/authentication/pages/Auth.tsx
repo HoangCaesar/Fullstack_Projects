@@ -1,13 +1,15 @@
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
 import { useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import AuthForm from '../../../components/form-fields/AuthForm';
 import Grid from '../../../components/grid-responsive/Grid';
 import { Header } from '../../../components/layouts';
-import { UserSiginIn } from '../../../models';
-import { useLocation } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../../app/hooks';
-import { authActions, authSelecIsLogging } from '../authSlice'
+import { UserSignIn, UserSignUp } from '../../../models';
+import { authActions, authSelecIsLogging } from '../authSlice';
+import { Link } from 'react-router-dom';
 import './Auth.scss';
+// https://mail.google.com/
 
 const Auth = () => {
     const location = useLocation();
@@ -16,11 +18,22 @@ const Auth = () => {
     const dispatch = useAppDispatch();
     const isLogging = useAppSelector(authSelecIsLogging);
 
-    const handleFormSubmit = useCallback((formValues: UserSiginIn) => {
-        dispatch(authActions.login({
-            username: formValues.username,
-            password: formValues.password
-        }))
+    const handleSigninForm = useCallback((formValues: UserSignIn | UserSignUp) => {
+        dispatch(
+            authActions.login({
+                username: formValues.username,
+                password: formValues.password,
+            })
+        );
+    }, []);
+
+    const handleSignupForm = useCallback((formValues: UserSignIn | UserSignUp) => {
+        dispatch(
+            authActions.login({
+                username: formValues.username,
+                password: formValues.password,
+            })
+        );
     }, []);
 
     return (
@@ -69,10 +82,13 @@ const Auth = () => {
                                     </div>
                                 )}
 
-                                <AuthForm type={type} onSubmit={handleFormSubmit} />
+                                <AuthForm type={type} onSubmitSignin={handleSigninForm} onSubmitSignup={handleSignupForm} />
                                 {type === 'login' ? (
                                     <p className="sub">
-                                        If you don't have an accoung yet, register <span>here</span>
+                                        If you don't have an accoung yet, register{' '}
+                                        <Link to="/auth/register">
+                                            <span>here</span>
+                                        </Link>
                                     </p>
                                 ) : (
                                     <p className="sub">

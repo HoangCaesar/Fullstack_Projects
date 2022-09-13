@@ -3,12 +3,13 @@ import { Alert, Box, Button, CircularProgress } from '@mui/material';
 import { useState, memo } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { UserSiginIn } from '../../models';
+import { UserSignIn, UserSignUp } from '../../models';
 import InputField from './InputField';
 
-interface StudentFormProps {
+interface AuthFormProps {
     type: string;
-    onSubmit?: (formValues: UserSiginIn) => void;
+    onSubmitSignin?: (formValues: UserSignIn | UserSignUp) => void;
+    onSubmitSignup?: (formValues: UserSignIn | UserSignUp) => void;
 }
 
 const schema = yup
@@ -29,21 +30,25 @@ const schema = yup
     })
     .required();
 
-const AuthForm = ({ type, onSubmit }: StudentFormProps) => {
+const AuthForm = ({ type, onSubmitSignin, onSubmitSignup }: AuthFormProps) => {
     const [error, setError] = useState<string>('');
 
     const {
         control,
-        formState: { isSubmitting },
+        formState: { isSubmitted },
         handleSubmit,
-    } = useForm<UserSiginIn>({
+    } = useForm<UserSignIn>({
         resolver: yupResolver(schema),
     });
+    console.log(isSubmitted);
 
-    const handleFormSubmit = async (formValues: UserSiginIn) => {
+    const handleFormSubmit = async (formValues: UserSignIn | UserSignUp) => {
         try {
             setError('');
-            await onSubmit?.(formValues);
+            if (type === 'register') {
+                await onSubmitSignup?.(formValues);
+            }
+            await onSubmitSignin?.(formValues);
         } catch (err: any) {
             console.log('Failed to sign in', err);
             setError(err.message as string);
@@ -66,11 +71,11 @@ const AuthForm = ({ type, onSubmit }: StudentFormProps) => {
                         type="submit"
                         variant="contained"
                         color="primary"
-                        disabled={isSubmitting}
+                        disabled={isSubmitted}
                         sx={{ width: '100%' }}
                     >
-                        {isSubmitting && <CircularProgress size={16} color="primary" />}
-                        &nbsp; Sign In
+                        {isSubmitted && <CircularProgress size={16} color="primary" />}
+                        &nbsp; {type === 'register' ? 'Sign Up' : 'Sign In'}
                     </Button>
                 </Box>
             </form>
