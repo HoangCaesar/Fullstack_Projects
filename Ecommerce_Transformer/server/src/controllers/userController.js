@@ -4,6 +4,7 @@ const CryptoJs = require('crypto-js');
 const { User, Token } = require('../models');
 const { validate } = require('../models/user');
 const sendEmail = require('../handlers/emailHandler');
+const path = require('path');
 
 exports.register = async (req, res) => {
     const { email, username, password } = req.body;
@@ -62,7 +63,7 @@ exports.verify = async (req, res, next) => {
         await User.updateOne({ _id: user._id, verified: true });
         await Token.findByIdAndRemove(token._id);
 
-        res.send('Email verified sucessfully');
+        res.sendFile(path.join(__dirname , 'verify.html'));
     } catch (error) {
         console.log(err);
         res.status(500).json(err);

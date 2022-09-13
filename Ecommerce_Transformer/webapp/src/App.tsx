@@ -7,6 +7,7 @@ import Home from './features/home/pages/Home';
 import Auth from './features/authentication/pages/Auth';
 import TermsOfUse from './features/terms-policy/PrivacyPolicy';
 import User from './features/user/pages/User';
+import Notify from './features/notify-page/Notify';
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
 
@@ -23,6 +24,7 @@ function App() {
                 <Route path="terms" element={<TermsOfUse/>} />
             </Route>
             <Route path="/user" element={<User />} />
+            <Route path="/notify/registered" element={<Notify />} />
         </Routes>
     );
 }

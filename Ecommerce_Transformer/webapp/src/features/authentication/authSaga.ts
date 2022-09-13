@@ -2,7 +2,7 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { call, delay, fork, put, take } from 'redux-saga/effects';
 import authApi from '../../api/authApi';
 import { rootNavigate } from '../../hooks/CustomRouter';
-import { UserSignIn } from '../../models';
+import { UserSignIn, UserSignUp} from '../../models';
 import { authActions } from './authSlice';
 
 function* handleLogin(payload: UserSignIn) {
@@ -27,6 +27,20 @@ function* handleLogout() {
     yield call(rootNavigate, '/auth/login');
 }
 
+function* handleRegister() {
+    const action: PayloadAction<UserSignUp> = yield take(authActions.register.type);
+    try {
+        yield delay(2000);
+        (async () => {
+            const res = await authApi.register(action.payload);
+        })();
+        yield put(authActions.registerSuccess(action.payload));
+    }
+    catch (err) {
+        yield put(authActions.registerFailed('Failed to login'));
+    }
+}
+
 function* watchLoginFlow() {
     while (true) {
         const isLoggedIn = Boolean(localStorage.getItem('token'));
@@ -42,4 +56,5 @@ function* watchLoginFlow() {
 
 export default function* authSaga() {
     yield fork(watchLoginFlow);
+    yield fork(handleRegister);
 }

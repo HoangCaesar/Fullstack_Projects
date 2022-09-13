@@ -8,8 +8,8 @@ import InputField from './InputField';
 
 interface AuthFormProps {
     type: string;
-    onSubmitSignin?: (formValues: UserSignIn | UserSignUp) => void;
-    onSubmitSignup?: (formValues: UserSignIn | UserSignUp) => void;
+    onSubmitSignin?: (formValues: UserSignIn) => void;
+    onSubmitSignup?: (formValues: UserSignUp) => void;
 }
 
 const schema = yup
@@ -40,15 +40,16 @@ const AuthForm = ({ type, onSubmitSignin, onSubmitSignup }: AuthFormProps) => {
     } = useForm<UserSignIn>({
         resolver: yupResolver(schema),
     });
-    console.log(isSubmitted);
 
     const handleFormSubmit = async (formValues: UserSignIn | UserSignUp) => {
         try {
             setError('');
             if (type === 'register') {
-                await onSubmitSignup?.(formValues);
+                await onSubmitSignup?.(formValues as UserSignUp);
+            } else {
+                await onSubmitSignin?.(formValues as UserSignIn);
             }
-            await onSubmitSignin?.(formValues);
+            
         } catch (err: any) {
             console.log('Failed to sign in', err);
             setError(err.message as string);

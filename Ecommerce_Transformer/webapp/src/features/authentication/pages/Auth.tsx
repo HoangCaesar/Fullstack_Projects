@@ -1,24 +1,25 @@
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
-import { useCallback } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useCallback, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import AuthForm from '../../../components/form-fields/AuthForm';
 import Grid from '../../../components/grid-responsive/Grid';
 import { Header } from '../../../components/layouts';
 import { UserSignIn, UserSignUp } from '../../../models';
-import { authActions, authSelecIsLogging } from '../authSlice';
-import { Link } from 'react-router-dom';
+import { authActions, authSelectIsLogging, authSelectIsRegistered } from '../authSlice';
 import './Auth.scss';
-// https://mail.google.com/
 
 const Auth = () => {
+    const navigate = useNavigate();
     const location = useLocation();
     const type = location.pathname.split('/')[2];
 
     const dispatch = useAppDispatch();
-    const isLogging = useAppSelector(authSelecIsLogging);
+    const isLogging = useAppSelector(authSelectIsLogging);
+    const isRegistered = useAppSelector(authSelectIsRegistered);
+    console.log(isRegistered);
 
-    const handleSigninForm = useCallback((formValues: UserSignIn | UserSignUp) => {
+    const handleSigninForm = useCallback((formValues: UserSignIn) => {
         dispatch(
             authActions.login({
                 username: formValues.username,
@@ -27,14 +28,27 @@ const Auth = () => {
         );
     }, []);
 
-    const handleSignupForm = useCallback((formValues: UserSignIn | UserSignUp) => {
+    const handleSignupForm = useCallback((formValues: UserSignUp) => {
         dispatch(
-            authActions.login({
+            authActions.register({
+                email: formValues.email,
                 username: formValues.username,
                 password: formValues.password,
             })
         );
     }, []);
+
+    useEffect(() => {
+        let idTimeOut = 1;
+        if (isRegistered) {
+            console.log(1);
+            idTimeOut = window.setTimeout(() => navigate('/notify/registered'), 1500);
+        }
+        return () => {
+            console.log(2);
+            window.clearTimeout(idTimeOut);
+        };
+    }, [isRegistered]);
 
     return (
         <div className="auth">
@@ -82,18 +96,36 @@ const Auth = () => {
                                     </div>
                                 )}
 
-                                <AuthForm type={type} onSubmitSignin={handleSigninForm} onSubmitSignup={handleSignupForm} />
+                                <AuthForm
+                                    type={type}
+                                    onSubmitSignin={handleSigninForm}
+                                    onSubmitSignup={handleSignupForm}
+                                />
                                 {type === 'login' ? (
                                     <p className="sub">
-                                        If you don't have an accoung yet, register{' '}
+                                        If you don't have an account yet, register{' '}
                                         <Link to="/auth/register">
                                             <span>here</span>
                                         </Link>
                                     </p>
                                 ) : (
                                     <p className="sub">
+                                        <br/>
+                                        If you have an account already, click{' '}
+                                        <Link to="/auth/login">
+                                            <span>here</span>
+                                        </Link>{' '}
+                                        to sign in
+                                        <br />
+                                        <br/>
                                         By continuing, you agree to CodeSandbox{' '}
-                                        <span>Terms of Service</span>, <span> Privacy Policy</span>
+                                        <Link to="/legal/terms">
+                                            <span>Terms of Service</span>
+                                        </Link>
+                                        ,{' '}
+                                        <Link to="/legal/policy">
+                                            <span> Privacy Policy</span>
+                                        </Link>
                                     </p>
                                 )}
                             </div>
