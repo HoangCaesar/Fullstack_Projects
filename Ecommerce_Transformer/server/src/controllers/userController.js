@@ -38,9 +38,9 @@ exports.register = async (req, res) => {
         });
         const savedToken = await newToken.save();
 
-        const message = `${process.env.BASE_URL}/user/verify/${savedUser.id}/${savedToken.token}`;
+        const link = `${process.env.BASE_URL}/user/verify/${savedUser.id}/${savedToken.token}`;
 
-        await sendEmail(savedUser.email, 'Please Verify Your Email', message);
+        await sendEmail(savedUser.email, savedUser.username, 'Please Verify Your Email', link);
 
         res.status(200).json('An Email sent to your account please verify');
     } catch (err) {
@@ -60,10 +60,10 @@ exports.verify = async (req, res, next) => {
         });
         if (!token) return res.status(400).send('Invalid link');
 
-        await User.updateOne({ _id: user._id, verified: true });
-        await Token.findByIdAndRemove(token._id);
+        // await User.updateOne({ _id: user._id, verified: true });
+        // await Token.findByIdAndRemove(token._id);
 
-        res.sendFile(path.join(__dirname , 'verify.html'));
+        res.sendFile(path.join(process.cwd() , 'htmls/verify.html'));
     } catch (error) {
         console.log(err);
         res.status(500).json(err);

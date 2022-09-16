@@ -5,8 +5,6 @@ import { Announcement, Categories, Footer, Navbar, Newsletter, ProductList, Slid
 const Home = () => {
     const navigate = useNavigate();
 
-    
-
     return (
         <div>
             <Announcement />
