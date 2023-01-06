@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "csv-parser": "^3.0.0"
+  },
+  "name": "solita-test",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Caesar",
+  "license": "ISC",
+  "description": "data validation"
+}
