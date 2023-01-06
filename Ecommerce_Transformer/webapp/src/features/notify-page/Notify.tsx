@@ -41,11 +41,9 @@ const Notify = () => {
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                     Please, verify your email and sign in.
                 </Typography>
-                <Box mt={1} sx={{ display: 'flex' }}>
+                <Box mt={1} sx={{ display: 'flex', alignItems: 'center'}}>
                     <Link to="/">
-                        <Button>
-                            <a className="btn">Homepage</a>
-                        </Button>
+                        <Button>Homepage</Button>
                     </Link>
                     <Button>
                         <a className="btn" href="https://mail.google.com" target="blank">

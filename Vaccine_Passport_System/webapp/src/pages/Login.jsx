@@ -89,6 +89,7 @@ const Login = () => {
                     </Typography>
                     <FormControl fullWidth>
                         <TextField
+                            placeholder='username: admin | password: @$aDmIn$@'
                             label="Username"
                             variant="outlined"
                             value={username}

@@ -22,7 +22,7 @@ const InputField = ({ name, control, label, type, ...inputProps }: InputFieldPro
         <TextField
             fullWidth
             size="small"
-            margin="normal"
+            margin="dense"
             value={value ? value : ""}
             onChange={onChange}
             onBlur={onBlur}

@@ -60,8 +60,8 @@ exports.verify = async (req, res, next) => {
         });
         if (!token) return res.status(400).send('Invalid link');
 
-        // await User.updateOne({ _id: user._id, verified: true });
-        // await Token.findByIdAndRemove(token._id);
+        await User.updateOne({ _id: user._id, verified: true });
+        await Token.findByIdAndRemove(token._id);
 
         res.sendFile(path.join(process.cwd() , 'htmls/verify.html'));
     } catch (error) {

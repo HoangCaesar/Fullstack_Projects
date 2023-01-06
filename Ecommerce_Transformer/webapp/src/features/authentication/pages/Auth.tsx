@@ -17,7 +17,6 @@ const Auth = () => {
     const dispatch = useAppDispatch();
     const isLogging = useAppSelector(authSelectIsLogging);
     const isRegistered = useAppSelector(authSelectIsRegistered);
-    console.log(isRegistered);
 
     const handleSigninForm = useCallback((formValues: UserSignIn) => {
         dispatch(
@@ -41,11 +40,9 @@ const Auth = () => {
     useEffect(() => {
         let idTimeOut = 1;
         if (isRegistered) {
-            console.log(1);
             idTimeOut = window.setTimeout(() => navigate('/notify/registered'), 1500);
         }
         return () => {
-            console.log(2);
             window.clearTimeout(idTimeOut);
         };
     }, [isRegistered]);

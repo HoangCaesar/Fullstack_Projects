@@ -7,6 +7,7 @@ export interface AuthState {
     isVerified: boolean;
     isLoggedIn?: boolean;
     isLogging?: boolean;
+    isFailed: boolean;
     currentUser?: UserSignIn;
 }
 
@@ -15,6 +16,7 @@ const initialState: AuthState = {
     isVerified: false,
     isLoggedIn: false,
     isLogging: false,
+    isFailed: false,
     currentUser: undefined,
 };
 
@@ -42,9 +44,11 @@ const authSlice = createSlice({
         loginSuccess(state, action: PayloadAction<UserSignIn>) {
             state.isLogging = false;
             state.isLoggedIn = true;
+            state.isFailed = false;
             state.currentUser = action.payload;
         },
         loginFailed(state, action: PayloadAction<string>) {
+            state.isFailed = true;
             state.isLogging = false;
         },
 
@@ -64,6 +68,7 @@ const authSelectIsVerified = (state: RootState) => state.auth.isVerified;
 
 const authSelectIsLoggedIn = (state: RootState) => state.auth.isLoggedIn;
 const authSelectIsLogging = (state: RootState) => state.auth.isLogging;
+const authSelectIsFailed = (state: RootState) => state.auth.isFailed;
 const authSelectCurrentUser = (state: RootState) => state.auth.currentUser;
 
 // Reducer
@@ -73,6 +78,7 @@ export {
     authActions,
     authSelectIsLoggedIn,
     authSelectIsLogging,
+    authSelectIsFailed,
     authSelectCurrentUser,
     authSelectIsRegistered,
     authSelectIsVerified,

@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Alert, Box, Button, CircularProgress } from '@mui/material';
-import { useState, memo } from 'react';
+import { memo, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { UserSignIn, UserSignUp } from '../../models';
@@ -14,6 +14,10 @@ interface AuthFormProps {
 
 const schema = yup
     .object({
+        email: yup
+            .string()
+            .trim()
+            .required('Please enter email'),
         username: yup
             .string()
             .trim()
@@ -35,7 +39,8 @@ const AuthForm = ({ type, onSubmitSignin, onSubmitSignup }: AuthFormProps) => {
 
     const {
         control,
-        formState: { isSubmitted },
+        getValues,
+        formState: { isSubmitting },
         handleSubmit,
     } = useForm<UserSignIn>({
         resolver: yupResolver(schema),
@@ -49,12 +54,13 @@ const AuthForm = ({ type, onSubmitSignin, onSubmitSignup }: AuthFormProps) => {
             } else {
                 await onSubmitSignin?.(formValues as UserSignIn);
             }
-            
         } catch (err: any) {
             console.log('Failed to sign in', err);
             setError(err.message as string);
         }
     };
+
+    console.log(isSubmitting)
 
     return (
         <Box maxWidth={300}>
@@ -67,15 +73,15 @@ const AuthForm = ({ type, onSubmitSignin, onSubmitSignup }: AuthFormProps) => {
 
                 {error && <Alert severity="error">{error}</Alert>}
 
-                <Box mt={3}>
+                <Box mt={1}>
                     <Button
                         type="submit"
                         variant="contained"
                         color="primary"
-                        disabled={isSubmitted}
+                        disabled={isSubmitting}
                         sx={{ width: '100%' }}
                     >
-                        {isSubmitted && <CircularProgress size={16} color="primary" />}
+                        {isSubmitting && <CircularProgress size={16} color="primary" />}
                         &nbsp; {type === 'register' ? 'Sign Up' : 'Sign In'}
                     </Button>
                 </Box>
