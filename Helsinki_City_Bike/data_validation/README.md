@@ -82,6 +82,10 @@ Because the heap memory limitation, I can only execute the convertion one by one
 
 ![alt text](./img/Mongoimport.png "Import data with mongoimport")
 
+```javascript
+    mongoimport --uri 'mongodb+srv://MYUSERNAME:SECRETPASSWORD@mycluster-ABCDE.azure.mongodb.net/MY_DB?retryWrites=true&w=majority' --collection MY_COLLECTION --jsonArray --file PATH_TO_MY_VALIDATED_JSON_FILES
+```
+
 - It works!!! Congratulations! Finally, I could import these bunch of "tiny" files after couple of days.
 
 
