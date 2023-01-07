@@ -17,13 +17,12 @@ Overall
 
 1. Read CSV files.
 
-- Import libraries and define 2 arrays
+- Import libraries and define an array
 ```javascript
 const csv = require('csv-parser');
 const fs = require('fs');
 
-const resultsPart1 = [];
-const resultsPart2 = [];
+const results = [];
 ```
 - Read: add all state to array.
 
@@ -33,22 +32,15 @@ fs.createReadStream(csvFilename, {
     })
         .pipe(csv({})
             .on('data', (data) => {
-                if (resultsPart1.length >= 500000) {
-                    resultsPart2.push(data);
-                } else {
-                    resultsPart1.push(data);
-                }
+                results.push(data);
             })
 ```
-
-- Because a original JSON file is too large and mongoDB limits the size of a file. That's the reasons why we need to divide it into 2 small JSON files, so we need 2 arrays here.
 
 2. Validate.
 - Pass 'results' array through 'validateResults' functions.
 
 ```javascript
-const dataPart1 = await validateResults(resultsPart1);
-const dataPart2 = await validateResults(resultsPart2);
+const data = await validateResults(results)
 ```
 
 - Validation: remove all BOM before check states - if distance less than 10m or duration less than 10s ---> remove.
@@ -69,10 +61,8 @@ const validateResults = async (data) => {
 3. Convert to JSON files.
 ```javascript
 // Convert and create JSON files
-    var dictstringPart1 = JSON.stringify(dataPart1);
-    var dictstringPart2 = JSON.stringify(dataPart2);
-    fs.writeFile(`${jsonFilename}-part1.json`, dictstringPart1, { encoding: 'utf8' }, (err) => err && console.error(err));
-    fs.writeFile(`${jsonFilename}-part2.json`, dictstringPart2, { encoding: 'utf8' }, (err) => err && console.error(err));
+    var dictstring = JSON.stringify(data);
+    fs.writeFile(jsonFilename, dictstring, { encoding: 'utf8' }, (err) => err && console.error(err));
 ```
 
 Because the heap memory limitation, I can only execute the convertion one by one
@@ -84,7 +74,17 @@ Because the heap memory limitation, I can only execute the convertion one by one
 ```
 
 4. Import to the database.
-- Using mongoDB compass to import the validated JSON files ---> avoid exceeding memory limitation.
+- Using mongoDB compass to import the validated JSON files.
 
 ![alt text](./img/ImportToDatabase.PNG "Import data with mongoDB compass")
+
+- However, importing by this method does not work due to the memory limitation of mongoDB compass (512MB only). That 's a reason why I change my plan to using [mongoimport](https://www.mongodb.com/docs/database-tools/mongoimport/) for instead.
+
+![alt text](./img/Mongoimport.png.PNG "Import data with mongoimport")
+
+- It works!!! Congratulations! Finally, I could import these bunch of "tiny" files after couple of days.
+
+
+
+
 
