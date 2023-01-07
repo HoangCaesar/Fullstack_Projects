@@ -80,7 +80,7 @@ Because the heap memory limitation, I can only execute the convertion one by one
 
 - However, importing by this method does not work due to the memory limitation of mongoDB compass (512MB only). That 's a reason why I change my plan to using [mongoimport](https://www.mongodb.com/docs/database-tools/mongoimport/) for instead.
 
-![alt text](./img/Mongoimport.png.PNG "Import data with mongoimport")
+![alt text](./img/Mongoimport.png "Import data with mongoimport")
 
 - It works!!! Congratulations! Finally, I could import these bunch of "tiny" files after couple of days.
 
