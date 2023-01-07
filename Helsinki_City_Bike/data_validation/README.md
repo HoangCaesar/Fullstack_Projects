@@ -17,12 +17,13 @@ Overall
 
 1. Read CSV files.
 
-- Import libraries and define an array
+- Import libraries and define 2 arrays
 ```javascript
 const csv = require('csv-parser');
 const fs = require('fs');
 
-const results = [];
+const resultsPart1 = [];
+const resultsPart2 = [];
 ```
 - Read: add all state to array.
 
@@ -32,15 +33,22 @@ fs.createReadStream(csvFilename, {
     })
         .pipe(csv({})
             .on('data', (data) => {
-                results.push(data);
+                if (resultsPart1.length >= 500000) {
+                    resultsPart2.push(data);
+                } else {
+                    resultsPart1.push(data);
+                }
             })
 ```
+
+- Because a original JSON file is too large and mongoDB limits the size of a file. That's the reasons why we need to divide it into 2 small JSON files, so we need 2 arrays here.
 
 2. Validate.
 - Pass 'results' array through 'validateResults' functions.
 
 ```javascript
-const data = await validateResults(results)
+const dataPart1 = await validateResults(resultsPart1);
+const dataPart2 = await validateResults(resultsPart2);
 ```
 
 - Validation: remove all BOM before check states - if distance less than 10m or duration less than 10s ---> remove.
@@ -61,8 +69,10 @@ const validateResults = async (data) => {
 3. Convert to JSON files.
 ```javascript
 // Convert and create JSON files
-    var dictstring = JSON.stringify(data);
-    fs.writeFile(jsonFilename, dictstring, { encoding: 'utf8' }, (err) => err && console.error(err));
+    var dictstringPart1 = JSON.stringify(dataPart1);
+    var dictstringPart2 = JSON.stringify(dataPart2);
+    fs.writeFile(`${jsonFilename}-part1.json`, dictstringPart1, { encoding: 'utf8' }, (err) => err && console.error(err));
+    fs.writeFile(`${jsonFilename}-part2.json`, dictstringPart2, { encoding: 'utf8' }, (err) => err && console.error(err));
 ```
 
 Because the heap memory limitation, I can only execute the convertion one by one
