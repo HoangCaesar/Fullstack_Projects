@@ -91,6 +91,7 @@ const jsonToCsv = (data) => {
     // readCSVFile('./csv_files/2021-06.csv', `./json_files/2021-06.json`)
     // readCSVFile('./csv_files/2021-07.csv', `./json_files/2021-07.json`)
 ```
+- There are 2 files in csv_files & validated_files folders are examples of the original and validated files. Because the real ones are too large to push.
 
 4. Import to the database.
 - Using mongoDB compass to import the validated JSON files (just click and click).
@@ -110,7 +111,7 @@ const jsonToCsv = (data) => {
 ```
 
 - Actually, I just realized that it does not matter that importing data by hand or by mongoimport, the storage size is still limited at 512MB. However, importing CSV files to the database by command lines looks more engineering. 
-- Finally, I could import these bunch of "tiny" files after couple of days. Nonetheless, there are a bunch of data which is missing due to limited storage (2021-07).
+- Finally, I could import these bunch of "tiny" files after couple of days. Nonetheless, there are a bunch of data which are missing due to limited storage (2021-07).
 
 
 
