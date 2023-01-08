@@ -21,7 +21,7 @@ const validateResults = async (data) => {
 // json to csv
 const jsonToCsv = (data) => {
     const csvData = parse(data, { quote: '' });
-    return csvData
+    return csvData;
 }
 
 // Read CSV file
