@@ -5,7 +5,7 @@
 #### Configurations: 
     Because the CSV & JSON files are the large files, so I don't want to push them all to github.
 #### Description: 
-    This part is mainly for validating and importing data. 
+    This part is mainly for validating and importing data to the database. 
 #### Technologies: 
     "csv-parser": I used this library to read CSV files.
     "json2csv": convert json to csv.
@@ -93,11 +93,11 @@ const jsonToCsv = (data) => {
 ```
 
 4. Import to the database.
-- Using mongoDB compass to import the validated JSON files.
+- Using mongoDB compass to import the validated JSON files (just click and click).
 
 ![alt text](./img/ImportToDatabase.PNG "Import data with mongoDB compass")
 
-- However, importing by this method does not work due to the memory limitation of mongoDB compass (512MB only - because I am using free cluster of Mongodb atlas :( I'm broke!). 
+- However, importing by this method does not work due to the memory limitation of mongoDB atlas (512MB only - because I am using free cluster of Mongodb atlas :( I'm broke!). 
 
 ![alt text](./img/MongodbCompass.PNG "Memory limitation")
 
@@ -109,7 +109,8 @@ const jsonToCsv = (data) => {
     mongoimport --uri 'mongodb+srv://MYUSERNAME:SECRETPASSWORD@mycluster-ABCDE.azure.mongodb.net/MY_DB?retryWrites=true&w=majority' --collection MY_COLLECTION --jsonArray --file PATH_TO_MY_VALIDATED_JSON_FILES
 ```
 
-- It works!!! Congratulations! Finally, I could import these bunch of "tiny" files after couple of days.
+- Actually, I just realized that it does not matter that importing data by hand or by mongoimport, the storage size is still limited at 512MB. However, importing CSV files to the database by command lines looks more engineering. 
+- Finally, I could import these bunch of "tiny" files after couple of days. Nonetheless, there are a bunch of data which is missing due to limited storage (2021-07).
 
 
 
