@@ -36,12 +36,11 @@ const readCSVFile = (csvFilename, jsonFilename) => {
                 } else {
                     resultsPart1.push(data);
                 }
-                
             })
             .on('end', async () => {
                 const dataPart1 = await validateResults(resultsPart1);
                 const dataPart2 = await validateResults(resultsPart2);
-                // Convert and create JSON files
+                // Convert to CSV
                 var csvDataPart1 = jsonToCsv(dataPart1);
                 var csvDataPart2 = jsonToCsv(dataPart2);
                 fs.writeFile(`${jsonFilename}-part1.csv`, csvDataPart1, { encoding: 'utf8' }, (err) => err && console.error(err));
