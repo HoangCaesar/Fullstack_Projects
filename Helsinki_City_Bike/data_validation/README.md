@@ -97,7 +97,7 @@ const validateResults = async (data) => {
 ```
 
 - Actually, I just realized that it does not matter that importing data by hand or by mongoimport, the storage size is still limited at 512MB. However, importing CSV files to the database by command lines looks more engineering. And I decided to separate the "validated journey list" of each month into 3 different databases (3 accounts - sorry mongodb atlas) because of the limited memory in mongodb atlas.
-- Finally, I could import these bunch of "tiny" files after couple of days. Nonetheless, there are a bunch of data which are missing due to limited storage (2021-07).
+- Finally, I could import these bunch of "tiny" files after couple of days. 
 
 
 
