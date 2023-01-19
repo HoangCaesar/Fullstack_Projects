@@ -8,7 +8,6 @@
     This part is mainly for validating and importing data to the database. 
 #### Technologies: 
     "csv-parser": I used this library to read CSV files.
-    "json2csv": convert json to csv.
 
 Overall
 
@@ -89,7 +88,7 @@ const validateResults = async (data) => {
 
 ![alt text](./img/MongodbCompass.PNG "Memory limitation")
 
-- That 's a reason why I change my plan to using [mongoimport](https://www.mongodb.com/docs/database-tools/mongoimport/) for instead. (In the picture below, I was pushing "JSON files" to DB, but it did not work well. I decided to push CSV files to reduce the size of files, so it could fit the free storage. Hope so!)
+- That 's a reason why I change my plan to using [mongoimport](https://www.mongodb.com/docs/database-tools/mongoimport/) for instead. 
 
 ![alt text](./img/Mongoimport.png "Import data with mongoimport")
 
@@ -97,7 +96,7 @@ const validateResults = async (data) => {
     mongoimport --uri 'mongodb+srv://MYUSERNAME:SECRETPASSWORD@mycluster-ABCDE.azure.mongodb.net/MY_DB?retryWrites=true&w=majority' --collection MY_COLLECTION --jsonArray --file PATH_TO_MY_VALIDATED_JSON_FILES
 ```
 
-- Actually, I just realized that it does not matter that importing data by hand or by mongoimport, the storage size is still limited at 512MB. However, importing CSV files to the database by command lines looks more engineering. And I decided to separate the "validated journey list" of each month into 3 different databases because of the limited memory in mongodb atlas.
+- Actually, I just realized that it does not matter that importing data by hand or by mongoimport, the storage size is still limited at 512MB. However, importing CSV files to the database by command lines looks more engineering. And I decided to separate the "validated journey list" of each month into 3 different databases (3 accounts - sorry mongodb atlas) because of the limited memory in mongodb atlas.
 - Finally, I could import these bunch of "tiny" files after couple of days. Nonetheless, there are a bunch of data which are missing due to limited storage (2021-07).
 
 
