@@ -1,7 +1,6 @@
 {
   "dependencies": {
-    "csv-parser": "^3.0.0",
-    "json2csv": "^5.0.7"
+    "csv-parser": "^3.0.0"
   },
   "name": "solita-test",
   "version": "1.0.0",

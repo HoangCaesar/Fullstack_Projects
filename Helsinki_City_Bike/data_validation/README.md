@@ -64,24 +64,11 @@ const validateResults = async (data) => {
 }
 ```
 
-3. Convert to JSON files.
-- Convert arrays of objects to CSV.
-```javascript
-// Convert and create JSON files
-    var csvDataPart1 = jsonToCsv(dataPart1);
-    var csvDataPart2 = jsonToCsv(dataPart2);
-```
-```javascript
-const jsonToCsv = (data) => {
-    const csvData = parse(data, { quote: '' });
-    return csvData
-}
-```
+3. Write validated data to the JSON files.
 
 ```javascript
-// Write data into the new CSV files
-    fs.writeFile(`${jsonFilename}-part1.csv`, csvDataPart1, { encoding: 'utf8' }, (err) => err && console.error(err));
-    fs.writeFile(`${jsonFilename}-part2.csv`, csvDataPart2, { encoding: 'utf8' }, (err) => err && console.error(err));
+    fs.writeFile(`${jsonFilename}-part1.csv`, dataPart1, { encoding: 'utf8' }, (err) => err && console.error(err));
+    fs.writeFile(`${jsonFilename}-part2.csv`, dataPart2, { encoding: 'utf8' }, (err) => err && console.error(err));
 ```
 
 - Because the heap memory limitation, I can only execute the convertion one by one
@@ -110,7 +97,7 @@ const jsonToCsv = (data) => {
     mongoimport --uri 'mongodb+srv://MYUSERNAME:SECRETPASSWORD@mycluster-ABCDE.azure.mongodb.net/MY_DB?retryWrites=true&w=majority' --collection MY_COLLECTION --jsonArray --file PATH_TO_MY_VALIDATED_JSON_FILES
 ```
 
-- Actually, I just realized that it does not matter that importing data by hand or by mongoimport, the storage size is still limited at 512MB. However, importing CSV files to the database by command lines looks more engineering. 
+- Actually, I just realized that it does not matter that importing data by hand or by mongoimport, the storage size is still limited at 512MB. However, importing CSV files to the database by command lines looks more engineering. And I decided to separate the "validated journey list" of each month into 3 different databases because of the limited memory in mongodb atlas.
 - Finally, I could import these bunch of "tiny" files after couple of days. Nonetheless, there are a bunch of data which are missing due to limited storage (2021-07).
 
 
