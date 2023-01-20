@@ -1,6 +1,8 @@
 const csv = require('csv-parser');
 const fs = require('fs');
 
+// ================================================= Validate Data =================================================
+
 const resultsPart1 = [];
 const resultsPart2 = [];
 
@@ -12,6 +14,7 @@ const validateResults = async (data) => {
         delete item['﻿Departure'];
         return { Departure, ...item };
     });
+    // Filter/validate: remove journeys have "distance" < 10m and "duration" < 10s
     return await newData.filter(
         (item) => item['Covered distance (m)'] >= 10 && item['Duration (sec.)'] >= 10
     );
@@ -31,6 +34,7 @@ const readCSVFile = (csvFilename, jsonFilename) => {
                 }
             })
             .on('end', async () => {
+                // Validate
                 const dataPart1 = await validateResults(resultsPart1);
                 const dataPart2 = await validateResults(resultsPart2);
 
@@ -38,6 +42,7 @@ const readCSVFile = (csvFilename, jsonFilename) => {
                 const jsonDataPart1 = JSON.stringify(dataPart1);
                 const jsonDataPart2 = JSON.stringify(dataPart2);
 
+                // Write 2 json files for every month state
                 fs.writeFile(
                     `${jsonFilename}-part1.json`,
                     jsonDataPart1,
