@@ -3,11 +3,16 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+const helmet = require('helmet');
 
+// Project import
 const appRoute = require('./api/v1/routes');
+
+// ========================================== APP - setting project ===============================================
 
 const app = express();
 
+app.use(helmet());
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
