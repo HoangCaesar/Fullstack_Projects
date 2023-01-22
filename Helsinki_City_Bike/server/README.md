@@ -17,8 +17,7 @@
     "cors": to enable CORS with varios options.
     "dotenv": to load environment variables from a ".env" file into process.env.
     "helmet": to secure the app by setting several HTTP headers.
+    "http-errors": to create HTTP errors for each request (if any).
 
     *********************** Dev Dependencies ************************************************
-
-    "cross-env": avoid worrying about setting or using the environment variable properly for the platform.
     "jest": to test the app.
