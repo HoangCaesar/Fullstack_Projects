@@ -19,6 +19,7 @@
     "helmet": to secure the app by setting several HTTP headers.
     "http-errors": to create HTTP errors for each request (if any).
     "date-fns": manipulating JS dates.
+    "compression": compressing to reduce the size of data.
 
     *********************** Dev Dependencies ************************************************
     "jest": to test the app.
