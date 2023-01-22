@@ -7,7 +7,7 @@ const helmet = require('helmet');
 
 // Project import
 const appRoute = require('./api/v1/routes');
-require('./api/v1/databases/init.multi.mongodb');
+require('./config/mongodb.config');
 
 // ========================================== APP - setting project ===============================================
 

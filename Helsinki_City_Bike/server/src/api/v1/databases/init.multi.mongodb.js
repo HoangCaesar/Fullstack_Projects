@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
 
 // ======================================== MULTI MONGODB - connect mongodb databases =======================================
-
-const { MONGODB_05_2021_URI, MONGODB_06_2021_URI, MONGODB_07_2021_URI, MONGODB_TEST_URI } =
-    process.env;
-
 function newConnection(uri) {
     const db = mongoose.createConnection(uri, {
         // Drops support for the old style urls.
@@ -38,14 +33,4 @@ function newConnection(uri) {
     return db;
 }
 
-const journeyList05DB = newConnection(MONGODB_05_2021_URI);
-const journeyList06DB = newConnection(MONGODB_06_2021_URI);
-const journeyList07DB = newConnection(MONGODB_07_2021_URI);
-const journeyListTestDB = newConnection(MONGODB_TEST_URI);
-
-module.exports = {
-    journeyList05DB,
-    journeyList06DB,
-    journeyList07DB,
-    journeyListTestDB,
-};
+module.exports = newConnection;
