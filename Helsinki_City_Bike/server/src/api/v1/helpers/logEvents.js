@@ -3,6 +3,7 @@ const path = require('path');
 const { format } = require('date-fns')
 
 // ========================================== Log events ===============================================
+// eslint-disable-next-line no-undef
 const fileName = path.join(__dirname, '../logs', 'logs.log');
 
 const logEvents = async (msg) => {
