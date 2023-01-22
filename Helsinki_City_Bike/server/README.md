@@ -18,6 +18,7 @@
     "dotenv": to load environment variables from a ".env" file into process.env.
     "helmet": to secure the app by setting several HTTP headers.
     "http-errors": to create HTTP errors for each request (if any).
+    "date-fns": manipulating JS dates.
 
     *********************** Dev Dependencies ************************************************
     "jest": to test the app.
