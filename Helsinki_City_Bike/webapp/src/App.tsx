@@ -1,13 +1,11 @@
-import { useState } from 'react'
+// StyleS
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      Hello
-    </div>
-  )
+    return <div className="App">Hello</div>;
 }
 
-export default App
+export default App;
