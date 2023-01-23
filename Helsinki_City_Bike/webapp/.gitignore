@@ -27,3 +27,4 @@ dist-ssr
 .prettierrc
 .env
 .eslintrc.js
+.eslintignore

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --port=5000",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "eslint": "eslint ."
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
