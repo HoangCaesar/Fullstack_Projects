@@ -11,8 +11,8 @@ const icons = {
 // ==============================|| MENU ITEMS - EXTRA PAGES ||============================== //
 
 const pages: MenuItems = {
-    id: 'year',
-    title: 'Year Highlights',
+    id: 'list',
+    title: 'List',
     type: 'group',
     children: [
         {
