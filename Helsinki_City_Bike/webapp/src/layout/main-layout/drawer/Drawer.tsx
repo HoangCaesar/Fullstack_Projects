@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
-import { useMemo } from 'react';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
 import { Box, Drawer, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 // project import
-import MiniDrawerStyled from './MiniDrawerStyled';
 import { drawerWidth } from '../../../config/config';
+import MiniDrawerStyled from './MiniDrawerStyled';
 
 // ==============================|| MAIN LAYOUT - DRAWER ||============================== //
 
