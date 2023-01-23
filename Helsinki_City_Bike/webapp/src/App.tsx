@@ -7,6 +7,7 @@ import '@fontsource/roboto/700.css';
 // project import
 import ThemeCustomization from './themes/ThemeCustomization';
 import { ScrollTop } from './components';
+import Routes from './routes';
 
 // ==============================|| APP - THEME, ROUTER, LOCAL  ||============================== //
 
@@ -14,7 +15,7 @@ function App() {
     return (
         <ThemeCustomization>
             <ScrollTop>
-                <div>hello</div>
+                <Routes />
             </ScrollTop>
         </ThemeCustomization>
     );
