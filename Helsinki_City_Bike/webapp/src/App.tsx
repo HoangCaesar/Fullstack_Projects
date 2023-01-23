@@ -4,8 +4,17 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+// project import
+import ThemeCustomization from './themes/ThemeCustomization';
+
+// ==============================|| APP - THEME, ROUTER, LOCAL  ||============================== //
+
 function App() {
-    return <div className="App">Hello</div>;
+    return (
+        <ThemeCustomization>
+            <div>hello</div>
+        </ThemeCustomization>
+    );
 }
 
 export default App;
