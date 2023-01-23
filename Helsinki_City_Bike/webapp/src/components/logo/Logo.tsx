@@ -1,5 +1,5 @@
 // Material UI
-import { Stack, Typography } from '@mui/material';
+import { Stack } from '@mui/material';
 
 // assets
 import logo from '../../assets/images/logo.png';
@@ -9,7 +9,7 @@ import logo from '../../assets/images/logo.png';
 const Logo = () => {
     return (
         <Stack direction="row" alignItems="flex-start" sx={{ width: '150px'}}>
-            <img src={logo} alt="Prima Power" width="50%"/>
+            <img src={logo} alt="Helsinki City Bike" width="50%"/>
         </Stack>
     );
 };
