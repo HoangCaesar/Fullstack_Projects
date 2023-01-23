@@ -2,10 +2,15 @@ import createSagaMiddleware from '@redux-saga/core';
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import rootSaga from './rootSaga';
 
+// project import
+import drawerReducers from './reducers';
+
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
-    reducer: {},
+    reducer: {
+        drawer: drawerReducers,
+    },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 });
 
