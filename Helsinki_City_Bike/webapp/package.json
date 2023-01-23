@@ -24,7 +24,9 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.7.0",
-    "redux-saga": "^1.2.2"
+    "redux-saga": "^1.2.2",
+    "simplebar": "^6.2.0",
+    "simplebar-react": "^3.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
