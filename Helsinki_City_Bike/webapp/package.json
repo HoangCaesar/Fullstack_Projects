@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
+    "@ant-design/icons": "^5.0.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/roboto": "^4.5.8",
