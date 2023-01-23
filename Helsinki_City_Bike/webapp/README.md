@@ -17,3 +17,4 @@
     "moment": a JavaScript date library for parsing, validating, manipulating, and formatting dates.
     "redux libraries": react-redux, redux-saga, @reduxjs/toolkit to manage state in our webapp.
     "simplebar": to keep the native overflow: auto scroll and only replace the scrollbar visual appearance.
+    "@ant-design": to use colors and icons.
