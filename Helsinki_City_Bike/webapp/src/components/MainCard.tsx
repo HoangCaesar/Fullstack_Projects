@@ -91,9 +91,6 @@ const MainCard = (
             {codeHighlight && (
                 <>
                     <Divider sx={{ borderStyle: 'dashed' }} />
-                    {/* <Highlighter codeHighlight={codeHighlight} main>
-                        {children}
-                    </Highlighter> */}
                     <Highlighter>{children}</Highlighter>
                 </>
             )}
