@@ -13,4 +13,5 @@
 #### Technologies: 
     "react": is a JavaScript library for creating user interfaces.
     "MUI ecosystems": Using several libraries from Material UI: mui-lab, mui-datagrid, SVG icons... to build the style of webapp
-    
+    "axios": is a promise-based HTTP Client for node.js and the browser which used to request data from server.
+    "moment": a JavaScript date library for parsing, validating, manipulating, and formatting dates.
