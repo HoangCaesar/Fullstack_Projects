@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { forwardRef, ForwardRefExoticComponent, Ref, RefAttributes, useEffect } from 'react';
+import { forwardRef, Ref, useEffect } from 'react';
 import { Link, To } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../../../../store/index';
+import { useAppDispatch, useAppSelector } from '../../../../../store/hooks';
 
 // material-ui
 import {
@@ -10,14 +10,13 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    Typography,
+    Typography
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 // project import
 import { ChildrenOfMenuItems } from '../../../../../models/menuItems';
 import { activeItem } from '../../../../../store/reducers/menu';
-import { AntdIconProps } from '@ant-design/icons/lib/components/AntdIcon';
 
 // ==============================|| NAVIGATION - LIST ITEM ||============================== //
 
@@ -62,7 +61,7 @@ const NavItem = ({ item, level }: NavItemProps) => {
         false
     );
 
-    const isSelected = openItem.findIndex((id) => id === item.id) > -1;
+    const isSelected = openItem.findIndex((id: string | undefined) => id === item.id) > -1;
 
     // active menu item on page load
     useEffect(() => {
