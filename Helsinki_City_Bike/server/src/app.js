@@ -8,7 +8,7 @@ const createError = require('http-errors');
 
 // Project import
 const appRoute = require('./api/v1/routes');
-require('./config/mongodb.config');
+require('./api/v1/databases/init.multi.mongodb');
 const errorHandler = require('./api/v1/helpers/errorHandler');
 
 // ========================================== APP - setting project ===============================================

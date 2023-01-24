@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // ======================================== MULTI MONGODB - connect mongodb databases =======================================
+const { MONGODB_05_2021_URI, MONGODB_06_2021_URI, MONGODB_07_2021_URI, MONGODB_TEST_URI } =
+    // eslint-disable-next-line no-undef
+    process.env;
+
 function newConnection(uri) {
     const db = mongoose.createConnection(uri, {
         // Drops support for the old style urls.
@@ -33,4 +38,14 @@ function newConnection(uri) {
     return db;
 }
 
-module.exports = newConnection;
+const testDatabase = newConnection(MONGODB_TEST_URI);
+const may_2021Database = newConnection(MONGODB_05_2021_URI);
+const june_2021Database = newConnection(MONGODB_06_2021_URI);
+const july_2021Database = newConnection(MONGODB_07_2021_URI);
+
+module.exports = {
+    testDatabase,
+    may_2021Database,
+    june_2021Database,
+    july_2021Database
+};
