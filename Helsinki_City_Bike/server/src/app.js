@@ -30,6 +30,8 @@ app.use((req, res, next) => {
     next(createError.NotFound('This route does not exist.'));
 });
 
-app.use(errorHandler);
+app.use((err, req, res, next) => {
+    errorHandler(err, req, res, next);
+});
 
 module.exports = app;

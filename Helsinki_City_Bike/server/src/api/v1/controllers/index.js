@@ -1,3 +1,3 @@
 module.exports = {
-    testController: require('./testController')
+    journeyListController: require('./journeyList.controller')
 };

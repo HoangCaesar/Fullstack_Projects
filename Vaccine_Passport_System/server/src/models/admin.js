@@ -3,7 +3,7 @@ const { schemaOptions } = require('./modelOptions');
 const Schema = mongoose.Schema;
 
 const adminSchema = new Schema({
-    username: {
+    username: {k
         type: String,
         required: true,
         unique: true

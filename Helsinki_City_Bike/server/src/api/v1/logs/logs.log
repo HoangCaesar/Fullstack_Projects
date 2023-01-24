@@ -1,1 +1,7 @@
 22-01-2023	04:55:14-----GET /api/v1/tes ::: This route does not exist.
+24-01-2023	30:08:12-----GET /api/v1/journeylis ::: This route does not exist.
+24-01-2023	50:08:12-----GET /api/v1/journeylist ::: a is not defined
+24-01-2023	37:09:12-----GET /api/v1/journeylist ::: a is not defined
+24-01-2023	54:09:12-----GET /api/v1/journeylist ::: a is not defined
+24-01-2023	57:09:12-----GET /api/v1/journeylis ::: This route does not exist.
+24-01-2023	00:10:12-----GET /api/v1/journeylist ::: a is not defined

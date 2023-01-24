@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-/* GET home page. */
-router.use('/test', require('./testRoute'));
+/* Journey List Route */
+router.use('/journeylist', require('./journeyList.route'));
 
 module.exports = router;
