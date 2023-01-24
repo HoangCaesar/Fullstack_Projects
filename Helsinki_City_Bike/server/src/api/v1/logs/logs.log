@@ -5,3 +5,7 @@
 24-01-2023	54:09:12-----GET /api/v1/journeylist ::: a is not defined
 24-01-2023	57:09:12-----GET /api/v1/journeylis ::: This route does not exist.
 24-01-2023	00:10:12-----GET /api/v1/journeylist ::: a is not defined
+24-01-2023	16:53:12-----GET /api/v1/journeylist/?_page=2&_limit=10&_sort=mark&_order=desc ::: This route does not exist.
+24-01-2023	23:53:12-----GET /api/v1/journeylist?_page=2&_limit=10&_sort=mark&_order=desc ::: This route does not exist.
+24-01-2023	03:00:13-----GET /api/v1/journeylist ::: This route does not exist.
+24-01-2023	44:33:14-----GET /api/v1/journeylist?_month&_page=2&_limit=10&_sort=mark&_order=desc ::: findJourneyList is not a function
