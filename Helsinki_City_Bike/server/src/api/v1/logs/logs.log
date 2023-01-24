@@ -9,3 +9,6 @@
 24-01-2023	23:53:12-----GET /api/v1/journeylist?_page=2&_limit=10&_sort=mark&_order=desc ::: This route does not exist.
 24-01-2023	03:00:13-----GET /api/v1/journeylist ::: This route does not exist.
 24-01-2023	44:33:14-----GET /api/v1/journeylist?_month&_page=2&_limit=10&_sort=mark&_order=desc ::: findJourneyList is not a function
+24-01-2023	41:37:16-----GET /api/v1/journeylist?_month=5&_page&_limit&_sort=mark&_order=desc ::: May_2021JourneyList.find(...).forEach is not a function
+24-01-2023	29:07:17-----GET /api/v1/journeylist?_month=5&_page=1&_limit=10&_sort=Covered%20distance%20(m)&_order=desc ::: BSON field 'collation.locale' is missing but a required field
+24-01-2023	49:08:17-----GET /api/v1/journeylist?_month=5&_page=1&_limit=10&_sort=Covered%20distance%20(m)&_order=desc ::: Field 'locale' is invalid in: { locale: "fi_FI", numericOrdering: true }. Did you mean 'fi'?
