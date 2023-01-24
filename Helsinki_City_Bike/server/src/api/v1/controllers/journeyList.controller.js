@@ -12,9 +12,15 @@ const getAll = async (req, res, next) => {
             _sort === '' ? undefined : _sort,
             _order === '' ? undefined : _order
         );
+        const pagination = {
+            _month: _month || 5,
+            _page: _page || 1,
+            _limit: _limit || 15,
+            _totalRows: 50,
+        }
         res.json({
-            status: 'success',
             data: list,
+            pagination
         });
     } catch (error) {
         next(error);
