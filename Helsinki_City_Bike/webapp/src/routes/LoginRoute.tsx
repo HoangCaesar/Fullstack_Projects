@@ -1,11 +1,17 @@
 // project import
-import MiniLayout from '../layout/mini-layout/MiniLayout'
+import MiniLayout from '../layout/mini-layout/MiniLayout';
 
 // render - login
 
 const LoginRoute = {
     path: '/',
-    element: <MiniLayout />
+    element: <MiniLayout />,
+    children: [
+        {
+            path: '/',
+            element: <div>Hello</div>,
+        },
+    ],
 };
 
 export default LoginRoute;

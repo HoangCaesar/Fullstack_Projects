@@ -20,9 +20,9 @@ const DrawerHeader = ({ open }: { open: boolean }) => {
                 <Chip
                     label={import.meta.env.VITE_COMPANY_NAME}
                     size="small"
-                    sx={{ height: 16, '& .MuiChip-label': { fontSize: '0.625rem', py: 0.25 } }}
+                    sx={{ height: 18, '& .MuiChip-label': { fontSize: '0.625rem', py: 0.25 } }}
                     component="a"
-                    href="https://www.primapower.com/en"
+                    href="https://www.hsl.fi/kaupunkipyorat"
                     target="_blank"
                     clickable
                 />

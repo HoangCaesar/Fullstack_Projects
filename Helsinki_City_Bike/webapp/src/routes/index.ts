@@ -5,6 +5,6 @@ import MainRoute from './MainRoute';
 
 // ==============================|| ROUTES APP  ||============================== //
 
-const RoutesApp = () => useRoutes([LoginRoute, MainRoute]);
+const RoutesApp = () => useRoutes([MainRoute, LoginRoute]);
 
 export default RoutesApp;

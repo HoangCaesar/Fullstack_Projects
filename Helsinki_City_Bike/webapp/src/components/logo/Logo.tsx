@@ -8,7 +8,7 @@ import logo from '../../assets/images/logo.png';
 
 const Logo = () => {
     return (
-        <Stack direction="row" alignItems="flex-start" sx={{ width: '150px'}}>
+        <Stack direction="row" alignItems="flex-start" sx={{ width: '120px'}}>
             <img src={logo} alt="Helsinki City Bike" width="50%"/>
         </Stack>
     );

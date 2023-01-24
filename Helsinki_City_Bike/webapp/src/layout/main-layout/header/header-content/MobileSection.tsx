@@ -84,7 +84,7 @@ const MobileSection = () => {
                         <Paper sx={{ boxShadow: theme.customShadows.z1 }}>
                             <ClickAwayListener onClickAway={handleClose}>
                                 <AppBar color="inherit">
-                                    <Toolbar>
+                                    <Toolbar sx={{ justifyContent: 'flex-end' }}>
                                         <Profile />
                                     </Toolbar>
                                 </AppBar>

@@ -27,7 +27,7 @@ const Header = ({ open, handleDrawerToggle }: HeaderProps) => {
 
     // common header
     const mainHeader = (
-        <Toolbar>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between'}}>
             <IconButton
                 disableRipple
                 aria-label="open drawer"
