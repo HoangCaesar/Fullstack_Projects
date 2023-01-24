@@ -4,7 +4,6 @@ const {
     June_2021JourneyList,
     July_2021JourneyList,
 } = require('../../models/journeylist.model');
-const sortList = require('../../helpers/sortList')
 
 const findJourneyList = async (
     month = '5',
@@ -14,6 +13,8 @@ const findJourneyList = async (
     order = 'desc'
 ) => {
     const skip = (Number(page) - 1) * Number(limit);
+    const sortInfo = {};
+    sortInfo[sort] = order;
     // May
     if (month === '5') {
         if (sort === undefined) {
@@ -21,23 +22,39 @@ const findJourneyList = async (
             return list;
         } else {
             const list = await May_2021JourneyList.find({})
+                .sort(sortInfo)
                 .skip(skip)
-                .limit(Number(limit))
-            const newList = sortList(sort, order, list);
-            return newList;
+                .limit(Number(limit));
+            return list;
         }
-    } 
+    }
 
     // June
     else if (month === '6') {
-        const list = await June_2021JourneyList.find({}).skip(skip).limit(Number(limit));
-        return list;
-    } 
-    
+        if (sort === undefined) {
+            const list = await June_2021JourneyList.find({}).skip(skip).limit(Number(limit));
+            return list;
+        } else {
+            const list = await June_2021JourneyList.find({})
+                .sort(sortInfo)
+                .skip(skip)
+                .limit(Number(limit));
+            return list;
+        }
+    }
+
     // July
     else if (month === '7') {
-        const list = await July_2021JourneyList.find({}).skip(skip).limit(Number(limit));
-        return list;
+        if (sort === undefined) {
+            const list = await July_2021JourneyList.find({}).skip(skip).limit(Number(limit));
+            return list;
+        } else {
+            const list = await July_2021JourneyList.find({})
+                .sort(sortInfo)
+                .skip(skip)
+                .limit(Number(limit));
+            return list;
+        }
     }
 };
 

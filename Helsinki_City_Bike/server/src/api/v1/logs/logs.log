@@ -12,3 +12,6 @@
 24-01-2023	41:37:16-----GET /api/v1/journeylist?_month=5&_page&_limit&_sort=mark&_order=desc ::: May_2021JourneyList.find(...).forEach is not a function
 24-01-2023	29:07:17-----GET /api/v1/journeylist?_month=5&_page=1&_limit=10&_sort=Covered%20distance%20(m)&_order=desc ::: BSON field 'collation.locale' is missing but a required field
 24-01-2023	49:08:17-----GET /api/v1/journeylist?_month=5&_page=1&_limit=10&_sort=Covered%20distance%20(m)&_order=desc ::: Field 'locale' is invalid in: { locale: "fi_FI", numericOrdering: true }. Did you mean 'fi'?
+24-01-2023	37:56:17-----GET /api/v1/journeylist?_month=5&_page=1&_limit=10&_sort=Duration%20(sec&_order ::: Cannot set properties of undefined (setting ')')
+24-01-2023	01:06:19-----GET /api/v1/journeylist?_month=5&_page=1&_limit=10&_sort&_order ::: Cast to string failed for value "{ '$toDouble': '$Covered distance (m)' }" (type Object) at path "Covered distance (m)"
+24-01-2023	24:08:19-----GET /api/v1/journeylist?_month=5&_page=1&_limit=10&_sort&_order ::: Invalid update pipeline operator: "$rename"
