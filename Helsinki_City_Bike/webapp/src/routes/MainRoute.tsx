@@ -9,7 +9,11 @@ const MainRoutes = {
             path: '/',
             element: <div>Hello</div>,
         },
-    ],
+        {
+            path: '/journeylist',
+            element: <div>Hello</div>,
+        }
+    ]
 };
 
 export default MainRoutes;
