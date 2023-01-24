@@ -1,5 +1,11 @@
+import { lazy } from 'react';
+import { Loadable } from '../components';
+
 // Project import
 import MainLayout from '../layout/main-layout/MainLayout';
+
+// render
+const JourneyList = Loadable(lazy(() => import('../pages/journey-list/JourneyList')));
 
 const MainRoutes = {
     path: '/',
@@ -11,9 +17,9 @@ const MainRoutes = {
         },
         {
             path: '/journeylist',
-            element: <div>Hello</div>,
-        }
-    ]
+            element: <JourneyList />,
+        },
+    ],
 };
 
 export default MainRoutes;
