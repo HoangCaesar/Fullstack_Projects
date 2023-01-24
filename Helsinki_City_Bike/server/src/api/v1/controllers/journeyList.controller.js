@@ -1,5 +1,7 @@
+// Project import
 const findJourneyList = require('../services/journey-list/findJourneyList');
 
+// ======================================== JOURNEY LIST CONTROLLER =======================================
 const getAll = async (req, res, next) => {
     const { _month, _page, _limit, _sort, _order } = req.query;
     try {

@@ -1,10 +1,7 @@
 // Project import
-const {
-    May_2021JourneyList,
-    June_2021JourneyList,
-    July_2021JourneyList,
-} = require('../../models/journeylist.model');
+const { May_2021JourneyList, June_2021JourneyList, July_2021JourneyList } = require('../../models');
 
+// ======================================== JOURNEY LIST SERVICE =======================================
 const findJourneyList = async (
     month = '5',
     page = '1',
