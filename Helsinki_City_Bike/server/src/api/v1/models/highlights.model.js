@@ -17,10 +17,10 @@ const journeylistSchema = new Schema(
         totalRows: {
             type: Number,
         },
-        totalDuration: {
+        'totalDuration(hours)': {
             type: Number,
         },
-        totalDistance: {
+        'totalDistance(km)': {
             type: Number,
         },
         longestDuration: {

@@ -38,12 +38,13 @@ const journeylistSchema = new Schema(
             type: String,
             required: true,
         },
-        'Covered distance (m)': {
-            type: String,
+        Distance: {
+            type: Number,
             required: true,
         },
-        'Duration (sec': {
-            type: mongoose.Schema.Types.Mixed,
+        Duration: {
+            type: Number,
+            required: true,
         },
     },
     modelOptions
