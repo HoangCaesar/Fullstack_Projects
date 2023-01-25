@@ -23,3 +23,16 @@
 25-01-2023	27:51:14-----GET /api/v1/highlights/ ::: Cannot read properties of undefined (reading 'Distance')
 25-01-2023	25:02:15-----GET /api/v1/highlights/ ::: Cannot read properties of undefined (reading 'Distance')
 25-01-2023	25:23:16-----GET /api/v1/journeylist?_month&_page=1&_limit=10&_sort=Distance&_order=desc ::: totalRows is not defined
+25-01-2023	41:46:19-----GET /api/v1/highlights/ ::: Cannot read properties of null (reading 'totalRows')
+25-01-2023	25:47:19-----GET /api/v1/highlights/ ::: Cannot read properties of null (reading 'totalRows')
+25-01-2023	01:25:20-----GET /api/blogs ::: This route does not exist.
+25-01-2023	52:25:20-----GET /api/blogs ::: This route does not exist.
+25-01-2023	30:26:20-----GET /api/blogs ::: This route does not exist.
+25-01-2023	39:29:20-----GET /api/blogs ::: This route does not exist.
+25-01-2023	41:30:20-----GET /api/blogs ::: This route does not exist.
+25-01-2023	26:31:20-----GET /api/blogs ::: This route does not exist.
+25-01-2023	00:34:20-----GET /api/blogs ::: This route does not exist.
+25-01-2023	22:34:20-----GET /api/blogs ::: This route does not exist.
+25-01-2023	35:36:20-----GET /api/blogs ::: This route does not exist.
+25-01-2023	11:37:20-----GET /api/blogs ::: This route does not exist.
+25-01-2023	25:37:20-----GET /api/blogs ::: This route does not exist.

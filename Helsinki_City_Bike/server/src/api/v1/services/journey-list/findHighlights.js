@@ -22,7 +22,7 @@ const findHighlights = async () => {
         });
 
     // Check total number of rows, if it changes => update highlights collection.
-    if (highlightsDocumentInMay.totalRows !== totalRowsInMay) {
+    if (highlightsDocumentInMay?.totalRows !== totalRowsInMay) {
         await May_2021Highlights.deleteMany({});
         const totalDurationAndDistanceInMay = await May_2021JourneyList.aggregate([
             {
