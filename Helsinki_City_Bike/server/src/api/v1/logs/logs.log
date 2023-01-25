@@ -22,3 +22,4 @@
 25-01-2023	58:45:14-----GET /api/v1/highlights/ ::: May_2021JourneyList.find(...).sort(...).limit(...).toArray is not a function
 25-01-2023	27:51:14-----GET /api/v1/highlights/ ::: Cannot read properties of undefined (reading 'Distance')
 25-01-2023	25:02:15-----GET /api/v1/highlights/ ::: Cannot read properties of undefined (reading 'Distance')
+25-01-2023	25:23:16-----GET /api/v1/journeylist?_month&_page=1&_limit=10&_sort=Distance&_order=desc ::: totalRows is not defined

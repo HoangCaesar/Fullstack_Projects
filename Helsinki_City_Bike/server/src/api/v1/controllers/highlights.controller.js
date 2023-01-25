@@ -1,5 +1,5 @@
 // Project import
-const findHighlights = require('../services/journey-list/findHighlights');
+const { findHighlights } = require('../services');
 
 // ======================================== JOURNEY LIST CONTROLLER =======================================
 const getHighlights = async (req, res, next) => {

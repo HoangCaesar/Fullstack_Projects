@@ -1,5 +1,5 @@
 // Project import
-const findJourneyList = require('../services/journey-list/findJourneyList');
+const { findJourneyList, findTotalRows } = require('../services');
 
 // ======================================== JOURNEY LIST CONTROLLER =======================================
 const getAll = async (req, res, next) => {
@@ -12,15 +12,18 @@ const getAll = async (req, res, next) => {
             _sort === '' ? undefined : _sort,
             _order === '' ? undefined : _order
         );
+        
+        const totalRows = await findTotalRows(_month === '' ? undefined : _month);
+
         const pagination = {
             _month: _month || 5,
             _page: _page || 1,
             _limit: _limit || 15,
-            _totalRows: 50,
-        }
+            _totalRows: totalRows,
+        };
         res.json({
             data: list,
-            pagination
+            pagination,
         });
     } catch (error) {
         next(error);
