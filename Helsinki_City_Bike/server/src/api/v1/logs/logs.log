@@ -15,3 +15,5 @@
 24-01-2023	37:56:17-----GET /api/v1/journeylist?_month=5&_page=1&_limit=10&_sort=Duration%20(sec&_order ::: Cannot set properties of undefined (setting ')')
 24-01-2023	01:06:19-----GET /api/v1/journeylist?_month=5&_page=1&_limit=10&_sort&_order ::: Cast to string failed for value "{ '$toDouble': '$Covered distance (m)' }" (type Object) at path "Covered distance (m)"
 24-01-2023	24:08:19-----GET /api/v1/journeylist?_month=5&_page=1&_limit=10&_sort&_order ::: Invalid update pipeline operator: "$rename"
+25-01-2023	34:51:13-----GET /api/v1/highlights/ ::: Query was already executed: journey_list.estimatedDocumentCount()
+25-01-2023	05:56:13-----GET /api/v1/highlights/ ::: Query was already executed: journey_list.estimatedDocumentCount()
