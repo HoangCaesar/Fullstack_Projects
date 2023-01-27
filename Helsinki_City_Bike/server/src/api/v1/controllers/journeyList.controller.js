@@ -17,8 +17,8 @@ const getAll = async (req, res, next) => {
 
         const pagination = {
             _month: _month || 5,
-            _page: _page || 1,
-            _limit: _limit || 15,
+            _page: Number(_page) || 1,
+            _limit: _limit || 10,
             _totalRows: totalRows,
         };
         res.json({

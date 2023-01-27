@@ -19,6 +19,7 @@ import TableRow from '@mui/material/TableRow';
 // Project import
 import { Journey } from '../../models';
 import { capitalizeString, getDistanceColor, getDurationColor } from '../../utils/common';
+import convertTime from '../../utils/convertTime';
 
 const StyledButton = styled(Button)`
     margin-right: 8px;
@@ -32,7 +33,7 @@ function JourneyTable({ journeyList }: JourneyTableProps) {
     //  ****************************
 
     return (
-        <Box>
+        <Box sx={{ width: '100%' }}>
             {/* {Journey Table} */}
             <TableContainer component={Paper}>
                 <Table aria-label="simple table" size="small">
@@ -44,21 +45,21 @@ function JourneyTable({ journeyList }: JourneyTableProps) {
                             <TableCell>Departure station Id</TableCell>
                             <TableCell>Return Station</TableCell>
                             <TableCell>Return station Id</TableCell>
-                            <TableCell>Distance</TableCell>
-                            <TableCell>Duration</TableCell>
+                            <TableCell>Distance (m)</TableCell>
+                            <TableCell>Duration (s)</TableCell>
                         </TableRow>
                     </TableHead>
 
                     <TableBody>
-                        {journeyList.map((journey, index) => (
+                        {journeyList.map((journey) => (
                             <TableRow
                                 key={`${journey['Departure station id']}${
                                     journey['Return station id']
                                 }${journey['Distance'] + journey['Duration']}}`}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
-                                <TableCell>{journey['Departure']}</TableCell>
-                                <TableCell>{journey['Return']}</TableCell>
+                                <TableCell>{convertTime(journey['Departure'])}</TableCell>
+                                <TableCell>{convertTime(journey['Return'])}</TableCell>
                                 <TableCell>
                                     {capitalizeString(journey['Departure station name'])}
                                 </TableCell>

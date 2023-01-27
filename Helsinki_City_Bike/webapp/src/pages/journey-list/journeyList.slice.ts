@@ -17,7 +17,7 @@ const initialState: JourneyState = {
     filter: {},
     pagination: {
         _month: 5,
-        _limit: 15,
+        _limit: 10,
         _page: 1,
         _totalRows: 1,
     },
