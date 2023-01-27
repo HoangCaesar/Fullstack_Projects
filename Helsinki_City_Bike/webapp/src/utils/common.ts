@@ -6,16 +6,28 @@ const capitalizeString = (str: string) => {
     }
 };
 
-const getMarkColor = (mark: number): string => {
-    if (mark >= 8) {
+const getDistanceColor = (distance: number): string => {
+    if (distance >= 2500) {
         return `blue`;
-    } else if (mark < 8 && mark > 6.5) {
+    } else if (distance < 2500 && distance > 1500) {
         return `green`;
-    } else if (mark < 6.5 && mark > 5) {
+    } else if (distance < 1500 && distance > 500) {
         return `orange`;
     } else {
         return `red`;
     }
 };
 
-export { capitalizeString, getMarkColor };
+const getDurationColor = (duration: number): string => {
+    if (duration >= 1000) {
+        return `blue`;
+    } else if (duration < 1000 && duration > 800) {
+        return `green`;
+    } else if (duration < 800 && duration > 500) {
+        return `orange`;
+    } else {
+        return `red`;
+    }
+};
+
+export { capitalizeString, getDistanceColor, getDurationColor };
