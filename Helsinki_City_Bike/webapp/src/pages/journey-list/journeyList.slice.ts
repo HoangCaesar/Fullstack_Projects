@@ -43,7 +43,9 @@ const journeySlice = createSlice({
         setFilter(state, action: PayloadAction<ListParams>) {
             state.filter = action.payload;
         },
-        setFilterWithDebounce(state, action: PayloadAction<ListParams>) {},
+        setFilterWithDebounce(state, action: PayloadAction<ListParams>) {
+            // do nothing
+        },
     },
 });
 

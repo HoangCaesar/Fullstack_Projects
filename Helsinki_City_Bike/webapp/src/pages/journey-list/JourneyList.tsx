@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import { Box, Button, LinearProgress, Pagination, Typography } from '@mui/material';
+import { ListParams } from '../../models';
 
 // Project import
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -11,7 +12,7 @@ import {
     selectJourneyPagination,
     selectJourneyLoading,
 } from './journeyList.slice';
-import { JourneyTable } from '../../components';
+import { JourneyTable, JourneyFilter } from '../../components';
 
 // Styled component
 const StyledLinearProgress = styled(LinearProgress)`
@@ -53,10 +54,29 @@ const JourneyList = () => {
             })
         );
     };
+
+    // Search/Filter Logic
+    const handleSearchChange = (newFilter: ListParams) => {
+        dispatch(journeyActions.setFilterWithDebounce(newFilter));
+    };
+
+    const handleFilterChange = (newFilter: ListParams) => {
+        dispatch(journeyActions.setFilter(newFilter));
+    };
     return (
         <StyledChildBox>
             {/* Loading */}
             {loading && <StyledLinearProgress />}
+
+            {/* {Search/Filter} */}
+            <Box mb={3}>
+                {/* Filter */}
+                <JourneyFilter
+                    filter={filter}
+                    onSearchChange={handleSearchChange}
+                    onChange={handleFilterChange}
+                />
+            </Box>
 
             {/* Journey Table */}
             <JourneyTable journeyList={journeyList} />

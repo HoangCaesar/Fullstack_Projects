@@ -6,3 +6,4 @@ export { default as LogoSection } from './logo/LogoSection';
 export { default as SimpleBar } from './third-party/SimpleBar';
 export { default as Breadcrumbs } from './extended/Breadcrumbs';
 export { default as JourneyTable } from './journey-list/JourneyTable';
+export { default as JourneyFilter } from './journey-list/JourneyFilter';
