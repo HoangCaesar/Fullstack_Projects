@@ -1,11 +1,11 @@
 import { ListParams, ListResponse, Journey } from '../models';
 import axiosClient from './axiosClient';
 
-const studentApi = {
+const journeyListApi = {
     getAll(params: ListParams): Promise<ListResponse<Journey>> {
-        const url = '/students';
+        const url = '/journeylist';
         return axiosClient.get(url, { params });
     },
 };
 
-export default studentApi;
+export default journeyListApi;
