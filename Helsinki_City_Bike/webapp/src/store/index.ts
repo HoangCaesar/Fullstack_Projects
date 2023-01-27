@@ -4,12 +4,14 @@ import rootSaga from './rootSaga';
 
 // project import
 import drawerReducers from './reducers';
+import journeyReducer from '../pages/journey-list/journeyList.slice';
 
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
     reducer: {
         drawer: drawerReducers,
+        journey: journeyReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 });

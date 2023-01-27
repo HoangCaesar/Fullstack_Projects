@@ -10,7 +10,7 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    Typography
+    Typography,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
