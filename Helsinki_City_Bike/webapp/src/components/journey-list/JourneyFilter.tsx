@@ -35,7 +35,19 @@ const JourneyFilter = ({ filter, onChange, onSearchChange }: JourneyFilterProps)
         onSearchChange(newFilter);
     };
 
-    const handleSortChange = (e: SelectChangeEvent<{ name?: string; value?: string }>) => {
+    const handleMonthChange = (e: SelectChangeEvent<{ name: string; value: string }>) => {
+        if (!onChange) return;
+
+        const newFilter: ListParams = {
+            ...filter,
+            _month: (e.target.value as any) || undefined,
+            _page: 1,
+        };
+
+        onChange(newFilter);
+    };
+
+    const handleSortChange = (e: SelectChangeEvent<{ name?: string; value?: number }>) => {
         if (!onChange) return;
 
         const value = e.target.value;
@@ -82,6 +94,25 @@ const JourneyFilter = ({ filter, onChange, onSearchChange }: JourneyFilterProps)
                             onChange={handleSearchChange}
                             inputRef={searchRef}
                         />
+                    </FormControl>
+                </Grid>
+                <Grid item xs={12} md={6} lg={3} mt={1}>
+                    <FormControl fullWidth variant="standard" size="small">
+                        <InputLabel id="filterByMonth">Filter by month</InputLabel>
+                        <Select
+                            labelId="filterByMonth"
+                            id="demo-simple-select"
+                            value={(filter._month as any) || ''}
+                            label="Filter by month"
+                            onChange={handleMonthChange}
+                        >
+                            <MenuItem value="">
+                                <em>All</em>
+                            </MenuItem>
+                            <MenuItem value={5}>May</MenuItem>
+                            <MenuItem value={6}>June</MenuItem>
+                            <MenuItem value={7}>July</MenuItem>
+                        </Select>
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} md={6} lg={2} mt={1}>
