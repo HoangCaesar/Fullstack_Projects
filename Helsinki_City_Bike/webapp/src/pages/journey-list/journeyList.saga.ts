@@ -1,5 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { call, delay, put, takeLatest } from 'redux-saga/effects';
+import { call, debounce, delay, put, takeLatest } from 'redux-saga/effects';
 
 // Project Import
 import journeyListApi from '../../api/journeyList.api';
@@ -19,8 +19,13 @@ function* fetchJourneyList(action: PayloadAction<ListParams>) {
     }
 }
 
+function* handleSearchDebounce(action: PayloadAction<ListParams>) {
+    yield put(journeyActions.setFilter(action.payload));
+}
+
 function* journeyListSaga() {
     yield takeLatest(journeyActions.fetchJourneyList, fetchJourneyList);
+    yield debounce(1000, journeyActions.setFilterWithDebounce.type, handleSearchDebounce);
 }
 
 export default journeyListSaga;

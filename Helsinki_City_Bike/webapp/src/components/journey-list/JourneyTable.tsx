@@ -30,7 +30,7 @@ export interface JourneyTableProps {
 }
 
 function JourneyTable({ journeyList }: JourneyTableProps) {
-    //  ****************************
+    const randomKey = Math.random();
 
     return (
         <Box sx={{ width: '100%' }}>
@@ -55,7 +55,7 @@ function JourneyTable({ journeyList }: JourneyTableProps) {
                             <TableRow
                                 key={`${journey['Departure station id']}${
                                     journey['Return station id']
-                                }${journey['Distance'] + journey['Duration']}}`}
+                                }${journey['Distance'] + journey['Duration'] * randomKey}}`}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell>{convertTime(journey['Departure'])}</TableCell>

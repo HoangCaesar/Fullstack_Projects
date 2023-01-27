@@ -45,6 +45,7 @@ const JourneyList = () => {
     useEffect(() => {
         dispatch(journeyActions.fetchJourneyList(filter));
     }, [dispatch, filter]);
+    console.log(journeyList.length);
 
     const handlePageChange = (e: any, page: number) => {
         dispatch(

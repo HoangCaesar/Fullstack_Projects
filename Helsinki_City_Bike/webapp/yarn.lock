@@ -1336,6 +1336,11 @@ proxy-from-env@^1.1.0:
   resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
   integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
 
+random-key-generator@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/random-key-generator/-/random-key-generator-1.2.3.tgz#00c370d1f2f5f334a15f8e13f0b19c80874d227b"
+  integrity sha512-l+YVnXO+gSgno/J1VfiapQRRzMG4ChH//9zKLcQRa1LD7ApEGOevR4N/k4RTljjx0/W0OMC0TN0dHETFuFvPYg==
+
 rc-util@^5.9.4:
   version "5.27.1"
   resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-5.27.1.tgz#d12f02b9577b04299c0f1a235c8acbcf56e2824b"

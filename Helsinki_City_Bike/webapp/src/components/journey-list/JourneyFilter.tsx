@@ -73,9 +73,11 @@ const JourneyFilter = ({ filter, onChange, onSearchChange }: JourneyFilterProps)
             <Grid container spacing={3}>
                 <Grid item xs={12} md={6}>
                     <FormControl fullWidth variant="standard" sx={{ m: 1 }} size="small">
-                        <InputLabel htmlFor="searchByName">Search by name</InputLabel>
+                        <InputLabel htmlFor="searchByStationName">
+                            Search by station name
+                        </InputLabel>
                         <Input
-                            id="searchByName"
+                            id="searchByStationName"
                             endAdornment={<Search />}
                             onChange={handleSearchChange}
                             inputRef={searchRef}
@@ -96,10 +98,14 @@ const JourneyFilter = ({ filter, onChange, onSearchChange }: JourneyFilterProps)
                                 <em>No Sort</em>
                             </MenuItem>
 
-                            <MenuItem value="name.asc">Name ASC</MenuItem>
-                            <MenuItem value="name.desc">Name DESC</MenuItem>
-                            <MenuItem value="mark.asc">Mark ASC</MenuItem>
-                            <MenuItem value="mark.desc">Mark DESC</MenuItem>
+                            <MenuItem value="Departure.asc">Departure Time ASC</MenuItem>
+                            <MenuItem value="Departure.desc">Departure Time DESC</MenuItem>
+                            <MenuItem value="Return.asc">Return Time ASC</MenuItem>
+                            <MenuItem value="Return.desc">Return Time DESC</MenuItem>
+                            <MenuItem value="Distance.asc">Distance ASC</MenuItem>
+                            <MenuItem value="Distance.desc">Distance DESC</MenuItem>
+                            <MenuItem value="Duration.asc">Duration ASC</MenuItem>
+                            <MenuItem value="Duration.desc">Duration DESC</MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>

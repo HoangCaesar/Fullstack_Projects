@@ -14,7 +14,11 @@ export interface JourneyState {
 const initialState: JourneyState = {
     loading: false,
     list: [],
-    filter: {},
+    filter: {
+        _month: 5,
+        _limit: 10,
+        _page: 1,
+    },
     pagination: {
         _month: 5,
         _limit: 10,
