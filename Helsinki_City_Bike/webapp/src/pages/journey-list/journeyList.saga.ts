@@ -6,7 +6,7 @@ import journeyListApi from '../../api/journeyList.api';
 import { Journey, ListParams, ListResponse } from './../../models';
 import { journeyActions } from './journeyList.slice';
 
-// ==============================|| JOURNEY LIST SLICE  ||============================== //
+// ==============================|| JOURNEY LIST SAGA  ||============================== //
 
 function* fetchJourneyList(action: PayloadAction<ListParams>) {
     try {
