@@ -13,15 +13,30 @@ const getAll = async (req, res, next) => {
             _order === '' ? undefined : _order,
             name_like
         );
-        
-        const totalRows = await findTotalRows(_month === '' ? undefined : _month);
+        let pagination;
 
-        const pagination = {
-            _month: _month || 5,
-            _page: Number(_page) || 1,
-            _limit: _limit || 10,
-            _totalRows: totalRows,
-        };
+        if (!name_like) {
+            const totalRows = await findTotalRows.findTotalRowsWithoutName_Like(
+                _month === '' ? undefined : _month
+            );
+            pagination = {
+                _month: _month || 5,
+                _page: Number(_page) || 1,
+                _limit: _limit || 10,
+                _totalRows: totalRows,
+            };
+        } else {
+            const totalRows = await findTotalRows.findTotalRowsWithName_Like(
+                _month === '' ? undefined : _month,
+                name_like
+            );
+            pagination = {
+                _month: _month || 5,
+                _page: Number(_page) || 1,
+                _limit: _limit || 10,
+                _totalRows: totalRows,
+            };
+        }
         res.json({
             data: list,
             pagination,
@@ -34,4 +49,3 @@ const getAll = async (req, res, next) => {
 module.exports = {
     getAll,
 };
-
