@@ -1,6 +1,6 @@
 import createSagaMiddleware from '@redux-saga/core';
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
-import rootSaga from './rootSaga';
+import rootSaga from './root.saga';
 
 // project import
 import drawerReducers from './reducers';
