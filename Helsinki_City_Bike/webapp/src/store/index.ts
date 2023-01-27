@@ -6,6 +6,8 @@ import rootSaga from './root.saga';
 import drawerReducers from './reducers';
 import journeyReducer from '../pages/journey-list/journeyList.slice';
 
+// ==============================|| APP STORE - COMBINE ALL REDUCERS  ||============================== //
+
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({

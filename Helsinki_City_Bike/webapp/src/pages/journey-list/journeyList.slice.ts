@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 import { ListParams, ListResponse, PaginationParams, Journey } from '../../models';
 
+// ==============================|| JOURNEY LIST SLICE  ||============================== //
+
 export interface JourneyState {
     loading?: boolean;
     list: Journey[];
