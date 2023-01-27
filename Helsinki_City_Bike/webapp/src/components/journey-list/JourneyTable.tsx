@@ -15,6 +15,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import cryptoRandomString from 'crypto-random-string';
 
 // Project import
 import { Journey } from '../../models';
@@ -30,7 +31,7 @@ export interface JourneyTableProps {
 }
 
 function JourneyTable({ journeyList }: JourneyTableProps) {
-    const randomKey = Math.random();
+    const randomKey = cryptoRandomString({ length: 10 });
 
     return (
         <Box sx={{ width: '100%' }}>
@@ -53,9 +54,7 @@ function JourneyTable({ journeyList }: JourneyTableProps) {
                     <TableBody>
                         {journeyList.map((journey) => (
                             <TableRow
-                                key={`${journey['Departure station id']}${
-                                    journey['Return station id']
-                                }${journey['Distance'] + journey['Duration'] * randomKey}}`}
+                                key={randomKey}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell>{convertTime(journey['Departure'])}</TableCell>
