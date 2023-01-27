@@ -37,3 +37,4 @@
 25-01-2023	11:37:20-----GET /api/blogs ::: This route does not exist.
 25-01-2023	25:37:20-----GET /api/blogs ::: This route does not exist.
 27-01-2023	21:07:17-----GET /api/v1/journeylist?_month=6&_page=1&_limit=15&_sort=Distance&_order=desc&name_like=Kalas ::: text index required for $text query
+27-01-2023	30:35:18-----GET /favicon.ico ::: This route does not exist.

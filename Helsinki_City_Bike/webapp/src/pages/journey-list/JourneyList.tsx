@@ -69,7 +69,7 @@ const JourneyList = () => {
             {loading && <StyledLinearProgress />}
 
             {/* {Search/Filter} */}
-            <Box mb={3}>
+            <Box mb={3} sx={{ width: '100%' }}>
                 {/* Filter */}
                 <JourneyFilter
                     filter={filter}
