@@ -1,11 +1,11 @@
-import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 
 // material-ui
-import { Grid, LinearProgress, Typography, useTheme } from '@mui/material';
+import { Box, Grid, LinearProgress, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 // project import
-import { AnalyticTotal } from '../../components';
+import { AnalyticTotal, MainCard, MonthAreaChart } from '../../components';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
     highlightsActions,
@@ -60,8 +60,9 @@ const DashboardDefault = () => {
     const error = theme.palette.error.main;
     const warning = theme.palette.warning.main;
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         dispatch(highlightsActions.fetchHighlightsList());
+        console.log(1);
     }, [dispatch]);
 
     return (
@@ -91,8 +92,16 @@ const DashboardDefault = () => {
             <Grid item xs={12} sm={6} md={4} lg={3}>
                 <AnalyticTotal
                     title={`Total Using Time In 3 Months (hour)`}
-                    count={calculateTotalDuration(highlightsList)}
-                    days={hourToDay(calculateTotalDuration(highlightsList))}
+                    count={
+                        highlightsList.length !== 0
+                            ? calculateTotalDuration(highlightsList)
+                            : undefined
+                    }
+                    days={
+                        highlightsList.length !== 0
+                            ? hourToDay(calculateTotalDuration(highlightsList))
+                            : undefined
+                    }
                     color="error"
                 />
             </Grid>
@@ -107,8 +116,22 @@ const DashboardDefault = () => {
             <Grid item md={8} sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} />
 
             {/* row 2 */}
-            <Grid item xs={12} md={7} lg={8}></Grid>
-            <Grid item xs={12} md={5} lg={4}></Grid>
+            <Grid item xs={12} md={7} lg={8}>
+                <Grid container alignItems="center" justifyContent="space-between">
+                    <Grid item>
+                        <Typography variant="h5">Total Using Distance In 3 Months (Km)</Typography>
+                    </Grid>
+                </Grid>
+                <MainCard content={false} sx={{ mt: 1.5 }}>
+                    <Box sx={{ pt: 1, pr: 2 }}>
+                        <MonthAreaChart
+                            distanceInMay={highlightsList[0]['totalDistance(km)']}
+                            distanceInJune={highlightsList[1]['totalDistance(km)']}
+                            distanceInJuly={highlightsList[2]['totalDistance(km)']}
+                        />
+                    </Box>
+                </MainCard>
+            </Grid>
 
             {/* row 3 */}
             <Grid item xs={12} md={7} lg={8}></Grid>
