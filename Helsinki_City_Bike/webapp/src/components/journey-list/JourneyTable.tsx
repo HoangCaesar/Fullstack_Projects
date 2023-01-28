@@ -31,9 +31,6 @@ export interface JourneyTableProps {
 }
 
 function JourneyTable({ journeyList }: JourneyTableProps) {
-    const randomKey1st = cryptoRandomString({ length: 20 });
-    const randomKey2d = cryptoRandomString({ length: 20 });
-
     return (
         <Box sx={{ width: '100%' }}>
             {/* {Journey Table} */}
@@ -55,7 +52,7 @@ function JourneyTable({ journeyList }: JourneyTableProps) {
                     <TableBody>
                         {journeyList.map((journey) => (
                             <TableRow
-                                key={`${randomKey1st} ${journey['Distance'] + journey['Duration']} ${randomKey2d}`}
+                                key={`${cryptoRandomString({ length: 10 })}`}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell>{convertTime(journey['Departure'])}</TableCell>

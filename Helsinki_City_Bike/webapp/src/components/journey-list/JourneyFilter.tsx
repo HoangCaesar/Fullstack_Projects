@@ -66,11 +66,12 @@ const JourneyFilter = ({ filter, onChange, onSearchChange }: JourneyFilterProps)
 
         const newFilter: ListParams = {
             ...filter,
+            _month: 5,
             _page: 1,
-            name_like: undefined,
             city: undefined,
             _sort: undefined,
             _order: undefined,
+            name_like: undefined,
         };
 
         onChange(newFilter);
