@@ -21,18 +21,25 @@ import {
 
 // project import
 import { AnalyticTotal, MainCard } from '../../components';
-
-// api
-import highlightsApi from '../../api/highlight.api';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { selectHighlightsList, selectHighlightsLoading,highlightsActions } from './dashboard.slice';
 
 // models
 
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
 const DashboardDefault = () => {
+    const dispatch = useAppDispatch();
+    const highlightsList = useAppSelector(selectHighlightsList);
+    const loading = useAppSelector(selectHighlightsLoading);
+
     const theme = useTheme();
     const error = theme.palette.error.main;
     const warning = theme.palette.warning.main;
+
+    useEffect(() => {
+        dispatch(highlightsActions.fetchHighlightsList());
+    }, [dispatch]);
 
     return (
         <Grid container rowSpacing={4.5} columnSpacing={2.75}>
