@@ -62,7 +62,6 @@ const DashboardDefault = () => {
 
     useEffect(() => {
         dispatch(highlightsActions.fetchHighlightsList());
-        console.log(1);
     }, [dispatch]);
 
     return (
@@ -125,9 +124,9 @@ const DashboardDefault = () => {
                 <MainCard content={false} sx={{ mt: 1.5 }}>
                     <Box sx={{ pt: 1, pr: 2 }}>
                         <MonthAreaChart
-                            distanceInMay={highlightsList[0]['totalDistance(km)']}
-                            distanceInJune={highlightsList[1]['totalDistance(km)']}
-                            distanceInJuly={highlightsList[2]['totalDistance(km)']}
+                            distanceInMay={highlightsList[0]?.['totalDistance(km)']}
+                            distanceInJune={highlightsList[1]?.['totalDistance(km)']}
+                            distanceInJuly={highlightsList[2]?.['totalDistance(km)']}
                         />
                     </Box>
                 </MainCard>

@@ -33,9 +33,9 @@ const areaChartOptions = {
 // ==============================|| INCOME AREA CHART ||============================== //
 
 interface IncomeAreaChartProps {
-    distanceInMay: number;
-    distanceInJune: number;
-    distanceInJuly: number;
+    distanceInMay?: number;
+    distanceInJune?: number;
+    distanceInJuly?: number;
 }
 
 const IncomeAreaChart = ({
@@ -96,7 +96,7 @@ const IncomeAreaChart = ({
                 data: [distanceInMay || 0, distanceInJune || 0, distanceInJuly || 0],
             },
         ]);
-    }, []);
+    }, [distanceInMay, distanceInJune, distanceInJuly]);
 
     return <ReactApexChart options={options} series={series} type="area" height={450} />;
 };
