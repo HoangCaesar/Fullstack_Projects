@@ -1,3 +1,4 @@
+// journey
 export interface PaginationParams {
   _month: number;
   _limit: number;
@@ -18,4 +19,10 @@ export interface ListParams {
   _order?: 'asc' | 'desc';
 
   [key: string]: any
+}
+
+// highlights
+export interface HighlightsResponse<T> {
+    status: string;
+    data: T[];
 }
