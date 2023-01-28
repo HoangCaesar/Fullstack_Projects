@@ -20,6 +20,8 @@ export interface JourneyFilterProps {
     onSearchChange?: (newFilter: ListParams) => void;
 }
 
+// ==============================|| JOURNEY FILTER - SEARCH/FILTER LIST ||============================== //
+
 const JourneyFilter = ({ filter, onChange, onSearchChange }: JourneyFilterProps) => {
     const searchRef = useRef<HTMLInputElement>();
 

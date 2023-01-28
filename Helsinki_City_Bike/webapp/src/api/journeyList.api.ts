@@ -1,6 +1,8 @@
 import { ListParams, ListResponse, Journey } from '../models';
 import axiosClient from './axiosClient';
 
+// ==============================|| JOURNEY AXIOS - GET ALL ||============================== //
+
 const journeyListApi = {
     getAll(params: ListParams): Promise<ListResponse<Journey>> {
         const url = '/journeylist';

@@ -30,6 +30,8 @@ export interface JourneyTableProps {
     journeyList: Journey[];
 }
 
+// ==============================|| JOURNEY LIST TABLE - LIST ALL JOURNEYS ||============================== //
+
 function JourneyTable({ journeyList }: JourneyTableProps) {
     return (
         <Box sx={{ width: '100%' }}>
