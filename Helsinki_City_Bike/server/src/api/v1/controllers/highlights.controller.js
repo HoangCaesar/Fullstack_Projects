@@ -1,13 +1,15 @@
 // Project import
-const { findHighlights } = require('../services');
+const { calculateHighlights, findHighlights } = require('../services');
 
 // ======================================== JOURNEY LIST CONTROLLER =======================================
 const getHighlights = async (req, res, next) => {
     try {
-        await findHighlights();
+        await calculateHighlights();
+        const data = await findHighlights();
+        
         res.json({
             status: 'success',
-            data: [1, 2, 3],
+            data,
         });
     } catch (error) {
         next(error);

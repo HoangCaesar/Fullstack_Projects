@@ -6,6 +6,7 @@ import MainLayout from '../layout/main-layout/MainLayout';
 
 // render
 const JourneyList = Loadable(lazy(() => import('../pages/journey-list/JourneyList')));
+const DashBoard = Loadable(lazy(() => import('../pages/dashboard/DashBoard')));
 
 // ==============================|| MAIN ROUTE  ||============================== //
 
@@ -15,7 +16,11 @@ const MainRoutes = {
     children: [
         {
             path: '/',
-            element: <div>Hello</div>,
+            element: <DashBoard />,
+        },
+        {
+            path: '/dashboard/default',
+            element: <DashBoard />,
         },
         {
             path: '/journeylist',

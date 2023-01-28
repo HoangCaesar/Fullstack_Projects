@@ -9,7 +9,7 @@ const {
 } = require('../../models');
 
 // ======================================== HIGHLIGHT SERVICE =======================================
-const findHighlights = async () => {
+const calculate = async () => {
     // May
     const highlightsDocumentInMay = await May_2021Highlights.findOne();
 
@@ -239,4 +239,15 @@ const findHighlights = async () => {
     }
 };
 
-module.exports = findHighlights;
+const find = async () => {
+    const highlightsInMay = await May_2021Highlights.find({});
+    const highlightsInJune = await June_2021Highlights.find({});
+    const highlightsInJuly = await July_2021Highlights.find({});
+
+    return [highlightsInMay, highlightsInJune, highlightsInJuly];
+};
+
+module.exports = {
+    calculate,
+    find,
+};
