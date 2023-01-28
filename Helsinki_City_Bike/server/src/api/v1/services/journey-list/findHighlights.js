@@ -244,7 +244,7 @@ const find = async () => {
     const highlightsInJune = await June_2021Highlights.find({});
     const highlightsInJuly = await July_2021Highlights.find({});
 
-    return [highlightsInMay, highlightsInJune, highlightsInJuly];
+    return [...highlightsInMay, ...highlightsInJune, ...highlightsInJuly];
 };
 
 module.exports = {

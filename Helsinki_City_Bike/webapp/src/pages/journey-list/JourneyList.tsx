@@ -1,18 +1,16 @@
-import { useEffect } from 'react';
+import { Box, LinearProgress, Pagination } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { Box, Button, LinearProgress, Pagination, Typography } from '@mui/material';
+import { useEffect } from 'react';
 import { ListParams } from '../../models';
 
 // Project import
+import { JourneyFilter, JourneyTable } from '../../components';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
     journeyActions,
     selectJourneyFilter,
-    selectJourneyList,
-    selectJourneyPagination,
-    selectJourneyLoading,
+    selectJourneyList, selectJourneyLoading, selectJourneyPagination
 } from './journeyList.slice';
-import { JourneyTable, JourneyFilter } from '../../components';
 
 // Styled component
 const StyledLinearProgress = styled(LinearProgress)`
@@ -34,7 +32,7 @@ const StyledChildBox = styled(Box)`
 
 const JourneyList = () => {
     const dispatch = useAppDispatch();
-
+    
     const journeyList = useAppSelector(selectJourneyList);
     const filter = useAppSelector(selectJourneyFilter);
     const pagination = useAppSelector(selectJourneyPagination);
