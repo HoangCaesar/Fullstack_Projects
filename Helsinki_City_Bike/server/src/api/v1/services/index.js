@@ -5,4 +5,6 @@ module.exports = {
     findHighlights: require('./journey-list/findHighlights').find,
     findTotalRows: require('./journey-list/findTotalRows'),
     // Station List
+    findStationlist: require('./station-list/findStationlist'),
+
 }
