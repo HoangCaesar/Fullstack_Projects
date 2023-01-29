@@ -15,6 +15,7 @@ import {
 
 // models
 import { Highlight } from '../../models';
+import AverageBarChart from '../../components/dashboard-charts/AverageBarChart';
 
 // Styled component
 const StyledLinearProgress = styled(LinearProgress)`
@@ -143,9 +144,7 @@ const DashboardDefault = () => {
                             <Typography variant="h6" color="textSecondary">
                                 Total per month / total 3 months
                             </Typography>
-                            <Typography variant="h3">
-                                Year: 2021
-                            </Typography>
+                            <Typography variant="h3">Year: 2021</Typography>
                         </Stack>
                     </Box>
                     <DurationPieChart
@@ -157,8 +156,16 @@ const DashboardDefault = () => {
             </Grid>
 
             {/* row 3 */}
-            <Grid item xs={12} md={7} lg={8}></Grid>
-            <Grid item xs={12} md={5} lg={4}></Grid>
+            <Grid item xs={12} md={12} lg={12}>
+                <Grid container alignItems="center" justifyContent="space-between">
+                    <Grid item>
+                        <Typography variant="h5">Average Duration/Distance Per A Single Journey</Typography>
+                    </Grid>
+                </Grid>
+                <MainCard sx={{ mt: 1.75 }}>
+                    <AverageBarChart infoList={highlightsList} />
+                </MainCard>
+            </Grid>
         </Grid>
     );
 };
