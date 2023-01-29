@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import PropTypes from 'prop-types';
 
 // material-ui
@@ -71,4 +72,4 @@ AnalyticEcommerce.defaultProps = {
     color: 'primary',
 };
 
-export default AnalyticEcommerce;
+export default memo(AnalyticEcommerce);
