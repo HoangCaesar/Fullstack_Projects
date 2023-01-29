@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
 // material-ui
-import { Box, Grid, LinearProgress, Typography, useTheme } from '@mui/material';
+import { Box, Grid, LinearProgress, Stack, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 // project import
-import { AnalyticTotal, MainCard, MonthAreaChart } from '../../components';
+import { AnalyticTotal, MainCard, MonthAreaChart, DurationPieChart } from '../../components';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
     highlightsActions,
@@ -129,6 +129,30 @@ const DashboardDefault = () => {
                             distanceInJuly={highlightsList[2]?.['totalDistance(km)']}
                         />
                     </Box>
+                </MainCard>
+            </Grid>
+            <Grid item xs={12} md={5} lg={4}>
+                <Grid container alignItems="center" justifyContent="space-between">
+                    <Grid item>
+                        <Typography variant="h5">Total Using Time Every Month (hour)</Typography>
+                    </Grid>
+                </Grid>
+                <MainCard sx={{ mt: 2 }} content={false}>
+                    <Box sx={{ p: 3, pb: 4 }}>
+                        <Stack spacing={4}>
+                            <Typography variant="h6" color="textSecondary">
+                                Total per month / total 3 months
+                            </Typography>
+                            <Typography variant="h3">
+                                Year: 2021
+                            </Typography>
+                        </Stack>
+                    </Box>
+                    <DurationPieChart
+                        infoOfMay={highlightsList?.[0]}
+                        infoOfJune={highlightsList?.[1]}
+                        infoOfJuly={highlightsList?.[2]}
+                    />
                 </MainCard>
             </Grid>
 

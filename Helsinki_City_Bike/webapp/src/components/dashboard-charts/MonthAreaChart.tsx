@@ -30,19 +30,19 @@ const areaChartOptions = {
     },
 };
 
-// ==============================|| INCOME AREA CHART ||============================== //
+// ==============================|| MONTH AREA CHART ||============================== //
 
-interface IncomeAreaChartProps {
+interface AreaChartProps {
     distanceInMay?: number;
     distanceInJune?: number;
     distanceInJuly?: number;
 }
 
-const IncomeAreaChart = ({
+const AreaChart = ({
     distanceInMay,
     distanceInJune,
     distanceInJuly,
-}: IncomeAreaChartProps) => {
+}: AreaChartProps) => {
     const theme: any = useTheme();
 
     const { primary, secondary } = theme.palette.text;
@@ -101,8 +101,8 @@ const IncomeAreaChart = ({
     return <ReactApexChart options={options} series={series} type="area" height={450} />;
 };
 
-IncomeAreaChart.propTypes = {
+AreaChart.propTypes = {
     slot: PropTypes.string,
 };
 
-export default memo(IncomeAreaChart);
+export default memo(AreaChart);

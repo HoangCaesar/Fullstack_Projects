@@ -9,3 +9,4 @@ export { default as JourneyTable } from './journey-list/JourneyTable';
 export { default as JourneyFilter } from './journey-list/JourneyFilter';
 export { default as AnalyticTotal } from './statistics/AnalyticTotal';
 export { default as MonthAreaChart } from './dashboard-charts/MonthAreaChart';
+export { default as DurationPieChart } from './dashboard-charts/DurationPieChart';
