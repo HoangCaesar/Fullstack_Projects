@@ -1,6 +1,6 @@
 // journey
 export interface PaginationParams {
-  _month: number;
+  _month?: number;
   _limit: number;
   _page: number;
   _totalRows: number;

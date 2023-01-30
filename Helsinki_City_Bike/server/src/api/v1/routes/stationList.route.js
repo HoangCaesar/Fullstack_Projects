@@ -6,5 +6,4 @@ router.post('/', stationListController.createList);
 // get list
 router.get('/', stationListController.getList);
 
-
 module.exports = router;

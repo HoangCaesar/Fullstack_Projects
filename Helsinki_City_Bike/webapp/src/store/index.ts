@@ -4,8 +4,9 @@ import rootSaga from './root.saga';
 
 // project import
 import drawerReducers from './reducers';
-import journeyReducer from '../pages/journey-list/journeyList.slice';
 import highlightsReducer from '../pages/dashboard/dashboard.slice';
+import journeyReducer from '../pages/journey-list/journeyList.slice';
+import stationReducer from '../pages/station-list/stationList.slice';
 
 // ==============================|| APP STORE - COMBINE ALL REDUCERS  ||============================== //
 
@@ -14,8 +15,9 @@ const sagaMiddleware = createSagaMiddleware();
 export const store = configureStore({
     reducer: {
         drawer: drawerReducers,
-        journey: journeyReducer,
         highlights: highlightsReducer,
+        journey: journeyReducer,
+        stations: stationReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 });
