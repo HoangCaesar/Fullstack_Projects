@@ -6,5 +6,6 @@ module.exports = {
     findTotalRows: require('./journey-list/findTotalRows'),
     // Station List
     findStationlist: require('./station-list/findStationlist'),
-
+    findAddress: require('./station-list/findAddress'),
+    countJourney: require('./station-list/countJourney'),
 }
