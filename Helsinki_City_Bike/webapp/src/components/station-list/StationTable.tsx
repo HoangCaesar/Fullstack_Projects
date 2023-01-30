@@ -56,7 +56,7 @@ function StationTable({ stationList, handleNavigate }: StationTableProps) {
                                         color="primary"
                                         onClick={() => handleNavigate?.(station?._id)}
                                     >
-                                        Edit
+                                        View
                                     </StyledButton>
                                 </TableCell>
                             </TableRow>

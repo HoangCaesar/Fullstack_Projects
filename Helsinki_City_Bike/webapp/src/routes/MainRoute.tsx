@@ -8,6 +8,7 @@ import MainLayout from '../layout/main-layout/MainLayout';
 const DashBoard = Loadable(lazy(() => import('../pages/dashboard/DashBoard')));
 const JourneyList = Loadable(lazy(() => import('../pages/journey-list/JourneyList')));
 const StationList = Loadable(lazy(() => import('../pages/station-list/StationList')));
+const StationView = Loadable(lazy(() => import('../pages/station-list/station-view/StationView')));
 
 // ==============================|| MAIN ROUTE  ||============================== //
 
@@ -20,12 +21,21 @@ const MainRoutes = {
             element: <DashBoard />,
         },
         {
-            path: '/dashboard/default',
-            element: <DashBoard />,
+            path: 'dashboard',
+            children: [
+                {
+                    path: 'default',
+                    element: <DashBoard />,
+                },
+            ],
         },
         {
             path: '/journeylist',
             element: <JourneyList />,
+        },
+        {
+            path: '/stationlist/:stationId',
+            element: <StationView />,
         },
         {
             path: '/stationlist',

@@ -2,6 +2,7 @@ import { Box, LinearProgress, Pagination } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useEffect } from 'react';
 import { ListParams } from '../../models';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 // Project import
 import { StationFilter, StationTable } from '../../components';
@@ -34,6 +35,8 @@ const StyledChildBox = styled(Box)`
 
 const StationList = () => {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const stationList = useAppSelector(selectStationList);
     const filter = useAppSelector(selectStationFilter);
@@ -65,8 +68,8 @@ const StationList = () => {
     };
 
     const handleNavigate = (id: string) => {
-        console.log(id)
-    }
+        navigate(`${location.pathname}/${id}`);
+    };
     return (
         <StyledChildBox>
             {/* Loading */}
