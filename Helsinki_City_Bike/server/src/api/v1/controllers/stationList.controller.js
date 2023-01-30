@@ -7,6 +7,7 @@ const {
     checkLength,
     getStationList,
     findTotalRowsInStationList,
+    getOneStation,
 } = require('../services');
 
 // ======================================== STATION LIST CONTROLLER =======================================
@@ -54,7 +55,6 @@ const createList = async (req, res, next) => {
 
 const getList = async (req, res, next) => {
     const { _page, _limit, _sort, _order, name_like } = req.query;
-    console.log(_page, _limit, _sort, _order, name_like);
     try {
         const data = await getStationList(
             _page === '' ? undefined : _page,
@@ -93,7 +93,21 @@ const getList = async (req, res, next) => {
     }
 };
 
+const getOne = async (req, res, next) => {
+    const { id } = req.params;
+    try {
+        const station = await getOneStation(id);
+        res.json({
+            status: 'success',
+            station,
+        });
+    } catch (error) {
+        next(error);
+    }
+};
+
 module.exports = {
     createList,
     getList,
+    getOne,
 };

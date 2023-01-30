@@ -5,5 +5,7 @@ const { stationListController } = require('../controllers')
 router.post('/', stationListController.createList);
 // get list
 router.get('/', stationListController.getList);
+// get one station
+router.get('/:id', stationListController.getOne);
 
 module.exports = router;

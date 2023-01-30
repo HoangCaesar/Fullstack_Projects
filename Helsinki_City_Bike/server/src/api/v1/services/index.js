@@ -11,6 +11,7 @@ module.exports = {
     createStationList: require('./station-list/createStationList'),
     getStationList: require('./station-list/getStationList'),
     findTotalRowsInStationList: require('./station-list/findTotalRowsInStationList'),
+    getOneStation: require('./station-list/getOneStation'),
     // common
     checkLength: require('./common/checkLength'),
-}
+};
