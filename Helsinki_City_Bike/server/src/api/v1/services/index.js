@@ -8,4 +8,5 @@ module.exports = {
     findStationlist: require('./station-list/findStationlist'),
     findAddress: require('./station-list/findAddress'),
     countJourney: require('./station-list/countJourney'),
+    createStationList: require('./station-list/createStationList'),
 }

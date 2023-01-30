@@ -1,31 +1,34 @@
 // Project import
-const { findStationlist, findAddress, countJourney } = require('../services');
+const { findStationlist, findAddress, countJourney, createStationList } = require('../services');
 
 // ======================================== STATION LIST CONTROLLER =======================================
 
-const getList = async (req, res, next) => {
+const createList = async (req, res, next) => {
     try {
-        const infoStation = []
+        const infoStation = [];
+        // find the list of stations (1)
         const stationList = await findStationlist();
-        // const countStation = stationList.map(async (station) => {
-        //     const count = await countJourney(station);
-        //     return count;
-        // });
-        for(const station of stationList) {
+        // find address of each station (2)
+        const addressInfo = await findAddress(stationList);
+        // count the number of departure and return of each station (3)
+        // add (1),(2) and (3) to infoStation
+        for (const station of stationList) {
             const count = await countJourney(station);
+            // find index of a station in stationList
+            const findIndexOfStation = (element) => element === station;
+            const indexOfStation = stationList.findIndex(findIndexOfStation)
+
             infoStation.push({
                 station,
-                count
-            })
+                address: addressInfo[indexOfStation],
+                count,
+            });
         }
 
-        // const addressInfo = await findAddress('Helsinki');
+        await createStationList(infoStation);
 
         res.json({
             status: 'success',
-            // data: stationList.length,
-            // addressInfo: addressInfo,
-            infoStation: infoStation
         });
     } catch (error) {
         next(error);
@@ -33,5 +36,5 @@ const getList = async (req, res, next) => {
 };
 
 module.exports = {
-    getList,
+    createList,
 };

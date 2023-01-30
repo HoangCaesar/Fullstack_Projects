@@ -89,8 +89,16 @@ const countJourney = async (stationList) => {
     ]).then((res) => res[0]?.count || 0);
 
     return {
-        returnCount: [returnCountMay, returnCountJune, returnCountJuly],
-        departureCount: [departureCountMay, departureCountJune, departureCountJuly],
+        returnCount: {
+            returnCountMay,
+            returnCountJune,
+            returnCountJuly,
+        },
+        departureCount: {
+            departureCountMay,
+            departureCountJune,
+            departureCountJuly,
+        },
     };
 };
 

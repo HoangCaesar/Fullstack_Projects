@@ -2,7 +2,13 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 // ======================================== MULTI MONGODB - connect mongodb databases =======================================
-const { MONGODB_05_2021_URI, MONGODB_06_2021_URI, MONGODB_07_2021_URI, MONGODB_TEST_URI } =
+const {
+    MONGODB_05_2021_URI,
+    MONGODB_06_2021_URI,
+    MONGODB_07_2021_URI,
+    MONGODB_TEST_URI,
+    MONGODB_STATION_LIST_URI,
+} =
     // eslint-disable-next-line no-undef
     process.env;
 
@@ -39,13 +45,15 @@ function newConnection(uri) {
 }
 
 const testDatabase = newConnection(MONGODB_TEST_URI);
+const stationListDatabase = newConnection(MONGODB_STATION_LIST_URI);
 const may_2021Database = newConnection(MONGODB_05_2021_URI);
 const june_2021Database = newConnection(MONGODB_06_2021_URI);
 const july_2021Database = newConnection(MONGODB_07_2021_URI);
 
 module.exports = {
     testDatabase,
+    stationListDatabase,
     may_2021Database,
     june_2021Database,
-    july_2021Database
+    july_2021Database,
 };

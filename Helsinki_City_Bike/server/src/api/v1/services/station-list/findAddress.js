@@ -30,23 +30,24 @@ const findAddress = async (stationList) => {
         //         return response;
         //     })
         // );
-        const data = await getAddress(stationList);
-        return data;
-        // const addresses = [];
+        // const data = await getAddress(stationList);
+        // return data;
+        const addresses = [];
 
-        // for (const station of stationList) {
-        //     const address = await getCoordinates(station).catch((error) => {
-        //         console.error(error);
-        //     });
+        for (const station of stationList) {
+            const address = await getAddress(station).catch((error) => {
+                console.error(error);
+            });
 
-        //     if (address) {
-        //         addresses.push(address);
-        //     }
+            if (address) {
+                addresses.push({
+                    address: address[0]['address'],
+                    position: address[0]['position'],
+                });
+            }
+        }
 
-        //     await new Promise((resolve) => setTimeout(resolve, 500));
-        // }
-
-        // return addresses;
+        return addresses;
     } catch (error) {
         throw new Error('Unable to find');
     }

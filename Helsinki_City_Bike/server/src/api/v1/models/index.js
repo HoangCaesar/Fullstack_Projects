@@ -8,5 +8,8 @@ module.exports = {
     TestHighlights: require('./highlights.model').TestHighlights,
     May_2021Highlights: require('./highlights.model').May_2021Highlights,
     June_2021Highlights: require('./highlights.model').June_2021Highlights,
-    July_2021Highlights: require('./highlights.model').July_2021Highlights
+    July_2021Highlights: require('./highlights.model').July_2021Highlights,
+    // Station List
+    StationList: require('./stationlist.model').StationList,
+    TestStationList: require('./stationlist.model').TestStationList,
 }
