@@ -10,6 +10,7 @@ module.exports = {
     countJourney: require('./station-list/countJourney'),
     createStationList: require('./station-list/createStationList'),
     getStationList: require('./station-list/getStationList'),
+    findTotalRowsInStationList: require('./station-list/findTotalRowsInStationList'),
     // common
     checkLength: require('./common/checkLength'),
 }

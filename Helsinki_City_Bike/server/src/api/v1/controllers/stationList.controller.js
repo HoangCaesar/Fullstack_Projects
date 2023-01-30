@@ -6,6 +6,7 @@ const {
     createStationList,
     checkLength,
     getStationList,
+    findTotalRowsInStationList,
 } = require('../services');
 
 // ======================================== STATION LIST CONTROLLER =======================================
@@ -52,12 +53,40 @@ const createList = async (req, res, next) => {
 };
 
 const getList = async (req, res, next) => {
+    const { _page, _limit, _sort, _order, name_like } = req.query;
+    console.log(_page, _limit, _sort, _order, name_like);
     try {
-        const stationList = await getStationList();
+        const data = await getStationList(
+            _page === '' ? undefined : _page,
+            _limit === '' ? undefined : _limit,
+            _sort === '' ? undefined : _sort,
+            _order === '' ? undefined : _order,
+            name_like
+        );
+        let pagination;
+
+        if (!name_like) {
+            const totalRows = await findTotalRowsInStationList.findTotalRowsWithoutName_Like();
+            pagination = {
+                _page: Number(_page) || 1,
+                _limit: _limit || 10,
+                _totalRows: totalRows,
+            };
+        } else {
+            const totalRows = await findTotalRowsInStationList.findTotalRowsWithName_Like(
+                name_like
+            );
+            pagination = {
+                _page: Number(_page) || 1,
+                _limit: _limit || 10,
+                _totalRows: totalRows,
+            };
+        }
 
         res.json({
             status: 'success',
-            data: stationList,
+            data,
+            pagination,
         });
     } catch (error) {
         next(error);
@@ -66,5 +95,5 @@ const getList = async (req, res, next) => {
 
 module.exports = {
     createList,
-    getList
+    getList,
 };
