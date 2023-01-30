@@ -23,6 +23,7 @@
     "apexcharts": "^3.36.3",
     "axios": "^1.2.3",
     "crypto-random-string": "^5.0.0",
+    "leaflet": "^1.9.3",
     "moment": "^2.29.4",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
