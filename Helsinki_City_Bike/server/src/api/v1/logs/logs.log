@@ -136,3 +136,4 @@
 29-01-2023	40:06:18-----GET /api/v1/stationlist ::: Unable to find
 29-01-2023	33:07:18-----GET /api/v1/stationlist ::: Unable to find
 29-01-2023	51:07:18-----GET /api/v1/stationlist ::: Unable to find
+30-01-2023	21:51:15-----POST /api/v1/stationlist ::: checkLength is not a function

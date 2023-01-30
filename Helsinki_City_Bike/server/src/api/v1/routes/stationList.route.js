@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const { stationListController } = require('../controllers')
 
-/* GET Journey List */
-router.get('/', stationListController.createList);
+// create list
+router.post('/', stationListController.createList);
+// get list
+router.get('/', stationListController.getList);
+
 
 module.exports = router;

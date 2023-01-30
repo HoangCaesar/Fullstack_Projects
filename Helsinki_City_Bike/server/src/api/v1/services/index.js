@@ -9,4 +9,7 @@ module.exports = {
     findAddress: require('./station-list/findAddress'),
     countJourney: require('./station-list/countJourney'),
     createStationList: require('./station-list/createStationList'),
+    getStationList: require('./station-list/getStationList'),
+    // common
+    checkLength: require('./common/checkLength'),
 }
