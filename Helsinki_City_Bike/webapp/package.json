@@ -24,6 +24,7 @@
     "apexcharts": "^3.36.3",
     "axios": "^1.2.3",
     "crypto-random-string": "^5.0.0",
+    "formik": "^2.2.9",
     "leaflet": "^1.9.3",
     "moment": "^2.29.4",
     "prop-types": "^15.8.1",
@@ -39,7 +40,8 @@
     "react-syntax-highlighter": "^15.5.0",
     "redux-saga": "^1.2.2",
     "simplebar": "^6.2.0",
-    "simplebar-react": "^3.2.0"
+    "simplebar-react": "^3.2.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
