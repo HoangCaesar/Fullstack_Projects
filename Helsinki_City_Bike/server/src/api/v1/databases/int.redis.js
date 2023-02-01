@@ -1,13 +1,10 @@
-const redis = require('redis');
+const Redis = require('ioredis');
 
 // ========================================== REDIS DATABASE ===============================================
 
 // eslint-disable-next-line no-undef
-const { REDIS_ENDPOINT, REDIS_PORT } = process.env;
-const client = redis.createClient({
-    host: REDIS_ENDPOINT,
-    port: REDIS_PORT,
-});
+const { REDIS_ENDPOINT, REDIS_PORT, REDIS_PASSWORD } = process.env;
+console.log(REDIS_ENDPOINT, REDIS_PORT, REDIS_PASSWORD);
 
 client
     .on('ready', () => console.log('Connected to Redis.'))
@@ -21,3 +18,4 @@ client.connect().then(() => {
 });
 
 module.exports = client;
+
