@@ -3,10 +3,10 @@ import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import rootSaga from './root.saga';
 
 // project import
-import drawerReducers from './reducers';
 import highlightsReducer from '../pages/dashboard/dashboard.slice';
 import journeyReducer from '../pages/journey-list/journeyList.slice';
 import stationReducer from '../pages/station-list/stationList.slice';
+import drawerReducers from './reducers';
 
 // ==============================|| APP STORE - COMBINE ALL REDUCERS  ||============================== //
 

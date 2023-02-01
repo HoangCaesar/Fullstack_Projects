@@ -37,8 +37,8 @@ const menu = createSlice({
 
         openComponentDrawer(state, action) {
             state.componentDrawerOpen = action.payload.componentDrawerOpen;
-        }
-    }
+        },
+    },
 });
 
 export default menu.reducer;
