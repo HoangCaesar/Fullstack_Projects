@@ -137,3 +137,7 @@
 29-01-2023	33:07:18-----GET /api/v1/stationlist ::: Unable to find
 29-01-2023	51:07:18-----GET /api/v1/stationlist ::: Unable to find
 30-01-2023	21:51:15-----POST /api/v1/stationlist ::: checkLength is not a function
+01-02-2023	47:24:14-----GET /api/v1/stationlist/undefined ::: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "station_list"
+01-02-2023	58:24:14-----GET /api/v1/stationlist/undefined ::: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "station_list"
+01-02-2023	04:25:14-----GET /api/v1/stationlist/undefined ::: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "station_list"
+01-02-2023	14:25:14-----GET /api/v1/stationlist/undefined ::: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "station_list"

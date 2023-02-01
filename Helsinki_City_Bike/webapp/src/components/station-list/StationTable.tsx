@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import cryptoRandomString from 'crypto-random-string';
+import { Link } from 'react-router-dom';
 
 // Project import
 import { Station } from '../../models';
@@ -45,9 +46,18 @@ function StationTable({ stationList, handleNavigate }: StationTableProps) {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell>{index}</TableCell>
-                                <TableCell>{capitalizeString(station?.station)}</TableCell>
                                 <TableCell>
-                                    {capitalizeString(station?.address?.address?.label || 'Not found')}
+                                    <Link
+                                        to={`/stationlist/${station?.['_id']}`}
+                                        style={{ textDecoration: 'none' }}
+                                    >
+                                        {capitalizeString(station?.station)}
+                                    </Link>
+                                </TableCell>
+                                <TableCell>
+                                    {capitalizeString(
+                                        station?.address?.address?.label || 'Not found'
+                                    )}
                                 </TableCell>
                                 <TableCell>
                                     {' '}
