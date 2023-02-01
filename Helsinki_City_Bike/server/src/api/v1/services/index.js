@@ -16,4 +16,5 @@ module.exports = {
     checkLength: require('./common/checkLength'),
     // User
     createUser: require('./user-list/createUser'),
+    createToken: require('./user-list/createToken'),
 };
