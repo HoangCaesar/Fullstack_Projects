@@ -1,8 +1,8 @@
 const createError = require('http-errors');
 
 // Project import
-const { User } = require('../models');
 const { createUser } = require('../services');
+const sendMail = require('../helpers/sendMail')
 
 // ========================================== USER CONTROLLER ===============================================
 
