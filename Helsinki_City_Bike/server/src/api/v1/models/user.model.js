@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 // Project import
 const { testDatabase, userDatabase } = require('../databases/init.multi.mongodb');
@@ -12,11 +12,6 @@ const UserSchema = new Schema(
     {
         name: {
             type: String,
-            required: true,
-        },
-        phone: {
-            type: String,
-            unique: true,
             required: true,
         },
         birthday: {
@@ -45,29 +40,29 @@ const UserSchema = new Schema(
     modelOptions
 );
 
-// UserSchema.pre('save', async function (next) {
-//     try {
-//         const salt = await bcrypt.genSalt(10);
-//         const hashPassword = await bcrypt.hash(this.password, salt);
-//         this.password = hashPassword;
-//         next();
-//     } catch (error) {
-//         next(error);
-//     }
-// });
+UserSchema.pre('save', async function (next) {
+    try {
+        const salt = await bcrypt.genSalt(10);
+        const hashPassword = await bcrypt.hash(this.password, salt);
+        this.password = hashPassword;
+        next();
+    } catch (error) {
+        next(error);
+    }
+});
 
-// UserSchema.methods.isCheckPassword = async function (password) {
-//     try {
-//         return await bcrypt.compare(password, this.password);
-//     } catch (error) {
-//         next(error);
-//     }
-// };
+UserSchema.methods.isCheckPassword = async function (password) {
+    try {
+        return await bcrypt.compare(password, this.password);
+    } catch (error) {
+        next(error);
+    }
+};
 
 const TestUser = testDatabase.model('user', UserSchema);
-const UserUser = userDatabase.model('user', UserSchema);
+const User = userDatabase.model('user', UserSchema);
 
 module.exports = {
     TestUser,
-    UserUser,
+    User,
 };

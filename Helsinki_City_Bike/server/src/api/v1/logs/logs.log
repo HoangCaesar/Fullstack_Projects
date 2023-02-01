@@ -141,3 +141,7 @@
 01-02-2023	58:24:14-----GET /api/v1/stationlist/undefined ::: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "station_list"
 01-02-2023	04:25:14-----GET /api/v1/stationlist/undefined ::: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "station_list"
 01-02-2023	14:25:14-----GET /api/v1/stationlist/undefined ::: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "station_list"
+01-02-2023	43:14:16-----GET /api/v1/user/register ::: This route does not exist.
+01-02-2023	07:15:16-----GET /api/v1/user/register ::: This route does not exist.
+01-02-2023	29:15:16-----GET /api/v1/user ::: This route does not exist.
+01-02-2023	52:15:16-----GET /api/v1/user/register ::: This route does not exist.

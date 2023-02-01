@@ -14,4 +14,5 @@ module.exports = {
     TestStationList: require('./stationlist.model').TestStationList,
     // User
     TestUser: require('./user.model').TestUser,
+    User: require('./user.model').User,
 };
