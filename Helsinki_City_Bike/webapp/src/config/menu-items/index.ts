@@ -1,8 +1,8 @@
 // project import
-import pages from './pages';
-import dashboard from './dashboard';
-import support from './support';
 import MenuItems from '../../models/menuItems';
+import dashboard from './dashboard';
+import pages from './pages';
+import support from './support';
 
 // ==============================|| MENU ITEMS ||============================== //
 

@@ -5,7 +5,7 @@ import MenuItems from '../../models/menuItems';
 // icons
 const icons = {
     ChromeOutlined,
-    QuestionOutlined
+    QuestionOutlined,
 };
 
 // ==============================|| MENU ITEMS - SAMPLE PAGE & DOCUMENTATION ||============================== //

@@ -1,10 +1,10 @@
 // assets
 import { DashboardOutlined } from '@ant-design/icons';
-import MenuItems from '../../models/menuItems'
+import MenuItems from '../../models/menuItems';
 
 // icons
 const icons = {
-    DashboardOutlined
+    DashboardOutlined,
 };
 
 // ==============================|| MENU ITEMS - DASHBOARD ||============================== //

@@ -1,5 +1,5 @@
 // assets
-import { UnorderedListOutlined, AimOutlined } from '@ant-design/icons';
+import { AimOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import MenuItems from '../../models/menuItems';
 
 // icons
