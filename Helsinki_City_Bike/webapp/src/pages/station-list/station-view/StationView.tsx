@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import { Box, Grid, Typography } from '@mui/material';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 // Project Import
 import stationListApi from '../../../api/stationList.api';
+import { StationMap } from '../../../components';
 
 // Models
 import { Station } from '../../../models';
@@ -43,7 +44,7 @@ const StationView = () => {
             </Grid>
 
             {/* Column 1 */}
-            <Grid item xs={12} md={6} lg={8}>
+            <Grid item xs={12} md={12} lg={12}>
                 <Grid container alignItems="center" justifyContent="space-between">
                     <Grid item>
                         <Typography variant="h5">
@@ -59,14 +60,22 @@ const StationView = () => {
                 </Box>
             </Grid>
             {/* Column 2 */}
-            <Grid item xs={12} md={6} lg={4}>
+            <Grid item xs={12} md={12} lg={12}>
                 <Grid container alignItems="center" justifyContent="space-between">
                     <Grid item>
                         <Typography variant="h5">Location On The Map</Typography>
                     </Grid>
                 </Grid>
                 <MainCard sx={{ mt: 2 }} content={false}>
-                    <Box sx={{ p: 3, pb: 4 }}>Map</Box>
+                    <Box sx={{ p: 3, pb: 4 }}>
+                        {station?.station?.address && (
+                            <StationMap
+                                lat={station?.station?.address?.position?.lat || 60.1699}
+                                lng={station?.station?.address?.position?.lng || 24.9384}
+                                zoom={13}
+                            />
+                        )}
+                    </Box>
                 </MainCard>
             </Grid>
         </Grid>

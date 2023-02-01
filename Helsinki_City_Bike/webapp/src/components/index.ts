@@ -13,3 +13,4 @@ export { default as MonthAreaChart } from './dashboard-charts/MonthAreaChart';
 export { default as DurationPieChart } from './dashboard-charts/DurationPieChart';
 export { default as StationTable } from './station-list/StationTable';
 export { default as StationFilter } from './station-list/StationFilter';
+export { default as StationMap } from './station-list/StationMap';
