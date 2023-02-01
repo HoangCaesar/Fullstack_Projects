@@ -10,7 +10,7 @@ const {
 // Project import
 const modelOptions = require('./modelOptions');
 
-// ========================================== JOURNEY LIST MODEL ===============================================
+// ========================================== HIGHLIGHTS MODEL ===============================================
 
 const journeylistSchema = new Schema(
     {
