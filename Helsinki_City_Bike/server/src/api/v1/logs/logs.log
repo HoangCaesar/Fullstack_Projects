@@ -157,3 +157,4 @@
 01-02-2023	31:38:18-----POST /api/v1/user/register ::: TypeError: Token is not a constructor
 01-02-2023	27:39:18-----POST /api/v1/user/register ::: ConflictError: ninjaya123@gmail.com is ready been registered!
 01-02-2023	21:04:19-----GET /favicon.ico ::: This route does not exist.
+01-02-2023	43:08:19-----GET /api/v1/user/verify/63da95d35c163be602e6aa23/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGE5NWQzNWMxNjNiZTYwMmU2YWEyMyIsImlhdCI6MTY3NTI2OTU4N30.aFJpCA0TfmMLPzpgQNOvlmdSG6NQYfm0y1O2S7mvHu ::: Cannot set headers after they are sent to the client

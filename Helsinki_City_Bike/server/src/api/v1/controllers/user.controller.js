@@ -32,8 +32,7 @@ const verify = async (req, res, next) => {
         if (!isToken) res.json({ status: 'error', data: 'Invalid token' });
 
         // eslint-disable-next-line no-undef
-        // res.sendFile(path.join(process.cwd(), 'htmls/verify.html'));
-        res.json({ status: 'error', data: 'Yes, token is true' });
+        res.sendFile(path.join(process.cwd(), 'htmls/verify.html'));
     } catch (error) {
         next(error);
     }
