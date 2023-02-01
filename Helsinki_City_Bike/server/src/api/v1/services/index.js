@@ -17,4 +17,5 @@ module.exports = {
     // User
     createUser: require('./user-list/createUser'),
     createToken: require('./user-list/createToken'),
+    verifyToken: require('./user-list/verifyToken'),
 };

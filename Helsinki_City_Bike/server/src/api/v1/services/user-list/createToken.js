@@ -1,4 +1,3 @@
-const createError = require('http-errors');
 const jwt = require('jsonwebtoken');
 
 // Project import

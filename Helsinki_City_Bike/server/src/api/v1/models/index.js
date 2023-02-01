@@ -16,5 +16,6 @@ module.exports = {
     TestUser: require('./user.model').TestUser,
     User: require('./user.model').User,
     // Token
-    Token: require('./token.model')
+    Token: require('./token.model').Token,
+    TestToken: require('./token.model').TestToken,
 };

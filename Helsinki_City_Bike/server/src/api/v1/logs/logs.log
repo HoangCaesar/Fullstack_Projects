@@ -152,3 +152,8 @@
 01-02-2023	21:51:16-----POST /api/v1/user/register ::: ConflictError: ninjaya123@gmail.com is ready been registered!
 01-02-2023	25:51:16-----POST /api/v1/user/register ::: MongoServerError: E11000 duplicate key error collection: User_List.users index: phone_1 dup key: { phone: null }
 01-02-2023	00:52:16-----POST /api/v1/user/register ::: ConflictError: ninjaya1234@gmail.com is ready been registered!
+01-02-2023	06:38:18-----POST /api/v1/user/register ::: TypeError: Token is not a constructor
+01-02-2023	10:38:18-----POST /api/v1/user/register ::: ConflictError: ninjaya123@gmail.com is ready been registered!
+01-02-2023	31:38:18-----POST /api/v1/user/register ::: TypeError: Token is not a constructor
+01-02-2023	27:39:18-----POST /api/v1/user/register ::: ConflictError: ninjaya123@gmail.com is ready been registered!
+01-02-2023	21:04:19-----GET /favicon.ico ::: This route does not exist.
