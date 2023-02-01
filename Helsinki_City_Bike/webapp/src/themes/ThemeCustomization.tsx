@@ -3,13 +3,13 @@ import { ReactElement, useMemo } from 'react';
 
 // material-ui
 import { CssBaseline, StyledEngineProvider } from '@mui/material';
-import { createTheme, Theme, ThemeOptions, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material/styles';
 
 // project import
-import Palette from './palette';
-import Typography from './typography';
-import CustomShadows from './shadows';
 import ComponentsOverride from './overrides';
+import Palette from './palette';
+import CustomShadows from './shadows';
+import Typography from './typography';
 
 // ==============================|| DEFAULT THEME - MAIN  ||============================== //
 

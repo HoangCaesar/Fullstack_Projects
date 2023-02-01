@@ -5,8 +5,8 @@ import { createTheme } from '@mui/material/styles';
 import { presetPalettes } from '@ant-design/colors';
 
 // project import
-import ThemeOption from './theme-option';
 import { PaletteMode } from '@mui/material';
+import ThemeOption from './theme-option';
 
 // ==============================|| DEFAULT THEME - PALETTE  ||============================== //
 
