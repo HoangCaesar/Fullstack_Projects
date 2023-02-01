@@ -4,7 +4,7 @@ const Joi = require('joi');
 
 const userValidate = data => {
     const userSchema = Joi.object({
-        name: Joi.string().min(4).max(32).required(),
+        name: Joi.string().min(4).max(32),
         email: Joi.string().pattern(new RegExp('gmail.com')).email().lowercase().required(),
         password: Joi.string().min(4).max(32).required()
     });
