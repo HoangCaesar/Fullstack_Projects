@@ -1,4 +1,4 @@
-import { ListParams, ListResponse, Journey } from '../models';
+import { Journey, ListParams, ListResponse } from '../models';
 import axiosClient from './axiosClient';
 
 // ==============================|| JOURNEY AXIOS - GET ALL ||============================== //

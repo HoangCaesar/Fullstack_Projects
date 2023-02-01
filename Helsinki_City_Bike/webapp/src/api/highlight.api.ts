@@ -1,4 +1,4 @@
-import { HighlightsResponse, Highlight } from '../models';
+import { Highlight, HighlightsResponse } from '../models';
 import axiosClient from './axiosClient';
 
 // ==============================|| JOURNEY AXIOS - GET ALL ||============================== //
