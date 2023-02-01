@@ -3,45 +3,47 @@ const Schema = mongoose.Schema;
 // const bcrypt = require('bcrypt');
 
 // Project import
-const { testDatabase } = require('../databases/init.multi.mongodb');
+const { testDatabase, userDatabase } = require('../databases/init.multi.mongodb');
 const modelOptions = require('./modelOptions');
 
 // ========================================== USER MODEL ===============================================
 
-const UserSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
+const UserSchema = new Schema(
+    {
+        name: {
+            type: String,
+            required: true,
+        },
+        phone: {
+            type: String,
+            unique: true,
+            required: true,
+        },
+        birthday: {
+            type: String,
+            required: true,
+        },
+        gender: {
+            type: String,
+            required: true,
+        },
+        email: {
+            type: String,
+            lowercase: true,
+            unique: true,
+            required: true,
+        },
+        password: {
+            type: String,
+            required: true,
+        },
+        verified: {
+            type: Boolean,
+            default: false,
+        },
     },
-    phone: {
-        type: String,
-        unique: true,
-        required: true,
-    },
-    birthday: {
-        type: String,
-        required: true,
-    },
-    gender: {
-        type: String,
-        required: true,
-    },
-    email: {
-        type: String,
-        lowercase: true,
-        unique: true,
-        required: true,
-    },
-    password: {
-        type: String,
-        required: true,
-    },
-    verified: {
-        type: Boolean,
-        default: false,
-    },
-    modelOptions,
-});
+    modelOptions
+);
 
 // UserSchema.pre('save', async function (next) {
 //     try {
@@ -63,7 +65,9 @@ const UserSchema = new Schema({
 // };
 
 const TestUser = testDatabase.model('user', UserSchema);
+const UserUser = userDatabase.model('user', UserSchema);
 
 module.exports = {
-    TestUser
-}
+    TestUser,
+    UserUser,
+};

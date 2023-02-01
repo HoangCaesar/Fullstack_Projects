@@ -8,6 +8,7 @@ const {
     MONGODB_07_2021_URI,
     MONGODB_TEST_URI,
     MONGODB_STATION_LIST_URI,
+    MONGODB_USER_URI
 } =
     // eslint-disable-next-line no-undef
     process.env;
@@ -46,6 +47,7 @@ function newConnection(uri) {
 
 const testDatabase = newConnection(MONGODB_TEST_URI);
 const stationListDatabase = newConnection(MONGODB_STATION_LIST_URI);
+const userDatabase = newConnection(MONGODB_USER_URI);
 const may_2021Database = newConnection(MONGODB_05_2021_URI);
 const june_2021Database = newConnection(MONGODB_06_2021_URI);
 const july_2021Database = newConnection(MONGODB_07_2021_URI);
@@ -56,4 +58,5 @@ module.exports = {
     may_2021Database,
     june_2021Database,
     july_2021Database,
+    userDatabase
 };
