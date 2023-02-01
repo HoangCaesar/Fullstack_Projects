@@ -167,3 +167,9 @@
 01-02-2023	16:49:20-----POST /api/v1/user/register ::: Error: No recipients defined
 01-02-2023	29:48:22-----POST /api/v1/user/login ::: This route does not exist.
 01-02-2023	59:48:22-----POST /api/v1/user/login ::: InternalServerError: "name" is required
+01-02-2023	40:20:23-----POST /api/v1/user/refresh-token ::: Bad Request
+01-02-2023	52:24:23-----POST /api/v1/user/logout ::: Bad Request
+01-02-2023	19:25:23-----POST /api/v1/user/logout ::: Bad Request
+01-02-2023	10:26:23-----POST /api/v1/user/logout ::: Bad Request
+01-02-2023	16:26:23-----POST /api/v1/user/logout ::: Bad Request
+01-02-2023	28:27:23-----POST /api/v1/user/logout ::: JWT is not defined

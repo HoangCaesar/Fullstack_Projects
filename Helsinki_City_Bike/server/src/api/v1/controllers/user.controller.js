@@ -10,6 +10,8 @@ const {
     jwt_service,
 } = require('../services');
 const sendMail = require('../helpers/sendMail');
+const { verifyRefreshToken } = require('../middlewares/verifyToken');
+const client = require('../databases/int.redis');
 
 // ========================================== USER CONTROLLER ===============================================
 
@@ -33,6 +35,25 @@ const register = async (req, res, next) => {
         return res.json({ status: 'success', data: link });
     } catch (err) {
         next(err);
+    }
+};
+
+const refreshToken = async (req, res, next) => {
+    try {
+        const { refreshToken } = req.body;
+        if (!refreshToken) {
+            throw createError.BadRequest();
+        }
+
+        const { userId } = await verifyRefreshToken(refreshToken);
+        const newAccessToken = await jwt_service.signAccessToken(userId);
+        const newRefreshToken = await jwt_service.signRefreshToken(userId);
+        res.json({
+            accessToken: newAccessToken,
+            refreshToken: newRefreshToken,
+        });
+    } catch (error) {
+        next(error);
     }
 };
 
@@ -66,8 +87,29 @@ const login = async (req, res, next) => {
     }
 };
 
+const logout = async (req, res, next) => {
+    try {
+        const { refreshToken } = req.body;
+        if (!refreshToken) {
+            throw createError.BadRequest();
+        }
+        const { userId } = await verifyRefreshToken(refreshToken);
+        client.del(userId.toString()).catch(() => {
+            throw createError.InternalServerError();
+        });
+
+        res.json({
+            message: 'Logout!',
+        });
+    } catch (error) {
+        next(error);
+    }
+};
+
 module.exports = {
     register,
     verify,
     login,
+    refreshToken,
+    logout,
 };

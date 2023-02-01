@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const client = require('../databases/int.redis');
+const JWT = require('jsonwebtoken')
 
 // ========================================== VERIFY TOKEN MIDLEWARES ===============================================
 
@@ -26,6 +27,7 @@ const verifyAccessToken = (req, res, next) => {
 };
 
 const verifyRefreshToken = (refreshToken) => {
+    console.log(refreshToken);
     return new Promise((resolve, reject) => {
         // eslint-disable-next-line no-undef
         JWT.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (error, payload) => {
