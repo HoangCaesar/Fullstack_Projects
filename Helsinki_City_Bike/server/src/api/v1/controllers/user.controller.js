@@ -2,7 +2,13 @@ const createError = require('http-errors');
 const path = require('path');
 
 // Project import
-const { createUser, createToken, verifyRegisterToken, checkUser } = require('../services');
+const {
+    createUser,
+    createToken,
+    verifyRegisterToken,
+    checkUser,
+    jwt_service,
+} = require('../services');
 const sendMail = require('../helpers/sendMail');
 
 // ========================================== USER CONTROLLER ===============================================
@@ -45,16 +51,16 @@ const verify = async (req, res, next) => {
 
 const login = async (req, res, next) => {
     try {
-        const isUser = await checkUser(req.body);
+        const user = await checkUser(req.body);
 
-        if (!isUser) res.json({ status: 'error', data: 'Unauthorized' });
+        if (!user) res.json({ status: 'error', data: 'Unauthorized' });
 
-        const accessToken = await signAccessToken(user._id);
-        const refreshToken = await signRefreshToken(user._id);
+        const accessToken = await jwt_service.signAccessToken(user._id);
+        const refreshToken = await jwt_service.signRefreshToken(user._id);
         res.json({
             accessToken,
-            refreshToken
-        })
+            refreshToken,
+        });
     } catch (error) {
         next(error);
     }

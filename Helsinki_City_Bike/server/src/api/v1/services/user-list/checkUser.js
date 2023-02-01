@@ -23,7 +23,7 @@ const checkUser = async (body) => {
         const isValid = await user.isCheckPassword(password);
         if (!isValid) throw createError.Unauthorized();
 
-        return true;
+        return user;
     } catch (error) {
         throw new Error(error);
     }

@@ -1,5 +1,6 @@
 const JWT = require('jsonwebtoken');
 const createError = require('http-errors');
+const client = require('../../databases/int.redis');
 
 // ========================================== JWT SERVICE ===============================================
 
@@ -38,7 +39,7 @@ const signRefreshToken = async (userId) => {
             client
                 .set(userId.toString(), token)
                 .then(() => resolve(token))
-                .catch((err) => reject(createError.InternalServerError()));
+                .catch(() => reject(createError.InternalServerError()));
             client.expire(userId.toString(), A_YEAR_IN_SECONDS);
         });
     });

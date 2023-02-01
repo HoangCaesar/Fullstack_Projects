@@ -1,4 +1,5 @@
 const createError = require('http-errors');
+const client = require('../databases/int.redis');
 
 // ========================================== VERIFY TOKEN MIDLEWARES ===============================================
 
