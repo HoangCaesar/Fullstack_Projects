@@ -1,3 +1,5 @@
+// ==============================|| COMMON UTILS ||============================== //
+
 const capitalizeString = (str: string) => {
     if (!str) {
         return '';
@@ -31,3 +33,4 @@ const getDurationColor = (duration: number): string => {
 };
 
 export { capitalizeString, getDistanceColor, getDurationColor };
+

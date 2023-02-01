@@ -1,3 +1,5 @@
+// ==============================|| CONVERT TIME UTILS ||============================== //
+
 const convertTime = (time: string) => {
     const convertTime = new Date(time).toString().split(' ').splice(0, 5);
 

@@ -5,9 +5,9 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 // project import
-import ThemeCustomization from './themes/ThemeCustomization';
 import { ScrollTop } from './components';
 import Routes from './routes';
+import ThemeCustomization from './themes/ThemeCustomization';
 
 // ==============================|| APP - THEME, ROUTER, LOCAL  ||============================== //
 
