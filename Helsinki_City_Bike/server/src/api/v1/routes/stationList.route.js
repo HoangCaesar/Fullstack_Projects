@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { stationListController } = require('../controllers')
+const { stationListController } = require('../controllers');
 
 // create list
 router.post('/', stationListController.createList);
