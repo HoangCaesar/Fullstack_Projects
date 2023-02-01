@@ -1,5 +1,7 @@
 const Joi = require('joi');
 
+// ========================================== VALIDATION USER ===============================================
+
 const userValidate = data => {
     const userSchema = Joi.object({
         name: Joi.string().min(4).max(32).required(),
