@@ -22,10 +22,10 @@ const findTotalRowsWithName_Like = async (name_like = undefined) => {
             $match: {
                 $or: [
                     {
-                        'station': {
+                        station: {
                             $regex: regex,
                         },
-                    }
+                    },
                 ],
             },
         },

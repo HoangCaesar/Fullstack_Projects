@@ -11,7 +11,7 @@ const createStationList = async (data) => {
             }
         });
     } catch (error) {
-        throw new Error(error)
+        throw new Error(error);
     }
 };
 
