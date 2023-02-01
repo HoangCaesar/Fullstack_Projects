@@ -18,6 +18,11 @@ const register = async (req, res, next) => {
         const savedToken = await createToken(savedUser);
         // generate link to send a verify email
         const link = `${BASE_URL}/user/verify/${savedUser._id}/${savedToken.token}`;
+        const name = savedUser.name;
+        const email = savedUser.email;
+        const subject = 'Welcome to Helsinki City Bike';
+
+        await sendMail(email, name, subject, link);
 
         return res.json({ status: 'success', data: link });
     } catch (err) {
@@ -26,13 +31,14 @@ const register = async (req, res, next) => {
 };
 
 const verify = async (req, res, next) => {
+    // eslint-disable-next-line no-undef
     try {
         const isToken = await verifyToken(req);
 
         if (!isToken) res.json({ status: 'error', data: 'Invalid token' });
 
         // eslint-disable-next-line no-undef
-        res.sendFile(path.join(process.cwd(), 'htmls/verify.html'));
+        res.sendFile(path.join(__dirname, '../html/verify.html'));
     } catch (error) {
         next(error);
     }

@@ -158,3 +158,10 @@
 01-02-2023	27:39:18-----POST /api/v1/user/register ::: ConflictError: ninjaya123@gmail.com is ready been registered!
 01-02-2023	21:04:19-----GET /favicon.ico ::: This route does not exist.
 01-02-2023	43:08:19-----GET /api/v1/user/verify/63da95d35c163be602e6aa23/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGE5NWQzNWMxNjNiZTYwMmU2YWEyMyIsImlhdCI6MTY3NTI2OTU4N30.aFJpCA0TfmMLPzpgQNOvlmdSG6NQYfm0y1O2S7mvHu ::: Cannot set headers after they are sent to the client
+01-02-2023	47:19:19-----GET /api/v1/user/verify/63da9f2f2342b179bc220305/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGE5ZjJmMjM0MmIxNzliYzIyMDMwNSIsImlhdCI6MTY3NTI3MTk4M30.GHyL2QQFxbi5htgHu9enz_vT3-Gq7Eb4Veuwm28NBcQ ::: ENOENT: no such file or directory, stat 'C:\Users\HOANG\Downloads\NodeJS+ReactJS\Full_Stack\Helsinki_City_Bike\server\src\api\v1\controllers\html\verify.html'
+01-02-2023	06:36:19-----GET /api/v1/user/verify/63daa274bb7d0127ad3330ae/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGFhMjc0YmI3ZDAxMjdhZDMzMzBhZSIsImlhdCI6MTY3NTI3MjgyMH0.I9QMxiusYURu68EBZdeMgXrs9D9rf0n0CWU4oi2riT4 ::: Can't set headers after they are sent.
+01-02-2023	38:31:20-----GET /api/v1/user/verify/63dab009bb7d0127ad333101/src/assets/img/logo_Icon.png ::: This route does not exist.
+01-02-2023	38:46:20-----POST /api/v1/user/register ::: Error: No recipients defined
+01-02-2023	57:46:20-----POST /api/v1/user/register ::: Error: No recipients defined
+01-02-2023	12:48:20-----POST /api/v1/user/register ::: Error: No recipients defined
+01-02-2023	16:49:20-----POST /api/v1/user/register ::: Error: No recipients defined
