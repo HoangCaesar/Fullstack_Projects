@@ -12,4 +12,4 @@ module.exports = {
     // Station List
     StationList: require('./stationlist.model').StationList,
     TestStationList: require('./stationlist.model').TestStationList,
-}
+};
