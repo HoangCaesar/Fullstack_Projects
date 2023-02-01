@@ -25,6 +25,7 @@
     "axios": "^1.2.3",
     "crypto-random-string": "^5.0.0",
     "formik": "^2.2.9",
+    "framer-motion": "^9.0.0",
     "leaflet": "^1.9.3",
     "moment": "^2.29.4",
     "prop-types": "^15.8.1",
