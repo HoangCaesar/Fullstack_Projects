@@ -14,4 +14,6 @@ module.exports = {
     getOneStation: require('./station-list/getOneStation'),
     // common
     checkLength: require('./common/checkLength'),
+    // User
+    createUser: require('./user-list/createUser'),
 };

@@ -2,24 +2,15 @@ const createError = require('http-errors');
 
 // Project import
 const { User } = require('../models');
-const { userValidate } = require('../helpers/validation');
+const { createUser } = require('../services');
 
 // ========================================== USER CONTROLLER ===============================================
 
 const register = async (req, res, next) => {
-    const { email, username, password } = req.body;
-
     try {
-        const { error } = userValidate(req.body);
-        console.log(':::error validation:::', error);
-        if (error) {
-            throw createError(error.details[0].message);
-        }
+        const savedUser = await createUser(req.body);
 
-        res.json({
-            status: 'success',
-            data: 'true',
-        });
+        return res.json({ status: 'success', data: savedUser });
     } catch (err) {
         next(err);
     }
