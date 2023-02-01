@@ -32,7 +32,7 @@ const StationView = () => {
 
     return (
         <Grid container rowSpacing={4.5} columnSpacing={2.75}>
-            <Grid item xs={12} sx={{ mb: -2.25 }}>
+            <Grid item xs={12}>
                 <Link to="/stationlist" style={{ textDecoration: 'none' }}>
                     <Typography
                         variant="caption"
@@ -68,12 +68,31 @@ const StationView = () => {
                 </Grid>
                 <MainCard sx={{ mt: 2 }} content={false}>
                     <Box sx={{ p: 3, pb: 4 }}>
-                        {station?.station?.address && (
+                        {station?.station?.address ? (
                             <StationMap
                                 lat={station?.station?.address?.position?.lat || 60.1699}
                                 lng={station?.station?.address?.position?.lng || 24.9384}
                                 zoom={13}
+                                stationInfo={station}
                             />
+                        ) : (
+                            <>
+                                <Grid item xs={12} sx={{ mb: 2.25 }}>
+                                    <Link to="/stationlist" style={{ textDecoration: 'none' }}>
+                                        <Typography
+                                            variant="caption"
+                                            style={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                textDecoration: 'none',
+                                            }}
+                                        >
+                                            <ArrowCircleLeftIcon /> &nbsp; Back to station list
+                                        </Typography>
+                                    </Link>
+                                </Grid>
+                                'Map is not available'
+                            </>
                         )}
                     </Box>
                 </MainCard>

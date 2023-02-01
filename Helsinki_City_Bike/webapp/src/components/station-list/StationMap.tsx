@@ -1,38 +1,43 @@
-import { useRef, useEffect } from 'react';
-import L from 'leaflet';
+import { useEffect, useState } from 'react';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+
+// Project import
+import { Station } from '../../models';
 
 // type
 interface StationMapleProps {
     lat: number;
     lng: number;
     zoom: number;
+    stationInfo?: Station;
 }
 
 // ==============================|| STATION VIEW  ||============================== //
 
-const StationMap = ({ lat, lng, zoom }: StationMapleProps) => {
-    const mapRef = useRef<any>(' ');
+const StationMap = ({ lat, lng, zoom, stationInfo }: StationMapleProps) => {
+    const [coordinates, setCoordinates] = useState<StationMapleProps>({ lat, lng, zoom });
 
     useEffect(() => {
-        if (!mapRef.current) return;
-        const map = L.map(mapRef.current).setView([lat, lng], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution:
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        }).addTo(map);
-
-        L.marker([lat, lng]).addTo(map);
-
-        return function cleanup() {
-            map.remove();
-        };
+        setCoordinates({ lat, lng, zoom });
     }, [lat, lng, zoom]);
 
     return (
-        <div
-            ref={mapRef}
-            style={{ objectFit: 'cover', width: '100%', maxHeight: '400px', minHeight: '400px' }}
-        />
+        <MapContainer
+            center={[coordinates.lat, coordinates.lng]}
+            zoom={coordinates.zoom}
+            scrollWheelZoom={false}
+            style={{ width: '90vw', height: '100vh' }}
+        >
+            <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={[coordinates.lat, coordinates.lng]}>
+                <Popup>
+                    {stationInfo?.station?.station} <br /> {stationInfo?.station?.address?.address?.label}.
+                </Popup>
+            </Marker>
+        </MapContainer>
     );
 };
 
