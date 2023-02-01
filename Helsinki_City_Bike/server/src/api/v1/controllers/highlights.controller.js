@@ -6,7 +6,7 @@ const getHighlights = async (req, res, next) => {
     try {
         await calculateHighlights();
         const data = await findHighlights();
-        
+
         res.json({
             status: 'success',
             data,
