@@ -3,7 +3,7 @@ const { Token, User } = require('../../models');
 
 // ========================================== VERIFY TOKEN SERVICE ===============================================
 
-const verifyToken = async (req) => {
+const verifyRegisterToken = async (req) => {
     try {
         const user = await User.findOne({ _id: req.params.id });
         if (!user) return false
@@ -23,4 +23,4 @@ const verifyToken = async (req) => {
     }
 };
 
-module.exports = verifyToken;
+module.exports = verifyRegisterToken;
