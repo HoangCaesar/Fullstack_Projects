@@ -2,6 +2,7 @@
 import MenuItems from '../../models/menuItems';
 import dashboard from './dashboard';
 import pages from './pages';
+import auth from './auth';
 import support from './support';
 
 // ==============================|| MENU ITEMS ||============================== //
@@ -11,7 +12,7 @@ export interface MenuList {
 }
 
 const menuItems: MenuList = {
-    items: [dashboard, pages, support],
+    items: [dashboard, pages, auth, support],
 };
 
 export default menuItems;
