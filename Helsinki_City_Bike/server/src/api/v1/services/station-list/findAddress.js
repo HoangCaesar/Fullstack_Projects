@@ -23,15 +23,6 @@ async function getAddress(address) {
 
 const findAddress = async (stationList) => {
     try {
-        // const data = await Promise.all(
-        //     stationList.map(async (station) => {
-        //         const response = await getCoordinates(station);
-        //         console.log(response);
-        //         return response;
-        //     })
-        // );
-        // const data = await getAddress(stationList);
-        // return data;
         const addresses = [];
 
         for (const station of stationList) {

@@ -26,8 +26,6 @@ const findStationlist = async () => {
 
     const allStations = [...uniqueDepartureStations, ...uniqueReturnStations];
     // we use the Set object to remove any duplicates from allStations and store the result in uniqueStations
-    // And clear ',' to find the address
-    // const uniqueAllStations = [...new Set(allStations)].map((station) => station.replace(',', ''));
     const uniqueAllStations = [...new Set(allStations)];
 
     return uniqueAllStations;
