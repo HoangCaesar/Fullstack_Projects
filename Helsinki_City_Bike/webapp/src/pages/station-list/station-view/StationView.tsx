@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import { Box, Grid, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 // Project Import
@@ -8,8 +8,8 @@ import stationListApi from '../../../api/stationList.api';
 import { StationMap } from '../../../components';
 
 // Models
-import { Station } from '../../../models';
 import { MainCard, StationInfo } from '../../../components';
+import { Station } from '../../../models';
 
 // ==============================|| STATION VIEW  ||============================== //
 

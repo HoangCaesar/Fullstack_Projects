@@ -9,7 +9,9 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
     journeyActions,
     selectJourneyFilter,
-    selectJourneyList, selectJourneyLoading, selectJourneyPagination
+    selectJourneyList,
+    selectJourneyLoading,
+    selectJourneyPagination
 } from './journeyList.slice';
 
 // Styled component
@@ -32,7 +34,7 @@ const StyledChildBox = styled(Box)`
 
 const JourneyList = () => {
     const dispatch = useAppDispatch();
-    
+
     const journeyList = useAppSelector(selectJourneyList);
     const filter = useAppSelector(selectJourneyFilter);
     const pagination = useAppSelector(selectJourneyPagination);

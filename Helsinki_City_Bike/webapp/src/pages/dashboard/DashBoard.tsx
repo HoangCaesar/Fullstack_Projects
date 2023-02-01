@@ -5,17 +5,17 @@ import { Box, Grid, LinearProgress, Stack, Typography, useTheme } from '@mui/mat
 import { styled } from '@mui/material/styles';
 
 // project import
-import { AnalyticTotal, MainCard, MonthAreaChart, DurationPieChart } from '../../components';
+import { AnalyticTotal, DurationPieChart, MainCard, MonthAreaChart } from '../../components';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
     highlightsActions,
     selectHighlightsList,
-    selectHighlightsLoading,
+    selectHighlightsLoading
 } from './dashboard.slice';
 
 // models
-import { Highlight } from '../../models';
 import AverageBarChart from '../../components/dashboard-charts/AverageBarChart';
+import { Highlight } from '../../models';
 
 // Styled component
 const StyledLinearProgress = styled(LinearProgress)`
@@ -159,7 +159,9 @@ const DashboardDefault = () => {
             <Grid item xs={12} md={12} lg={12}>
                 <Grid container alignItems="center" justifyContent="space-between">
                     <Grid item>
-                        <Typography variant="h5">Average Duration/Distance Per A Single Journey</Typography>
+                        <Typography variant="h5">
+                            Average Duration/Distance Per A Single Journey
+                        </Typography>
                     </Grid>
                 </Grid>
                 <MainCard sx={{ mt: 1.75 }}>

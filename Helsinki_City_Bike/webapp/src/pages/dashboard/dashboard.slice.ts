@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Highlight, HighlightsResponse } from '../../models';
 import { RootState } from '../../store';
-import { HighlightsResponse, Highlight } from '../../models';
 
 // ==============================|| JOURNEY LIST SLICE  ||============================== //
 
@@ -42,10 +42,6 @@ const highlightsActions = dashboardSlice.actions;
 const selectHighlightsList = (state: RootState) => state.highlights.list;
 const selectHighlightsLoading = (state: RootState) => state.highlights.loading;
 
-export {
-    highlightsActions,
-    selectHighlightsList,
-    selectHighlightsLoading,
-};
+export { highlightsActions, selectHighlightsList, selectHighlightsLoading };
 
 export default highlightsReducer;

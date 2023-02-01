@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../store';
 import { ListParams, ListResponse, PaginationParams, Station } from '../../models';
+import { RootState } from '../../store';
 
 // ==============================|| STATION LIST SLICE  ||============================== //
 

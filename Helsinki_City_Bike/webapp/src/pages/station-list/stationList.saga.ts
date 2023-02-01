@@ -3,7 +3,7 @@ import { call, debounce, delay, put, takeLatest } from 'redux-saga/effects';
 
 // Project Import
 import stationListApi from '../../api/stationList.api';
-import { Station, ListParams, ListResponse } from '../../models';
+import { ListParams, ListResponse, Station } from '../../models';
 import { stationActions } from './stationList.slice';
 
 // ==============================|| STATION LIST SAGA  ||============================== //

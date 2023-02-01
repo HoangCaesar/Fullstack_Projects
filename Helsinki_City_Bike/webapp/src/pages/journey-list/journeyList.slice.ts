@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Journey, ListParams, ListResponse, PaginationParams } from '../../models';
 import { RootState } from '../../store';
-import { ListParams, ListResponse, PaginationParams, Journey } from '../../models';
 
 // ==============================|| JOURNEY LIST SLICE  ||============================== //
 

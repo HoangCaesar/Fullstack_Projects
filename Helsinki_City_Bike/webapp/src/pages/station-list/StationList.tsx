@@ -1,18 +1,17 @@
 import { Box, LinearProgress, Pagination } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ListParams } from '../../models';
-import { useNavigate, useLocation } from 'react-router-dom';
 
 // Project import
 import { StationFilter, StationTable } from '../../components';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
-    stationActions,
     selectStationFilter,
     selectStationList,
     selectStationLoading,
-    selectStationPagination,
+    selectStationPagination, stationActions
 } from './stationList.slice';
 
 // Styled component
