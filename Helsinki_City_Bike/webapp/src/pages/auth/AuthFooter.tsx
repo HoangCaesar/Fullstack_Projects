@@ -20,7 +20,7 @@ const AuthFooter = () => {
                     <Typography
                         component={Link}
                         variant="subtitle2"
-                        href="https://www.primapower.com/en"
+                        href="https://www.hsl.fi"
                         target="_blank"
                         underline="hover"
                     >
@@ -37,11 +37,11 @@ const AuthFooter = () => {
                         variant="subtitle2"
                         color="secondary"
                         component={Link}
-                        href="https://www.vamk.fi/en/"
+                        href="https://www.linkedin.com/in/vuhoangnguyen58"
                         target="_blank"
                         underline="hover"
                     >
-                        VAMK
+                        LinkedIn
                     </Typography>
                     <Typography
                         variant="subtitle2"
@@ -57,7 +57,7 @@ const AuthFooter = () => {
                         variant="subtitle2"
                         color="secondary"
                         component={Link}
-                        href="https://portfolio-12c2c.web.app/"
+                        href="https://portfolio-f2056.web.app"
                         target="_blank"
                         underline="hover"
                     >

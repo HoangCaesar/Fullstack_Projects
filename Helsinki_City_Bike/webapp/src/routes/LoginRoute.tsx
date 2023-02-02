@@ -1,7 +1,11 @@
+import { lazy } from 'react';
+import { Loadable } from '../components';
+
 // project import
 import MiniLayout from '../layout/mini-layout/MiniLayout';
 
 // render - login
+const Login = Loadable(lazy(() => import('../pages/auth/Login')));
 
 // ==============================|| LOGIN ROUTE  ||============================== //
 
@@ -10,8 +14,8 @@ const LoginRoute = {
     element: <MiniLayout />,
     children: [
         {
-            path: '/',
-            element: <div>Hello</div>,
+            path: '/login',
+            element: <Login />,
         },
     ],
 };
