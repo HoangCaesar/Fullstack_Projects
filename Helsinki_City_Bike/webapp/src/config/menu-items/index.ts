@@ -4,7 +4,6 @@ import dashboard from './dashboard';
 import pages from './pages';
 import auth from './auth';
 import support from './support';
-import 
 
 // ==============================|| MENU ITEMS ||============================== //
 
@@ -12,7 +11,7 @@ export interface MenuList {
     items: MenuItems[];
 }
 
-const menuItems: MenuList = {
+let menuItems: MenuList = {
     items: [dashboard, pages, auth, support],
 };
 

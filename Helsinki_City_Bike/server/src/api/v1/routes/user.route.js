@@ -17,5 +17,4 @@ router.post('/check-accessToken', verifyAccessToken, userController.checkAccessT
 // check-refreshToken
 router.post('/check-refreshToken', userController.checkRefreshToken);
 
-
 module.exports = router;

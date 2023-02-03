@@ -3,7 +3,7 @@ import authApi from '../api/auth.api';
 
 // ==============================|| AUTH HANDLER UTILS ||============================== //
 
-const authHandler = async (time: string) => {
+const authHandler = async () => {
     const refreshToken = localStorage.getItem('refreshToken');
     if (!refreshToken) return false;
 
