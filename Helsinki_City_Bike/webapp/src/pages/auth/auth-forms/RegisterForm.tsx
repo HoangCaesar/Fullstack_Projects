@@ -68,6 +68,10 @@ const RegisterForm = () => {
         changePassword('');
     }, []);
 
+    useEffect(() => {
+        if (isRegistered) setDisasble((prev) => !prev);
+    }, [isRegistered]);
+
     return (
         <>
             {isRegistered ? (
