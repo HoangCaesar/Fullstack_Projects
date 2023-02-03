@@ -54,12 +54,8 @@ const calculateTotalDuration = (list: Highlight[]) => {
 
 const DashboardDefault = () => {
     const dispatch = useAppDispatch();
-    let highlightsList = useAppSelector(selectHighlightsList);
+    const highlightsList = useAppSelector(selectHighlightsList);
     const loading = useAppSelector(selectHighlightsLoading);
-
-    const theme = useTheme();
-    const error = theme.palette.error.main;
-    const warning = theme.palette.warning.main;
 
     useEffect(() => {
         dispatch(highlightsActions.fetchHighlightsList());

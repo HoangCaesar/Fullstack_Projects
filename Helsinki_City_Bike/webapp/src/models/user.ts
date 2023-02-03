@@ -11,6 +11,11 @@ export interface UserSignup {
 
 export interface LoginResponse {
     accessToken: string;
-    fefreshToken: string;
+    refreshToken: string;
+}
+
+export interface SignUpResponse {
+    status: string;
+    message: string;
 }
 

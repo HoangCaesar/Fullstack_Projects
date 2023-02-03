@@ -1,17 +1,17 @@
-import { LoginResponse, UserLogin } from '../models';
+import { LoginResponse, UserLogin, UserSignup, SignUpResponse } from '../models';
 import axiosClient from './axiosClient';
 
 // ==============================|| STATION AXIOS - GET ALL ||============================== //
 
 const authApi = {
-    login(params: UserLogin): Promise<LoginResponse> {
+    login(data: UserLogin): Promise<LoginResponse> {
         const url = '/user/login';
-        return axiosClient.get(url, { params });
+        return axiosClient.post(url, data);
     },
-    // register(id: string): Promise<Station> {
-    //     const url = `/user/register`;
-    //     return axiosClient.get(url);
-    // },
+    register(data: UserSignup): Promise<SignUpResponse> {
+        const url = `/user/register`;
+        return axiosClient.post(url, data);
+    },
 };
 
 export default authApi;

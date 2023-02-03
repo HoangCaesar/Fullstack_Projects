@@ -32,7 +32,7 @@ const register = async (req, res, next) => {
 
         await sendMail(email, name, subject, link);
 
-        return res.json({ status: 'success', data: link });
+        return res.json({ status: 'success', message:'We sent you a veify email, please check it'});
     } catch (err) {
         next(err);
     }

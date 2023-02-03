@@ -1,8 +1,17 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { call, delay, fork, put, take } from 'redux-saga/effects';
+import { call, delay, fork, put, take, takeLatest } from 'redux-saga/effects';
 import { authActions } from './auth.slice';
-import { UserLogin, LoginResponse } from '../../models';
+import { UserLogin, LoginResponse, UserSignup, SignUpResponse } from '../../models';
 import authApi from '../../api/auth.api';
+
+function* register(action: PayloadAction<UserSignup>) {
+    try {
+        const response: SignUpResponse = yield call(authApi.register, action.payload);
+        console.log(response);
+    } catch (error) {
+        yield put(authActions.loginFailed('Failed to login'));
+    }
+}
 
 function* handleLogin(payload: UserLogin) {
     try {
@@ -25,6 +34,7 @@ function* watchLoginFlow() {
 
 function* authSaga() {
     yield fork(watchLoginFlow);
+    yield takeLatest(authActions.register, register);
 }
 
 export default authSaga;

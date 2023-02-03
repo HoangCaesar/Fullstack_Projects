@@ -1,17 +1,18 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // material-ui
 import {
     Box,
-    Button, FormHelperText,
+    Button,
+    FormHelperText,
     Grid,
     IconButton,
     InputAdornment,
     InputLabel,
     Link,
     OutlinedInput,
-    Stack
+    Stack,
 } from '@mui/material';
 
 // third party
@@ -20,6 +21,13 @@ import * as Yup from 'yup';
 
 // project import
 import { AnimateButton } from '../../../components';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import {
+    authActions,
+    authSelectIsLogging,
+    authSelectIsLoggedIn,
+    authSelectIsLoginFailed,
+} from '../auth.slice';
 
 // Model
 import { UserLogin } from '../../../models';
@@ -32,10 +40,18 @@ import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 // ============================|| FIREBASE - LOGIN ||============================ //
 
 const LoginForm = () => {
+    const dispatch = useAppDispatch();
+    const isLogging = useAppSelector(authSelectIsLogging);
+    const isLogged = useAppSelector(authSelectIsLoggedIn);
+    const isLoginFailed = useAppSelector(authSelectIsLoginFailed);
     const navigate = useNavigate();
 
     // const [checked, setChecked] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+
+    useEffect(() => {
+        if (isLogged) navigate('/');
+    }, [isLogged]);
 
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
@@ -65,11 +81,9 @@ const LoginForm = () => {
                             email: values.email,
                             password: values.password,
                         };
-                        // const res = await authApi.login(admin);
-                        // localStorage.setItem('token', res.token)
-                        navigate('/')
+                        dispatch(authActions.login(user));
                     } catch (err) {
-                        console.log(err)
+                        console.log(err);
                         setStatus({ success: false });
                         setErrors({ submit: 'Wrong email or password!' });
                         setSubmitting(false);
@@ -150,6 +164,13 @@ const LoginForm = () => {
                                             {errors.password}
                                         </FormHelperText>
                                     )}
+                                    {isLoginFailed ? (
+                                        <FormHelperText error>
+                                            Email or password is wrong, please try again
+                                        </FormHelperText>
+                                    ) : (
+                                        <Box />
+                                    )}
                                 </Stack>
                             </Grid>
 
@@ -181,6 +202,7 @@ const LoginForm = () => {
                                     ) : (
                                         <Box />
                                     )}
+
                                     <Link
                                         variant="h6"
                                         href="mailto:vuhoang7398@gmail.com"
@@ -194,7 +216,7 @@ const LoginForm = () => {
                                 <AnimateButton>
                                     <Button
                                         disableElevation
-                                        disabled={isSubmitting}
+                                        disabled={isLogging}
                                         fullWidth
                                         size="large"
                                         type="submit"
