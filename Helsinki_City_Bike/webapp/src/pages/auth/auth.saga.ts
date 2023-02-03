@@ -1,12 +1,13 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { call, delay, fork, put, take } from 'redux-saga/effects';
 import { authActions } from './auth.slice';
-import { UserLogin } from '../../models';
+import { UserLogin, LoginResponse } from '../../models';
+import authApi from '../../api/auth.api';
 
 function* handleLogin(payload: UserLogin) {
     try {
-        yield delay(2000);
-        localStorage.setItem('access_token', 'fake_token');
+        const response: LoginResponse = yield call(authApi.login, payload);
+        console.log(response);
     } catch (error) {
         yield put(authActions.loginFailed('Failed to login'));
     }

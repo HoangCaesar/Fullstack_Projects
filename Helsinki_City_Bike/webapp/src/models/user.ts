@@ -9,3 +9,8 @@ export interface UserSignup {
     password: String;
 }
 
+export interface LoginResponse {
+    accessToken: string;
+    fefreshToken: string;
+}
+
