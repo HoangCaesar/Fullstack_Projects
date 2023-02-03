@@ -37,7 +37,7 @@ interface PasswordStrength {
 
 // ============================|| FIREBASE - REGISTER ||============================ //
 
-const AuthRegister = () => {
+const RegisterForm = () => {
     const [level, setLevel] = useState<PasswordStrength | null>(null);
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => {
@@ -65,7 +65,6 @@ const AuthRegister = () => {
                     firstname: '',
                     lastname: '',
                     email: '',
-                    company: '',
                     password: '',
                     submit: null,
                 }}
@@ -146,27 +145,6 @@ const AuthRegister = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="company-signup">Company</InputLabel>
-                                    <OutlinedInput
-                                        fullWidth
-                                        error={Boolean(touched.company && errors.company)}
-                                        id="company-signup"
-                                        value={values.company}
-                                        name="company"
-                                        onBlur={handleBlur}
-                                        onChange={handleChange}
-                                        placeholder="Demo Inc."
-                                        inputProps={{}}
-                                    />
-                                    {touched.company && errors.company && (
-                                        <FormHelperText error id="helper-text-company-signup">
-                                            {errors.company}
-                                        </FormHelperText>
-                                    )}
-                                </Stack>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Stack spacing={1}>
                                     <InputLabel htmlFor="email-signup">Email Address*</InputLabel>
                                     <OutlinedInput
                                         fullWidth
@@ -177,7 +155,7 @@ const AuthRegister = () => {
                                         name="email"
                                         onBlur={handleBlur}
                                         onChange={handleChange}
-                                        placeholder="demo@company.com"
+                                        placeholder="example@.com"
                                         inputProps={{}}
                                     />
                                     {touched.email && errors.email && (
@@ -288,4 +266,4 @@ const AuthRegister = () => {
     );
 };
 
-export default AuthRegister;
+export default RegisterForm;

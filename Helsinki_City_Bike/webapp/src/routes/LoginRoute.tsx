@@ -6,6 +6,7 @@ import MiniLayout from '../layout/mini-layout/MiniLayout';
 
 // render - login
 const Login = Loadable(lazy(() => import('../pages/auth/Login')));
+const Register = Loadable(lazy(() => import('../pages/auth/Register')));
 
 // ==============================|| LOGIN ROUTE  ||============================== //
 
@@ -16,6 +17,10 @@ const LoginRoute = {
         {
             path: '/login',
             element: <Login />,
+        },
+        {
+            path: '/register',
+            element: <Register />,
         },
     ],
 };
