@@ -7,9 +7,13 @@ import authApi from '../../api/auth.api';
 function* register(action: PayloadAction<UserSignup>) {
     try {
         const response: SignUpResponse = yield call(authApi.register, action.payload);
-        console.log(response);
+
+        if (response.status !== 'success') yield put(authActions.registerFailed());
+        yield put(authActions.registerSuccess());
+        yield delay(10000);
+        yield put(authActions.registeredChangeState());
     } catch (error) {
-        yield put(authActions.loginFailed('Failed to login'));
+        yield put(authActions.registerFailed());
     }
 }
 

@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserLogin } from '../../models';
+import { UserLogin, UserSignup } from '../../models';
 import { RootState } from '../../store';
 
 export interface AuthState {
     isLoggedIn: boolean;
     isLogging?: boolean;
     isLoginFailed?: boolean;
+    isRegistered?: boolean;
     currentUser?: UserLogin;
 }
 
@@ -13,6 +14,7 @@ const initialState: AuthState = {
     isLoggedIn: false,
     isLogging: false,
     isLoginFailed: false,
+    isRegistered: false,
     currentUser: undefined,
 };
 
@@ -24,9 +26,20 @@ const authSlice = createSlice({
             state.isLoginFailed = false;
             state.isLogging = true;
         },
-        register(state, action: PayloadAction<UserLogin>) {
+        register(state, action: PayloadAction<UserSignup>) {
             // do nothing
         },
+
+        registerSuccess(state) {
+            state.isRegistered = true;
+        },
+        registerFailed(state) {
+            state.isRegistered = false;
+        },
+        registeredChangeState(state) {
+            state.isRegistered = !state.isRegistered;
+        },
+
         loginSuccess(state, action: PayloadAction<UserLogin>) {
             state.isLoggedIn = true;
             state.isLoginFailed = false;
@@ -52,9 +65,18 @@ const authActions = authSlice.actions;
 const authSelectIsLoggedIn = (state: RootState) => state.auth.isLoggedIn;
 const authSelectIsLogging = (state: RootState) => state.auth.isLogging;
 const authSelectIsLoginFailed = (state: RootState) => state.auth.isLoginFailed;
+const authSelectIsRegistering = (state: RootState) => state.auth.isRegistered;
+const authSelectIsRegistered = (state: RootState) => state.auth.isRegistered;
 
 // Reducer
 const authReducer = authSlice.reducer;
 
-export { authActions, authSelectIsLoggedIn, authSelectIsLogging, authSelectIsLoginFailed };
+export {
+    authActions,
+    authSelectIsLoggedIn,
+    authSelectIsLogging,
+    authSelectIsLoginFailed,
+    authSelectIsRegistering,
+    authSelectIsRegistered,
+};
 export default authReducer;

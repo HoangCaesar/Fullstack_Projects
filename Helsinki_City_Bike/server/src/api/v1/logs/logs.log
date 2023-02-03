@@ -182,3 +182,19 @@
 03-02-2023	17:39:12-----POST /api/v1/user/login ::: NotFoundError: User is not registered
 03-02-2023	24:39:12-----POST /api/v1/user/login ::: NotFoundError: User is not registered
 03-02-2023	26:39:12-----POST /api/v1/user/login ::: NotFoundError: User is not registered
+03-02-2023	36:40:14-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	55:04:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	55:04:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	55:04:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	55:04:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	55:04:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	55:04:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	56:04:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	09:05:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	09:05:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	09:05:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	09:05:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	09:05:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	09:05:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	10:05:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
+03-02-2023	10:11:15-----POST /api/v1/user/register ::: ConflictError: ninjayasuo123@gmail.com is ready been registered!
