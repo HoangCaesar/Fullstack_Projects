@@ -6,6 +6,7 @@ import rootSaga from './root.saga';
 import highlightsReducer from '../pages/dashboard/dashboard.slice';
 import journeyReducer from '../pages/journey-list/journeyList.slice';
 import stationReducer from '../pages/station-list/stationList.slice';
+import authReducer from '../pages/auth/auth.slice';
 import drawerReducers from './reducers';
 
 // ==============================|| APP STORE - COMBINE ALL REDUCERS  ||============================== //
@@ -18,6 +19,7 @@ export const store = configureStore({
         highlights: highlightsReducer,
         journey: journeyReducer,
         stations: stationReducer,
+        auth: authReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
 });

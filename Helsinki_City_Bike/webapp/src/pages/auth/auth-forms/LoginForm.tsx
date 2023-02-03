@@ -22,7 +22,7 @@ import * as Yup from 'yup';
 import { AnimateButton } from '../../../components';
 
 // Model
-import { User } from '../../../models';
+import { UserLogin } from '../../../models';
 
 // API
 
@@ -61,7 +61,7 @@ const LoginForm = () => {
                     try {
                         setStatus({ success: false });
                         setSubmitting(false);
-                        const admin: User = {
+                        const user: UserLogin = {
                             email: values.email,
                             password: values.password,
                         };

@@ -1,33 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 // material-ui
 import {
     Box,
     Button,
-    Divider,
     FormControl,
     FormHelperText,
     Grid,
-    Link,
     IconButton,
     InputAdornment,
     InputLabel,
+    Link,
     OutlinedInput,
     Stack,
     Typography,
 } from '@mui/material';
 
 // third party
-import * as Yup from 'yup';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 // project import
 import { AnimateButton } from '../../../components';
 import { strengthColor, strengthIndicator } from '../../../utils/passwordStrength';
 
 // assets
-import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
+
+// Model
+import { UserSignup } from '../../../models';
 
 // types
 interface PasswordStrength {
