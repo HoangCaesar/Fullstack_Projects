@@ -32,7 +32,10 @@ const register = async (req, res, next) => {
 
         await sendMail(email, name, subject, link);
 
-        return res.json({ status: 'success', message:'We sent you a veify email, please check it'});
+        return res.json({
+            status: 'success',
+            message: 'We sent you a veify email, please check it',
+        });
     } catch (err) {
         next(err);
     }
@@ -106,10 +109,40 @@ const logout = async (req, res, next) => {
     }
 };
 
+const checkAccessToken = async (req, res, next) => {
+    try {
+        res.json({
+            status: 'success',
+            message: 'Access token is valid',
+        });
+    } catch (error) {
+        next(error);
+    }
+};
+
+const checkRefreshToken = async (req, res, next) => {
+    try {
+        const { refreshToken } = req.body;
+        if (!refreshToken) {
+            throw createError.BadRequest();
+        }
+        await verifyRefreshToken(refreshToken);
+
+        res.json({
+            status: 'success',
+            message: 'Refresh token is valid',
+        });
+    } catch (error) {
+        next(error);
+    }
+};
+
 module.exports = {
     register,
     verify,
     login,
     refreshToken,
     logout,
+    checkAccessToken,
+    checkRefreshToken,
 };

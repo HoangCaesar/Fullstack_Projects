@@ -1,4 +1,4 @@
-import { LoginResponse, UserLogin, UserSignup, SignUpResponse } from '../models';
+import { LoginResponse, UserLogin, UserSignup, SignUpResponse, Token } from '../models';
 import axiosClient from './axiosClient';
 
 // ==============================|| STATION AXIOS - GET ALL ||============================== //
@@ -11,6 +11,14 @@ const authApi = {
     register(data: UserSignup): Promise<SignUpResponse> {
         const url = `/user/register`;
         return axiosClient.post(url, data);
+    },
+    checkAccessToken(): Promise<Token> {
+        const url = `/user/check-accessToken`;
+        return axiosClient.post(url);
+    },
+    checkRefreshToken(refreshToken: string): Promise<Token> {
+        const url = `/user/check-refreshToken`;
+        return axiosClient.post(url, refreshToken);
     },
 };
 
