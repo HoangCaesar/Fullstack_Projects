@@ -18,7 +18,11 @@ const authApi = {
     },
     checkRefreshToken(refreshToken: string): Promise<Token> {
         const url = `/user/check-refreshToken`;
-        return axiosClient.post(url, refreshToken);
+        return axiosClient.post(url, {refreshToken});
+    },
+    logout(refreshToken: string): Promise<void> {
+        const url = `/user/logout`;
+        return axiosClient.post(url, {refreshToken});
     },
 };
 

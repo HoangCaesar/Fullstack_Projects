@@ -24,6 +24,7 @@ import {
 import { Transitions, MainCard } from '../../../../../components';
 import ProfileTab from './ProfileTab';
 import SettingTab from './SettingTab';
+import { logout } from '../../../../../utils/authHandler';
 
 // assets
 import avatar from '../../../../../assets/images/logo.png';
@@ -71,7 +72,7 @@ const Profile = () => {
     const navigate = useNavigate();
 
     const handleLogout = async () => {
-        console.log("logout")
+        logout(navigate);
     };
 
     const anchorRef = useRef<any>(null);

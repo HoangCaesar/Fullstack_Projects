@@ -2,9 +2,9 @@
 import authApi from '../api/auth.api';
 
 // ==============================|| AUTH HANDLER UTILS ||============================== //
+const refreshToken = localStorage.getItem('refreshToken');
 
 const authHandler = async () => {
-    const refreshToken = localStorage.getItem('refreshToken');
     if (!refreshToken) return false;
 
     try {
@@ -22,4 +22,12 @@ const authHandler = async () => {
     }
 };
 
+const logout = async (navigate: any) => {
+    await authApi.logout(refreshToken as string);
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    navigate('/login');
+};
+
+export { logout };
 export default authHandler;
