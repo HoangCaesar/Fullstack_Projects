@@ -20,9 +20,12 @@ function* register(action: PayloadAction<UserSignup>) {
 function* handleLogin(payload: UserLogin) {
     try {
         const response: LoginResponse = yield call(authApi.login, payload);
-        console.log(response);
+        if (!response.refreshToken) yield put(authActions.loginFailed());
+        yield put(authActions.loginSuccess(response));
+        localStorage.setItem('accessToken', response.accessToken);
+        localStorage.setItem('refreshToken', response.refreshToken);
     } catch (error) {
-        yield put(authActions.loginFailed('Failed to login'));
+        yield put(authActions.loginFailed());
     }
 }
 

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import {
     Box,
     Button,
+    CircularProgress,
     FormHelperText,
     Grid,
     IconButton,
@@ -42,7 +43,7 @@ import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 const LoginForm = () => {
     const dispatch = useAppDispatch();
     const isLogging = useAppSelector(authSelectIsLogging);
-    const isLogged = useAppSelector(authSelectIsLoggedIn);
+    const isLoggedin = useAppSelector(authSelectIsLoggedIn);
     const isLoginFailed = useAppSelector(authSelectIsLoginFailed);
     const navigate = useNavigate();
 
@@ -50,8 +51,8 @@ const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
-        if (isLogged) navigate('/');
-    }, [isLogged]);
+        if (isLoggedin) navigate('/');
+    }, [isLoggedin]);
 
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
@@ -223,7 +224,12 @@ const LoginForm = () => {
                                         variant="contained"
                                         color="primary"
                                     >
-                                        Login
+                                        {isLogging ? (
+                                            <CircularProgress size={20} color="secondary" />
+                                        ) : (
+                                            ''
+                                        )}
+                                        &nbsp;Login
                                     </Button>
                                 </AnimateButton>
                             </Grid>

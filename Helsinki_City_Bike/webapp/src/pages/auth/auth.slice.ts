@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserLogin, UserSignup } from '../../models';
+import { UserLogin, UserSignup,LoginResponse } from '../../models';
 import { RootState } from '../../store';
 
 export interface AuthState {
@@ -7,7 +7,7 @@ export interface AuthState {
     isLogging?: boolean;
     isLoginFailed?: boolean;
     isRegistered?: boolean;
-    currentUser?: UserLogin;
+    tokens?: LoginResponse;
 }
 
 const initialState: AuthState = {
@@ -15,7 +15,7 @@ const initialState: AuthState = {
     isLogging: false,
     isLoginFailed: false,
     isRegistered: false,
-    currentUser: undefined,
+    tokens: undefined,
 };
 
 const authSlice = createSlice({
@@ -40,20 +40,20 @@ const authSlice = createSlice({
             state.isRegistered = !state.isRegistered;
         },
 
-        loginSuccess(state, action: PayloadAction<UserLogin>) {
+        loginSuccess(state, action: PayloadAction<LoginResponse>) {
             state.isLoggedIn = true;
             state.isLoginFailed = false;
             state.isLogging = false;
-            state.currentUser = action.payload;
+            state.tokens = action.payload;
         },
-        loginFailed(state, action: PayloadAction<string>) {
+        loginFailed(state) {
             state.isLoginFailed = true;
             state.isLogging = false;
         },
 
         logout(state) {
             state.isLoggedIn = false;
-            state.currentUser = undefined;
+            state.tokens = undefined;
         },
     },
 });
