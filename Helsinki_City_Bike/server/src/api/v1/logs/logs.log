@@ -283,3 +283,11 @@
 04-02-2023	38:19:13-----POST /api/v1/highlights ::: This route does not exist.
 04-02-2023	54:22:13-----POST /api/v1/highlights ::: This route does not exist.
 04-02-2023	07:24:13-----POST /api/v1/highlights ::: This route does not exist.
+04-02-2023	39:42:16-----POST /api/v1/user/check-accessToken ::: jwt expired
+04-02-2023	39:42:16-----POST /api/v1/user/check-accessToken ::: jwt expired
+04-02-2023	17:46:16-----GET /api/v1/journeylist?_month=7&_limit=10&_page=116462&_sort=Duration&_order=desc ::: Executor error during find command :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting. Aborting operation. Pass allowDiskUse:true to opt in.
+04-02-2023	01:47:16-----GET /api/v1/journeylist?_month=7&_limit=10&_page=116461&_sort=Duration&_order=desc ::: Executor error during find command :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting. Aborting operation. Pass allowDiskUse:true to opt in.
+04-02-2023	30:47:16-----GET /api/v1/journeylist?_month=7&_limit=10&_page=116461&_sort=Duration&_order=desc ::: Executor error during find command :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting. Aborting operation. Pass allowDiskUse:true to opt in.
+04-02-2023	15:48:16-----GET /api/v1/journeylist?_month=5&_limit=10&_page=78530&_sort=Duration&_order=desc ::: Executor error during find command :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting. Aborting operation. Pass allowDiskUse:true to opt in.
+04-02-2023	40:48:16-----GET /api/v1/journeylist?_month=5&_limit=10&_page=78530&_sort=Duration&_order=asc ::: Executor error during find command :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting. Aborting operation. Pass allowDiskUse:true to opt in.
+04-02-2023	40:50:16-----GET /api/v1/journeylist?_month=5&_limit=10&_page=78529&_sort=Duration&_order=desc ::: Executor error during find command :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting. Aborting operation. Pass allowDiskUse:true to opt in.
