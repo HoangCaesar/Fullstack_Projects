@@ -7,7 +7,7 @@ const { REDIS_ENDPOINT, REDIS_PORT, REDIS_PASSWORD } = process.env;
 const client = new Redis({
     host: REDIS_ENDPOINT,
     port: REDIS_PORT,
-    password: REDIS_PASSWORD
+    password: REDIS_PASSWORD,
 });
 
 client

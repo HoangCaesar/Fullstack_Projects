@@ -8,7 +8,7 @@ const {
     MONGODB_07_2021_URI,
     MONGODB_TEST_URI,
     MONGODB_STATION_LIST_URI,
-    MONGODB_USER_URI
+    MONGODB_USER_URI,
 } =
     // eslint-disable-next-line no-undef
     process.env;
@@ -58,5 +58,5 @@ module.exports = {
     may_2021Database,
     june_2021Database,
     july_2021Database,
-    userDatabase
+    userDatabase,
 };
