@@ -30,9 +30,38 @@ Overall
 
 ![alt text](./public/imgs/routes_and_layout.jpg "Overall of webapp")
 
-1. Concepts of this webapp:
+1. Folder Structure:
 
+- api: where we create axios client and apis.
+- assets: contains logo and background pictures.
+- components: contains several components.
+- config: saves common setting of this webapp and menu-items of navigation in drawer.
+- layout: defines main/mini layout of this application
+- models: defines type of data.
+- pages: contains pages of this webapp, slices/reducers and saga for each page.
+- routes: seperate main/mini route.
+- store: where we initialize reducer store and root saga, and create hooks: useAppDispatch && useAppSelector.
+- theme: provides theme, color for a whole of app.
+- utils: store a couple of small functions like: convertTime, passwordStrength...
+
+2. Concepts of this webapp:
+
+source: medium
 ![alt text](./public/imgs/redux_saga_workflow.gif "Webapp workflow")
+
+- A page in src/pages: dispatch a action by useAppSelector (e.g: getStationList) 
+
+- Store (src/pages: something.slice.ts): is dispatched
+
+- Middlewares: redux-saga (src/pages/ something.saga.ts)
+    + a saga calls api from src/api folder
+    + changes state in the store
+
+- View (src/pages Something.tsx): receives "state" by using useAppSelector
+
+
+    
+
 
 
 
