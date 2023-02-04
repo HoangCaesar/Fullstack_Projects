@@ -38,3 +38,37 @@ Overall
 Folder structure workflow
 
 ![alt text](./public/imgs/folder_structure_workflow.jpg "Folder structure workflow")
+
+1. Folder explanation:
+
+- bin: where we create server and listen to a port.
+
+- src/api/v1 (v1 means version 1):
++) controllers: receive requests from app, handle requests and response back.
++) databases: initialize databases, such as mongoDB and redis.
++) helpers: small functions - used to handle a couple of small tasks like: validation, error handler...
++) html: contains html file (nodemailer used to send to client.)
++) logs: contain event logs
++) middlewares: in this project, it will verify access/refresh token (not truly needed now)
++) models: define schema and generate form of data in mongodb
++) routes: define routes of a whole app
++) services: is called by controllers to find out data from databases.
+
+- tests: test controllers and services.
+
+2. Databases:
+
+- MongoDB: 
+
+![alt text](./public/imgs/mongodb_databases1.jpg "MongoDB databases")
+
+![alt text](./public/imgs/mongodb_databases2.jpg "MongoDB databases")
+
+- Redis: 
+
+![alt text](./public/imgs/redis_database.jpg "Redis database")
+
+
+
+
+
