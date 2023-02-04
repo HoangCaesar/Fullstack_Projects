@@ -12,9 +12,13 @@
     This part is mainly for visualizing data from server.
 #### Technologies: 
     "react": is a JavaScript library for creating user interfaces.
-    "MUI ecosystems": Using several libraries from Material UI: mui-lab, mui-datagrid, SVG icons... to build the style of webapp
+    "@mui": Using several libraries from Material UI: mui-lab, mui-datagrid, SVG icons... to build the style of webapp
     "axios": is a promise-based HTTP Client for node.js and the browser which used to request data from server.
     "moment": a JavaScript date library for parsing, validating, manipulating, and formatting dates.
     "redux libraries": react-redux, redux-saga, @reduxjs/toolkit to manage state in our webapp.
     "simplebar": to keep the native overflow: auto scroll and only replace the scrollbar visual appearance.
     "@ant-design": to use colors and icons.
+    "apexcharts": to build several charts in dashboard such as: area chart, bar chart...
+    "formik": to create forms and manage data from input fields.
+    "framer-motion": to create animation for buttons.
+    "leaflet": to create map for each station.
