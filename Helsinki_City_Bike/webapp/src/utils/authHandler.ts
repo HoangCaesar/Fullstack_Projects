@@ -24,6 +24,7 @@ const authHandler = async () => {
 
 const logout = async (navigate: any) => {
     await authApi.logout(refreshToken as string);
+    localStorage.removeItem('username');
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
     navigate('/login');

@@ -82,6 +82,7 @@ const login = async (req, res, next) => {
         const accessToken = await jwt_service.signAccessToken(user._id);
         const refreshToken = await jwt_service.signRefreshToken(user._id);
         res.json({
+            name: user.name,
             accessToken,
             refreshToken,
         });

@@ -22,6 +22,7 @@ function* handleLogin(payload: UserLogin) {
         const response: LoginResponse = yield call(authApi.login, payload);
         if (!response.refreshToken) yield put(authActions.loginFailed());
         yield put(authActions.loginSuccess(response));
+        localStorage.setItem('username', response.name);
         localStorage.setItem('accessToken', response.accessToken);
         localStorage.setItem('refreshToken', response.refreshToken);
     } catch (error) {

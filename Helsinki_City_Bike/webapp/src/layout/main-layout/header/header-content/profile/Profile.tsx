@@ -25,6 +25,7 @@ import { Transitions, MainCard } from '../../../../../components';
 import ProfileTab from './ProfileTab';
 import SettingTab from './SettingTab';
 import { logout } from '../../../../../utils/authHandler';
+import { getUserName } from '../../../../../utils/common';
 
 // assets
 import avatar from '../../../../../assets/images/logo.png';
@@ -70,6 +71,7 @@ function a11yProps(index: number) {
 const Profile = () => {
     const theme: any = useTheme();
     const navigate = useNavigate();
+    const username = getUserName();
 
     const handleLogout = async () => {
         logout(navigate);
@@ -113,7 +115,7 @@ const Profile = () => {
             >
                 <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }}>
                     <Avatar alt="profile user" src={avatar} sx={{ width: 32, height: 32 }} />
-                    <Typography variant="subtitle1">Admin</Typography>
+                    <Typography variant="subtitle1">{username}</Typography>
                 </Stack>
             </ButtonBase>
             <Popper

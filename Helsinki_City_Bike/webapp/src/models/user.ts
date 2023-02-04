@@ -10,6 +10,7 @@ export interface UserSignup {
 }
 
 export interface LoginResponse {
+    name: string;
     accessToken: string;
     refreshToken: string;
 }

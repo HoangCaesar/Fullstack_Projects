@@ -32,5 +32,9 @@ const getDurationColor = (duration: number): string => {
     }
 };
 
-export { capitalizeString, getDistanceColor, getDurationColor };
+const getUserName = () => {
+    const username = localStorage.getItem('username');
+    return username;
+};
 
+export { capitalizeString, getDistanceColor, getDurationColor, getUserName };
