@@ -1,15 +1,15 @@
 interface Address {
-    label: string;
-    countryCode: string;
-    countryName: string;
-    stateCode: string;
-    state: string;
-    county: string;
-    city: string;
-    district: string;
-    street: string;
-    postalCode: string;
-    _id: string;
+    label?: string;
+    countryCode?: string;
+    countryName?: string;
+    stateCode?: string;
+    state?: string;
+    county?: string;
+    city?: string;
+    district?: string;
+    street?: string;
+    postalCode?: string;
+    _id?: string;
 }
 
 interface Position {
@@ -40,10 +40,10 @@ interface Count {
 
 export interface Station {
     _id: string;
-    station: string;
-    address: {
-        address: Address;
-        position: Position;
+    station?: any;
+    address?: {
+        address?: Address;
+        position?: Position;
         _id: string;
     };
     count: Count;

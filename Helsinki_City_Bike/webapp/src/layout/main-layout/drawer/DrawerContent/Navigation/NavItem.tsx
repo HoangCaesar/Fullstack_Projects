@@ -61,7 +61,7 @@ const NavItem = ({ item, level }: NavItemProps) => {
         false
     );
 
-    const isSelected = openItem.findIndex((id: string | undefined) => id === item.id) > -1;
+    const isSelected = openItem.findIndex((id: any) => id === item.id) > -1;
 
     // active menu item on page load
     useEffect(() => {

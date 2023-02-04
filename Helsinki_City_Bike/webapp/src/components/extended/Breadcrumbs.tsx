@@ -8,7 +8,7 @@ import { Grid, Typography } from '@mui/material';
 
 // project imports
 import MainCard from '../MainCard';
-import { MenuList } from '../../menu-items';
+import { MenuList } from '../../config/menu-items';
 import MenuItems, { ChildrenOfMenuItems } from '../../models/menuItems';
 
 // ==============================|| BREADCRUMBS ||============================== //

@@ -5,7 +5,7 @@
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --detectOpenHandles --verbose --runInBand --forceExit",
     "dev": "cross-env NODE_ENV=development nodemon --inspect ./bin/www",
-    "start": "cross-env NODE_ENV=production node index.js",
+    "start": "nodemon --inspect ./bin/www",
     "lint": "eslint ."
   },
   "dependencies": {
