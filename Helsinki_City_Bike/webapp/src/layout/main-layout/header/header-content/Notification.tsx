@@ -162,15 +162,15 @@ const Notification = () => {
                                             <ListItemText
                                                 primary={
                                                     <Typography variant="h6">
-                                                        If you are hiring/offering
+                                                        This is a pet project for the challenge from
                                                         <Typography
                                                             component="span"
                                                             variant="subtitle1"
                                                         >
                                                             {' '}
-                                                            an internship/a trainee,
+                                                            Solia
                                                         </Typography>{' '}
-                                                        please contact me, thank you!
+                                                        .
                                                     </Typography>
                                                 }
                                                 secondary="A few seconds ago"
@@ -202,12 +202,12 @@ const Notification = () => {
                                                             variant="subtitle1"
                                                         >
                                                             {' '}
-                                                            The Running Time Overview Chart
+                                                            Total Using Distance In 3 Months
                                                         </Typography>{' '}
-                                                        to zoom.
+                                                        area chart to zoom.
                                                     </Typography>
                                                 }
-                                                secondary="20 years ago"
+                                                secondary="20 minutes ago"
                                             />
                                             <ListItemSecondaryAction>
                                                 <Typography variant="caption" noWrap>
@@ -240,7 +240,7 @@ const Notification = () => {
                                                         </Typography>{' '}
                                                     </Typography>
                                                 }
-                                                secondary="5 August"
+                                                secondary="1 Janurary"
                                             />
                                             <ListItemSecondaryAction>
                                                 <Typography variant="caption" noWrap>
@@ -267,11 +267,11 @@ const Notification = () => {
                                                             component="span"
                                                             variant="subtitle1"
                                                         >
-                                                            Merry Christmas
+                                                            Have a nice day, guys.
                                                         </Typography>{' '}
                                                     </Typography>
                                                 }
-                                                secondary="24 December"
+                                                secondary="5 August"
                                             />
                                             <ListItemSecondaryAction>
                                                 <Typography variant="caption" noWrap>

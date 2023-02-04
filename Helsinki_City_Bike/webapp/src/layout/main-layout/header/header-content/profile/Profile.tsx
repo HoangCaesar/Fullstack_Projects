@@ -171,13 +171,13 @@ const Profile = () => {
                                                         />
                                                         <Stack>
                                                             <Typography variant="h6">
-                                                                Admin
+                                                                {username}
                                                             </Typography>
                                                             <Typography
                                                                 variant="body2"
                                                                 color="textSecondary"
                                                             >
-                                                                UI/UX Designer
+                                                                User
                                                             </Typography>
                                                         </Stack>
                                                     </Stack>

@@ -41,7 +41,7 @@ const SettingTab = () => {
                 <ListItemIcon>
                     <QuestionCircleOutlined />
                 </ListItemIcon>
-                <ListItemText primary="Support" />
+                <ListItemText primary="Support (Not available yet)" />
             </ListItemButton>
             <ListItemButton
                 selected={selectedIndex === 1}
@@ -50,7 +50,7 @@ const SettingTab = () => {
                 <ListItemIcon>
                     <UserOutlined />
                 </ListItemIcon>
-                <ListItemText primary="Account Settings" />
+                <ListItemText primary="Account Settings (Not available yet)" />
             </ListItemButton>
             <ListItemButton
                 selected={selectedIndex === 2}
@@ -59,7 +59,7 @@ const SettingTab = () => {
                 <ListItemIcon>
                     <LockOutlined />
                 </ListItemIcon>
-                <ListItemText primary="Privacy Center" />
+                <ListItemText primary="Privacy Center (Not available yet)" />
             </ListItemButton>
             <ListItemButton
                 selected={selectedIndex === 3}
@@ -68,7 +68,7 @@ const SettingTab = () => {
                 <ListItemIcon>
                     <CommentOutlined />
                 </ListItemIcon>
-                <ListItemText primary="Feedback" />
+                <ListItemText primary="Feedback (Not available yet)" />
             </ListItemButton>
             <ListItemButton
                 selected={selectedIndex === 4}
@@ -77,7 +77,7 @@ const SettingTab = () => {
                 <ListItemIcon>
                     <UnorderedListOutlined />
                 </ListItemIcon>
-                <ListItemText primary="History" />
+                <ListItemText primary="History (Not available yet)" />
             </ListItemButton>
         </List>
     );

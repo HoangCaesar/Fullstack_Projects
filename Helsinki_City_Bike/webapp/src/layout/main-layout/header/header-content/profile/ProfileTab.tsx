@@ -2,16 +2,12 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
 import { List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 // assets
 import {
-    EditOutlined,
-    ProfileOutlined,
-    LogoutOutlined,
-    UserOutlined,
-    WalletOutlined,
+    EditOutlined, LogoutOutlined, ProfileOutlined, UserOutlined
 } from '@ant-design/icons';
 
 // ==============================|| HEADER PROFILE - PROFILE TAB ||============================== //
@@ -46,7 +42,7 @@ const ProfileTab = ({ handleLogout }: ProfileTabProps) => {
                 <ListItemIcon>
                     <EditOutlined />
                 </ListItemIcon>
-                <ListItemText primary="Edit Profile" />
+                <ListItemText primary="Edit Profile (Not available yet)" />
             </ListItemButton>
             <ListItemButton
                 selected={selectedIndex === 1}
@@ -55,7 +51,7 @@ const ProfileTab = ({ handleLogout }: ProfileTabProps) => {
                 <ListItemIcon>
                     <UserOutlined />
                 </ListItemIcon>
-                <ListItemText primary="View Profile" />
+                <ListItemText primary="View Profile (Not available yet)" />
             </ListItemButton>
 
             <ListItemButton
@@ -65,16 +61,7 @@ const ProfileTab = ({ handleLogout }: ProfileTabProps) => {
                 <ListItemIcon>
                     <ProfileOutlined />
                 </ListItemIcon>
-                <ListItemText primary="Social Profile" />
-            </ListItemButton>
-            <ListItemButton
-                selected={selectedIndex === 4}
-                onClick={(event) => handleListItemClick(event, 4)}
-            >
-                <ListItemIcon>
-                    <WalletOutlined />
-                </ListItemIcon>
-                <ListItemText primary="Billing" />
+                <ListItemText primary="Social Profile (Not available yet)" />
             </ListItemButton>
             <ListItemButton selected={selectedIndex === 2} onClick={handleLogout}>
                 <ListItemIcon>
