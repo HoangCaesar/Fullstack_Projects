@@ -5,7 +5,7 @@ const app = require('../../src/app');
 const api = supertest(app);
 
 // eslint-disable-next-line no-undef
-describe('getOne', () => {
+describe('get highlights', () => {
     // eslint-disable-next-line no-undef
     test('Get enough highlights data', async () => {
         await api
